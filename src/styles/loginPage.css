@@ -1,0 +1,33 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.loginTitle{
+    text-align: center;
+}
+
+.labelName{
+    
+}
+
+.input{
+    margin: 15px 0px 15px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.placeInput{
+    margin-right: 15px;
+}
+
+.calendarContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.content{
+    
+}
