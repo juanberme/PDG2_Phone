@@ -1,20 +1,16 @@
 import { InputText } from 'primereact/inputtext';
 import { Calendar } from 'primereact/calendar';
 import { MultiSelect } from 'primereact/multiselect';
-import { Btn } from '../components/Btn.js';
-import { Button } from 'primereact/button';
-import { useNavigate } from 'react-router';
+import { AnchorButton } from '../components/Btn.js';
 import '../styles/loginPage.css';
 import React, { useState } from 'react';
+import { db } from '../utils/firebase.js';
+import { addDoc, collection, doc } from 'firebase/firestore';
+import { Button } from 'primereact/button';
+import { useNavigate } from 'react-router';
 
 export default function Login(){
-
     const navigate = useNavigate();
-
-    const handleClick = () =>{
-        navigate("/tags");
-    }
-
     //name input
     const [inputName, setInputName] = useState('');
     const handleNameInput = (e) =>{
@@ -45,6 +41,22 @@ export default function Login(){
         setInputDate(e.value);
     }
 
+    //send data
+    const handleLogin = async () => {
+        try {
+            const col = collection(db, 'users');
+            const doc = await addDoc(col, {
+                name: inputName,
+                gender: inputGender,
+                date: inputDate
+            });
+            
+            navigate(`/tags?id=${doc.id}`);
+            console.log(`User ${doc.id} stored in db`);
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
     
     return <div className='login'>
         <h1 className='loginTitle'>Necesitamos saber quién eres</h1>
@@ -66,7 +78,7 @@ export default function Login(){
             </div>
         </div>
         
-        <Button onClick={console.log(inputName, inputGender, inputDate)} label="Ingresar"/>
+        <Button onClick={handleLogin} label="Ingresar"/>
     </div>
 }
 

@@ -1,11 +1,16 @@
 import React from 'react';
 import { Button } from 'primereact/button';
+import { useNavigate } from 'react-router';
 
-export const Btn = ({props}) => {
+export const AnchorButton = ({onClick, href = '#', ...props}) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    if(onClick) onClick();
+
+    navigate(href);
+  }
 
   return (
-    <div>
-      <Button label="holi"/>
-    </div>
+    <Button onClick={handleClick} {...props}/>
   )
 }
