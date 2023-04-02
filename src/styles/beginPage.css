@@ -1,3 +1,7 @@
+*{
+    height: 100%;
+}
+
 .fullCont{
     display: flex;
     flex-direction: column;
