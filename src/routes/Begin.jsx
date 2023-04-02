@@ -6,7 +6,11 @@ import '../styles/mediaqueries.css';
 export default function Begin(){
     return <div className='fullCont'>
         <section className='fullCont_Ttl'>
-            <h1 id='magic'>Estás a punto de entrar a una experiencia distinta</h1>
+            <h1 className='fullCont_Ln' id='l1'>¿Te conozco?</h1>
+            <h1 className='fullCont_Ln' id='l2'>¿Nos hemos </h1>
+            <h1 className="fullCont_Ln" id='l3'>visto antes?</h1>
+
+            <h1 className="fullCont_Ln" id='l4'>Estás a punto de entrar a una experiencia distinta</h1>
         </section>
         <section className='fullCont_Btn'>
             <PDGButton/>
