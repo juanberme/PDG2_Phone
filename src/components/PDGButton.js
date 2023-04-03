@@ -11,7 +11,7 @@ export const PDGButton = () => {
   }
   
   return (
-      <div>
+      <div className='Btn_icon'>
         <Button onClick={handleClick} icon="pi pi-angle-right" size='large' rounded/>
       </div>
   )

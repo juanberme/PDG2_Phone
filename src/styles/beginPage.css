@@ -8,28 +8,15 @@
     align-items: center;
 
     box-sizing: content-box;
+
+    position: relative;
 }
 
-.fullCont_Ttl{
-    
+.fullCont_Btn{
+    position: absolute;
+    bottom: 0px;
 }
 
-.fullCont_Ln{
-    height: 35px;
-}
-
-#l1{
-    
-}
-
-#l2{
-    
-}
-
-#l3{
-  
-}
-
-#l4{
-    
+.Btn_icon{
+    position: absolute;
 }

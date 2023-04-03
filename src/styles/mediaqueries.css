@@ -1,25 +1,81 @@
 @media all and (min-width: 750px) and (max-width: 1079px){
-    #root{
+
+    .fullCont_Ln{
+        height: 75px;
+    }
+
+    .fullCont_Btn{
+        width: 100%;
+        height: 50%;
         background-color: lightcoral;
-       }
+    }
+
+    .Btn_icon{
+        width: fit-content;
+        height: fit-content;
+        bottom: 15%;
+        left: 50%;
+    }
 }
 
 @media all and (min-width: 1080px) and (max-width: 1178px){
-    #root{
+    /**/
+    .fullCont_Ln{
+        height: 108px;
+    }
+
+    .fullCont_Btn{
+        width: 100%;
+        height: 50%;
         background-color: lightgreen;
-       }
+    }
+
+    .Btn_icon{
+        width: fit-content;
+        height: fit-content;
+        bottom: 15%;
+        left: 50%;
+    }
 }
 
 @media all and (min-width: 1179px) and (max-width: 1289px){
-    #root{
+    
+    .fullCont_Ln{
+        height: 108px;
+    }
+
+    .fullCont_Btn{
+        width: 100%;
+        height: 50%;
         background-color: lightblue;
-       }
+    }
+
+    .Btn_icon{
+        width: fit-content;
+        height: fit-content;
+        bottom: 15%;
+        left: 50%;
+    }
 }
 
 @media all and (min-width: 1290px) and (max-width: 1439px){
-    #root{
+    
+    .fullCont_Ln{
+        height: 108px;
+    }
+
+    .fullCont_Btn{
+        width: 100%;
+        height: 50%;
         background-color: lightyellow;
-       }
+    }
+
+    .Btn_icon{
+        width: fit-content;
+        height: fit-content;
+        bottom: 15%;
+        left: 50%;
+    }
 
        @media all and (max-height: 1079px){
         #root{
@@ -29,10 +85,23 @@
 }
 
 @media all and (min-width: 1440px){
-    #root{
-        background-color: lightslategray;
-       }
+    
+    .fullCont_Ln{
+        height: 108px;
+    }
 
+    .fullCont_Btn{
+        width: 100%;
+        height: 50%;
+        background-color: lightslategray;
+    }
+
+    .Btn_icon{
+        width: fit-content;
+        height: fit-content;
+        bottom: 15%;
+        left: 50%;
+    }
        @media all and (max-height: 1079px){
         #root{
             background-color: lightcoral;
