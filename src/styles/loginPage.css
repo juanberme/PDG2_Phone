@@ -1,26 +1,32 @@
+h1{
+    color: #5C7AFF;
+}
+
+h2{
+    color: #4A8FE7;
+}
+
+h3{
+    color: #33373f;
+}
+
 .login{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
 }
 
 .loginTitle{
     text-align: center;
 }
 
-.labelName{
-    
-}
-
 .input{
-    margin: 15px 0px 15px 0px;
+    margin: 4% 0% 4% 0%;
     display: flex;
     flex-direction: column;
 }
 
 .placeInput{
-    margin-right: 15px;
+    margin-right: 1%;
 }
 
 .calendarContainer{
@@ -28,6 +34,12 @@
     flex-direction: row;
 }
 
-.content{
-    
+.p-button{
+    background: #5C7AFF;
+}
+
+.labelName{
+    color: #33373f;
+    font-size: 150%;
+    font-weight: 300;
 }

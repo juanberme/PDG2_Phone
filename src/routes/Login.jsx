@@ -2,12 +2,15 @@ import { InputText } from 'primereact/inputtext';
 import { Calendar } from 'primereact/calendar';
 import { MultiSelect } from 'primereact/multiselect';
 import { AnchorButton } from '../components/Btn.js';
-import '../styles/loginPage.css';
+
 import React, { useState } from 'react';
 import { db } from '../utils/firebase.js';
 import { addDoc, collection, doc } from 'firebase/firestore';
 import { Button } from 'primereact/button';
 import { useNavigate } from 'react-router';
+
+import '../styles/loginPage.css';
+import '../styles/mediaqueries.css';
 
 export default function Login(){
     const navigate = useNavigate();
@@ -59,8 +62,17 @@ export default function Login(){
     }
     
     return <div className='login'>
-        <h1 className='loginTitle'>Necesitamos saber quién eres</h1>
+        <div className='text'>
+            <h1 className='loginTitle'>Ayúdame a</h1>
+            <h2 className='loginTitle'>conocerte</h2>
+            <h2 className='loginTitle' id='subTxt'>mejor, ¿sí?</h2>
+        </div>
+
         <div className='content'>
+            <div className="contentTitle">
+                <h3 className='contTitle_Ln'>Puedes usar un correo o contraseña</h3>
+            </div>
+
             <div className='input'>
                 <label className='labelName' htmlFor="name">Nombre</label>
                 <InputText className='inputName' id="name" aria-describedby="name-help" value={inputName} onChange={handleNameInput}/>
@@ -73,7 +85,7 @@ export default function Login(){
             </div>
 
             <div className='input'>
-                <label>Fecha de nacimiento</label>
+                <label className='labelName'>Fecha de nacimiento</label>
                 <Calendar value={inputDate} onChange={handleDateInput} dateFormat="dd/mm/yy" showIcon />
             </div>
         </div>
