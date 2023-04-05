@@ -1,18 +1,3 @@
-.fullCont{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    box-sizing: content-box;
-
-    position: relative;
-}
-
-.fullCont_Btn{
-    position: absolute;
-    bottom: 0px;
-}
-
-.Btn_icon{
-    position: absolute;
+.fullCont_Ln{
+    font-size: 20px;
 }

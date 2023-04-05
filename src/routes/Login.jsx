@@ -10,7 +10,7 @@ import { Button } from 'primereact/button';
 import { useNavigate } from 'react-router';
 
 import '../styles/loginPage.css';
-import '../styles/mediaqueries.css';
+import '../styles/mediaqueriesLogin.css';
 
 export default function Login(){
     const navigate = useNavigate();
