@@ -1,3 +1,44 @@
+h1{
+    color: #5C7AFF;
+}
+
+h2{
+    color: #4A8FE7;
+}
+
+h3{
+    color: #33373f;
+}
+
+.fullCont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0% 4% 0% 4%;
+}
+
+.fullCont_Ttl{
+    box-sizing: border-box;
+    width: 100%;
+}
+
 .fullCont_Ln{
-    font-size: 20px;
+    text-align: center;
+}
+
+.fullCont_Btn{
+    box-sizing: content-box;
+}
+
+.Btn_icon{
+    position: absolute;
+}
+
+#l4, #l5{
+    color: #33373f;
+    font-weight: 500;
+}
+
+#l6{
+    margin: 5% 0% 0% 0%;
 }
