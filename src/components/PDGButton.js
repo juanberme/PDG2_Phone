@@ -12,7 +12,7 @@ export const PDGButton = () => {
   
   return (
       <div className='Btn_icon'>
-        <Button onClick={handleClick} icon="pi pi-angle-right" size='large' rounded/>
+        <Button id='btn_begin' onClick={handleClick} icon="pi pi-angle-right" size='large' rounded/>
       </div>
   )
 }

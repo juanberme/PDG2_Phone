@@ -2,43 +2,42 @@
 @media all and (min-width: 750px) and (max-width: 1080px)  and (max-height: 1500px){
 
     /*======================================= BEGIN PAGE =======================================*/
-    h1{
-        font-size: 460%;
-        margin: 0% 0% -7% 0%;
-    }
-
-    h2{
-        font-size: 330%;
-        margin: 5% 0% -8% 0%;
-    }
-
-    h3{
-        font-size: 300%;
-        margin: 5% 0% -8% 0%;
-    }
-
     .fullCont_Ln{
-        margin: 15% 0% 40% 0%;
+        margin: 20% 0% 25% 0%;
     }
 
-    #l1, #l3, #l4{
-        padding-left: 10%;
+    #l1, #l4, #l9, #l0{
+        font-size: 500%;
+        margin: 0% 0% -3% 0%;
+    }
+
+    #l2, #l3, #l5, #l6, #l7, #l8{
+        font-size: 300%;
+        margin: 0% 0% -3% 0%;
+    }
+
+    #l1, #l4, #l6{
         text-align: left;
+        padding-left: 10%;
     }
 
-    #l2, #l5{
-        padding-right: 10%;
+    #l3, #l8{
         text-align: right;
+        padding-right: 10%;
+    }
+
+    #l0{
+        margin: 0% 0% 0% 0%;
     }
 
     .Btn_icon{
-        bottom: 0px;
+        bottom: 5%;
+        left: 50%;
     }
 
-    .p.button{
-        border-radius: 100%;
-        height: 100%;
-        width: 100%;
+    #btn_begin{
+        font-size: 500%;
+        width: 500%;
         padding: 0;
     }
 }
@@ -48,30 +47,136 @@
 
     /*======================================= BEGIN PAGE =======================================*/
     .fullCont_Ln{
-        height: 108px;
+        margin: 25% 0% 30% 0%;
     }
 
-    .fullCont_Btn{
-        width: 100%;
-        height: 50%;
-        background-color: lightgreen;
+    #l1, #l4, #l9, #l0{
+        font-size: 800%;
+        margin: 0% 0% -3% 0%;
+    }
+
+    #l2, #l3, #l5, #l6, #l7, #l8{
+        font-size: 520%;
+        margin: 2% 0% -3% 0%;
+    }
+
+    #l1, #l4, #l6{
+        text-align: left;
+        padding-left: 10%;
+    }
+
+    #l3, #l8{
+        text-align: right;
+        padding-right: 10%;
+    }
+
+    #l9{
+        margin: 20% 0%;
+    }
+
+    #l0{
+        margin: 0% 0% 0% 0%;
     }
 
     .Btn_icon{
-        width: fit-content;
-        height: fit-content;
-        bottom: 15%;
+        bottom: 5%;
         left: 50%;
+    }
+
+    #btn_begin{
+        font-size: 1000%;
+        width: 1000%;
+        padding: 0;
     }
 }
 
 /*============================================================================= TAMAÑO GRANDE (L) 6.1' SAMSUNG =============================================================================*/
 @media all and (min-width: 1179px) and (max-width: 1289px){
 
+    /*======================================= BEGIN PAGE =======================================*/
+    .fullCont_Ln{
+        margin: 25% 0% 40% 0%;
+    }
+
+    #l1, #l4, #l9, #l0{
+        font-size: 800%;
+        margin: 0% 0% -3% 0%;
+    }
+
+    #l2, #l3, #l5, #l6, #l7, #l8{
+        font-size: 520%;
+        margin: 0% 0% -3% 0%;
+    }
+
+    #l1, #l4, #l6{
+        text-align: left;
+        padding-left: 10%;
+    }
+
+    #l3, #l8{
+        text-align: right;
+        padding-right: 10%;
+    }
+
+    #l0{
+        margin: 0% 0% 0% 0%;
+    }
+
+    .Btn_icon{
+        bottom: 5%;
+        left: 50%;
+    }
+
+    #btn_begin{
+        font-size: 1000%;
+        width: 1000%;
+        padding: 0;
+    }
+
 }
 
 /*========================================================================== TAMAÑO EXTRA GRANDE (XL) 6.6' IPHONE ==========================================================================*/
 @media all and (min-width: 1290px) and (max-width: 1439px){
+
+    /*======================================= BEGIN PAGE =======================================*/
+    .fullCont_Ln{
+        margin: 20% 0% 25% 0%;
+    }
+
+    #l1, #l4, #l9, #l0{
+        font-size: 800%;
+        margin: 0% 0% -3% 0%;
+    }
+
+    #l2, #l3, #l5, #l6, #l7, #l8{
+        font-size: 520%;
+        margin: 0% 0% -3% 0%;
+    }
+
+    #l1, #l4, #l6{
+        text-align: left;
+        padding-left: 10%;
+    }
+
+    #l3, #l8{
+        text-align: right;
+        padding-right: 10%;
+    }
+
+    #l0{
+        margin: 0% 0% 0% 0%;
+    }
+
+    .Btn_icon{
+        bottom: 5%;
+        left: 50%;
+    }
+
+    #btn_begin{
+        font-size: 1000%;
+        width: 1000%;
+        padding: 0;
+    }
 
        @media all and (max-height: 1079px){
         
@@ -80,6 +185,46 @@
 
 /*======================================================================= TAMAÑO EXTRA EXTRA GRANDE (XXL) 6.8' IPHONE =======================================================================*/
 @media all and (min-width: 1440px){
+
+    /*======================================= BEGIN PAGE =======================================*/
+    .fullCont_Ln{
+        margin: 20% 0% 25% 0%;
+    }
+
+    #l1, #l4, #l9, #l0{
+        font-size: 800%;
+        margin: 0% 0% -3% 0%;
+    }
+
+    #l2, #l3, #l5, #l6, #l7, #l8{
+        font-size: 520%;
+        margin: 0% 0% -3% 0%;
+    }
+
+    #l1, #l4, #l6{
+        text-align: left;
+        padding-left: 10%;
+    }
+
+    #l3, #l8{
+        text-align: right;
+        padding-right: 10%;
+    }
+
+    #l0{
+        margin: 0% 0% 0% 0%;
+    }
+
+    .Btn_icon{
+        bottom: 5%;
+        left: 50%;
+    }
+
+    #btn_begin{
+        font-size: 1000%;
+        width: 1000%;
+        padding: 0;
+    }
 
        @media all and (max-height: 1079px){
         
