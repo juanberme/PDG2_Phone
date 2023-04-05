@@ -1,12 +1,12 @@
-h1{
+#L_l1{
     color: #5C7AFF;
 }
 
-h2{
+#L_l2, #L_l3{
     color: #4A8FE7;
 }
 
-h3{
+#L_l4{
     color: #33373f;
 }
 
@@ -40,6 +40,5 @@ h3{
 
 .labelName{
     color: #33373f;
-    font-size: 150%;
     font-weight: 300;
 }

@@ -26,6 +26,11 @@
         padding-right: 10%;
     }
 
+    #l9{
+        margin: 35% 0% 0% 0%;
+    }
+
+
     #l0{
         margin: 0% 0% 0% 0%;
     }
@@ -38,6 +43,7 @@
     #btn_begin{
         font-size: 500%;
         width: 500%;
+        height: 500%;
         padding: 0;
     }
 }
@@ -47,7 +53,7 @@
 
     /*======================================= BEGIN PAGE =======================================*/
     .fullCont_Ln{
-        margin: 25% 0% 30% 0%;
+        margin: 20% 0% 25% 0%;
     }
 
     #l1, #l4, #l9, #l0{
@@ -57,7 +63,7 @@
 
     #l2, #l3, #l5, #l6, #l7, #l8{
         font-size: 520%;
-        margin: 2% 0% -3% 0%;
+        margin: 0% 0% -3% 0%;
     }
 
     #l1, #l4, #l6{
@@ -71,8 +77,9 @@
     }
 
     #l9{
-        margin: 20% 0%;
+        margin: 60% 0% 0% 0%;
     }
+
 
     #l0{
         margin: 0% 0% 0% 0%;
@@ -84,59 +91,15 @@
     }
 
     #btn_begin{
-        font-size: 1000%;
-        width: 1000%;
+        font-size: 500%;
+        width: 500%;
+        height: 500%;
         padding: 0;
     }
 }
 
 /*============================================================================= TAMAÑO GRANDE (L) 6.1' SAMSUNG =============================================================================*/
 @media all and (min-width: 1179px) and (max-width: 1289px){
-
-    /*======================================= BEGIN PAGE =======================================*/
-    .fullCont_Ln{
-        margin: 25% 0% 40% 0%;
-    }
-
-    #l1, #l4, #l9, #l0{
-        font-size: 800%;
-        margin: 0% 0% -3% 0%;
-    }
-
-    #l2, #l3, #l5, #l6, #l7, #l8{
-        font-size: 520%;
-        margin: 0% 0% -3% 0%;
-    }
-
-    #l1, #l4, #l6{
-        text-align: left;
-        padding-left: 10%;
-    }
-
-    #l3, #l8{
-        text-align: right;
-        padding-right: 10%;
-    }
-
-    #l0{
-        margin: 0% 0% 0% 0%;
-    }
-
-    .Btn_icon{
-        bottom: 5%;
-        left: 50%;
-    }
-
-    #btn_begin{
-        font-size: 1000%;
-        width: 1000%;
-        padding: 0;
-    }
-
-}
-
-/*========================================================================== TAMAÑO EXTRA GRANDE (XL) 6.6' IPHONE ==========================================================================*/
-@media all and (min-width: 1290px) and (max-width: 1439px){
 
     /*======================================= BEGIN PAGE =======================================*/
     .fullCont_Ln{
@@ -163,6 +126,10 @@
         padding-right: 10%;
     }
 
+    #l9{
+        margin: 70% 0% 0% 0%;
+    }
+
     #l0{
         margin: 0% 0% 0% 0%;
     }
@@ -175,6 +142,57 @@
     #btn_begin{
         font-size: 1000%;
         width: 1000%;
+        height: 1000%;
+        padding: 0;
+        bottom: 0;
+    }
+}
+
+/*========================================================================== TAMAÑO EXTRA GRANDE (XL) 6.6' IPHONE ==========================================================================*/
+@media all and (min-width: 1290px) and (max-width: 1439px){
+
+    /*======================================= BEGIN PAGE =======================================*/
+    .fullCont_Ln{
+        margin: 25% 0% 50% 0%;
+    }
+
+    #l1, #l4, #l9, #l0{
+        font-size: 900%;
+        margin: 0% 0% -3% 0%;
+    }
+
+    #l2, #l3, #l5, #l6, #l7, #l8{
+        font-size: 550%;
+        margin: 0% 0% -3% 0%;
+    }
+
+    #l1, #l4, #l6{
+        text-align: left;
+        padding-left: 10%;
+    }
+
+    #l3, #l8{
+        text-align: right;
+        padding-right: 10%;
+    }
+
+    #l9{
+        margin: 95% 0% 0% 0%;
+    }
+
+    #l0{
+        margin: 0% 0% 0% 0%;
+    }
+
+    .Btn_icon{
+        bottom: 5%;
+        left: 50%;
+    }
+
+    #btn_begin{
+        font-size: 1000%;
+        width: 1000%;
+        height: 1000%;
         padding: 0;
     }
 
@@ -188,16 +206,16 @@
 
     /*======================================= BEGIN PAGE =======================================*/
     .fullCont_Ln{
-        margin: 20% 0% 25% 0%;
+        margin: 25% 0% 50% 0%;
     }
 
     #l1, #l4, #l9, #l0{
-        font-size: 800%;
+        font-size: 1000%;
         margin: 0% 0% -3% 0%;
     }
 
     #l2, #l3, #l5, #l6, #l7, #l8{
-        font-size: 520%;
+        font-size: 650%;
         margin: 0% 0% -3% 0%;
     }
 
@@ -209,6 +227,10 @@
     #l3, #l8{
         text-align: right;
         padding-right: 10%;
+    }
+
+    #l9{
+        margin: 95% 0% 0% 0%;
     }
 
     #l0{
@@ -223,6 +245,7 @@
     #btn_begin{
         font-size: 1000%;
         width: 1000%;
+        height: 1000%;
         padding: 0;
     }
 

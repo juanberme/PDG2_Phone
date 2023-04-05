@@ -63,14 +63,14 @@ export default function Login(){
     
     return <div className='login'>
         <div className='text'>
-            <h1 className='loginTitle'>Ayúdame a</h1>
-            <h2 className='loginTitle'>conocerte</h2>
-            <h2 className='loginTitle' id='subTxt'>mejor, ¿sí?</h2>
+            <h1 className='loginTitle' id='L_l1'>Ayúdame a</h1>
+            <h2 className='loginTitle' id='L_l2'>conocerte</h2>
+            <h2 className='loginTitle' id='L_l3'>mejor, ¿sí?</h2>
         </div>
 
         <div className='content'>
             <div className="contentTitle">
-                <h3 className='contTitle_Ln'>Puedes usar un correo o contraseña</h3>
+                <h3 className='contTitle_Ln' id='L_l4'>Puedes usar un correo o contraseña</h3>
             </div>
 
             <div className='input'>
