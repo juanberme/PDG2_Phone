@@ -1,44 +1,26 @@
-h1{
-    color: #5C7AFF;
-}
-
-h2{
-    color: #4A8FE7;
-}
-
-h3{
-    color: #33373f;
-}
-
 .fullCont{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0% 4% 0% 4%;
 }
 
-.fullCont_Ttl{
-    box-sizing: border-box;
-    width: 100%;
-}
-
-.fullCont_Ln{
+.fullCont_Txt{
     text-align: center;
 }
 
-.fullCont_Btn{
-    box-sizing: content-box;
+.fullCont_Tlt{
+    font-size: 3em;
+    color: #5C7AFF;
 }
 
-.Btn_icon{
-    position: absolute;
+.fullCont_Ln{
+    font-size: 2em;
 }
 
-#l5, #l7{
-    font-weight: 400;
+#ln1{
+    color: #4A8FE7;
 }
 
-#l6, #l8{
-    color: #33373f;
-    font-weight: 500;
+#ln2{
+    color: #5C6679;
 }

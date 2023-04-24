@@ -4,8 +4,9 @@ import { Tag } from 'primereact/tag';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { AnchorButton } from '../components/Btn';
-import '../styles/tagPage.css'
 import { db } from '../utils/firebase';
+
+import '../styles/tagPage.css'
 
 export default function Tags(){
 

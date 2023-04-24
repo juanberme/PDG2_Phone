@@ -1,37 +1,46 @@
-#L_l1{
-    color: #5C7AFF;
-}
-
-#L_l2, #L_l3{
-    color: #4A8FE7;
-}
-
-#L_l4{
-    color: #33373f;
-}
-
 .login{
     display: flex;
     flex-direction: column;
 }
 
-.loginTitle{
+.text{
     text-align: center;
+    margin: 1em 2em 1em 2em;
+}
+
+.text_Ttl{
+    color: #5C7AFF;
+    font-size: 5em;
+    margin: 1em 0em 0em 0em;
+}
+
+.text_Txt{
+    color: #4A8FE7;
+    font-size: 4em;
+    margin: 0em 0em;
+}
+
+.text_Ln{
+    color: #33373f;
+    text-align: left;
+    font-size: 2em;
+    font-weight: 300;
+    margin: 5em 0em 2.5em 0em;
 }
 
 .input{
-    margin: 4% 0% 4% 0%;
+    margin: 1em 2em 1em 2em;
     display: flex;
     flex-direction: column;
-}
-
-.placeInput{
-    margin-right: 1%;
 }
 
 .calendarContainer{
     display: flex;
     flex-direction: row;
+}
+
+#btn_ing{
+    margin: 1em 2em 1em 2em;
 }
 
 .p-button{
@@ -40,5 +49,6 @@
 
 .labelName{
     color: #33373f;
+    font-size: 1.5em;
     font-weight: 300;
 }

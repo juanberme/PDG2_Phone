@@ -10,7 +10,6 @@ import { Button } from 'primereact/button';
 import { useNavigate } from 'react-router';
 
 import '../styles/loginPage.css';
-import '../styles/mediaqueriesLogin.css';
 
 export default function Login(){
     const navigate = useNavigate();
@@ -63,16 +62,13 @@ export default function Login(){
     
     return <div className='login'>
         <div className='text'>
-            <h1 className='loginTitle' id='L_l1'>Ayúdame a</h1>
-            <h2 className='loginTitle' id='L_l2'>conocerte</h2>
-            <h2 className='loginTitle' id='L_l3'>mejor, ¿sí?</h2>
+            <h1 className='text_Ttl'>Ayúdame a</h1>
+            <h2 className='text_Txt'>conocerte</h2>
+            <h2 className='text_Txt'>mejor, ¿sí?</h2>
+            <h3 className='text_Ln'>Puedes usar un correo o contraseña</h3>
         </div>
 
         <div className='content'>
-            <div className="contentTitle">
-                <h3 className='contTitle_Ln' id='L_l4'>Puedes usar un correo o contraseña</h3>
-            </div>
-
             <div className='input'>
                 <label className='labelName' htmlFor="name">Nombre</label>
                 <InputText className='inputName' id="name" aria-describedby="name-help" value={inputName} onChange={handleNameInput}/>
@@ -90,7 +86,7 @@ export default function Login(){
             </div>
         </div>
         
-        <Button onClick={handleLogin} label="Ingresar"/>
+        <Button id='btn_ing' onClick={handleLogin} label="Ingresar"/>
     </div>
 }
 
