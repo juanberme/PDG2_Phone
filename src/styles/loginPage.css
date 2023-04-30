@@ -3,33 +3,45 @@
     flex-direction: column;
 }
 
+
+/*Section: text*/
 .text{
     text-align: center;
-    margin: 1em 2em 1em 2em;
+    margin: 5em 2em 0em;
 }
 
 .text_Ttl{
     color: #5C7AFF;
-    font-size: 5em;
-    margin: 1em 0em 0em 0em;
+    font-size: 2.5em;
+    margin: 0em;
 }
 
 .text_Txt{
     color: #4A8FE7;
-    font-size: 4em;
-    margin: 0em 0em;
+    font-size: 2em;
+    margin: 0em;
+}
+
+.text_down{
+    margin: 12em 0em 1em;
 }
 
 .text_Ln{
     color: #33373f;
     text-align: left;
-    font-size: 2em;
+    font-size: 0.9em;
     font-weight: 300;
-    margin: 5em 0em 2.5em 0em;
+    margin: 0em;
+}
+
+
+/*Section: content*/
+.content{
+    margin: 0em 2em 5em;
 }
 
 .input{
-    margin: 1em 2em 1em 2em;
+    margin: 1em 0em;
     display: flex;
     flex-direction: column;
 }
@@ -39,8 +51,10 @@
     flex-direction: row;
 }
 
+
+/*Section: button*/
 #btn_ing{
-    margin: 1em 2em 1em 2em;
+    margin: 1em 2em;
 }
 
 .p-button{
@@ -49,6 +63,6 @@
 
 .labelName{
     color: #33373f;
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: 300;
 }

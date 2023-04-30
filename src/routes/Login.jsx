@@ -61,14 +61,18 @@ export default function Login(){
     }
     
     return <div className='login'>
-        <div className='text'>
-            <h1 className='text_Ttl'>Ayúdame a</h1>
-            <h2 className='text_Txt'>conocerte</h2>
-            <h2 className='text_Txt'>mejor, ¿sí?</h2>
-            <h3 className='text_Ln'>Puedes usar un correo o contraseña</h3>
-        </div>
+        <section className='text'>
+            <div className="text_up">
+                <h1 className='text_Ttl'>Ayúdame a</h1>
+                <h2 className='text_Txt'>conocerte</h2>
+                <h2 className='text_Txt'>mejor, ¿sí?</h2>
+            </div>
+            <div className="text_down">
+                <h3 className='text_Ln'>Puedes usar un correo o contraseña</h3>
+            </div>
+        </section>
 
-        <div className='content'>
+        <section className='content'>
             <div className='input'>
                 <label className='labelName' htmlFor="name">Nombre</label>
                 <InputText className='inputName' id="name" aria-describedby="name-help" value={inputName} onChange={handleNameInput}/>
@@ -84,7 +88,7 @@ export default function Login(){
                 <label className='labelName'>Fecha de nacimiento</label>
                 <Calendar value={inputDate} onChange={handleDateInput} dateFormat="dd/mm/yy" showIcon />
             </div>
-        </div>
+        </section>
         
         <Button id='btn_ing' onClick={handleLogin} label="Ingresar"/>
     </div>
