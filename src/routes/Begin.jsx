@@ -4,7 +4,7 @@ import { PDGButton } from '../components/PDGButton.js';
 import '../styles/beginPage.css';
 
 export default function Begin(){
-    return <div className='fullCont'>
+    return <section className='fullCont'>
         <div className='fullCont_Txt'>
                 <div className="fullCont_Tlt">
                     <h1 id='Tlt_h'>¿Te conozco?</h1>
@@ -37,5 +37,5 @@ export default function Begin(){
         <div className='fullCont_Btn'>
             <PDGButton/>
         </div>
-    </div>
+    </section>
 }

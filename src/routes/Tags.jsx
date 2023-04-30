@@ -46,12 +46,16 @@ export default function Tags(){
         setItems(copy);
     }
     
-    return <div>
-        <p>Escoge las <strong>5 palabras</strong> que más te definen en menos de</p>
+    return <div className='page'>
+        <section className='titleTxt'>
+            <p>Escoge las <strong>5 palabras</strong> que más te definen en menos de:</p>
+        </section>
 
-        <div className="clock"> </div>
+        <section className='clock'>
+            <h5>aqui va el reloj</h5>
+        </section>
 
-        <div className='tags'>
+        <section className='tags'>
             {items.map(({id, value, activated}, index) => 
                 <Tag 
                     style={activated ? {background: "red"} : {}}
@@ -60,8 +64,9 @@ export default function Tags(){
                     key={id}
                     value={value}
                     rounded/>)}
-        </div>
-        <AnchorButton onClick={handleCSubmit} href="/#" label="Ingresar"/>
+        </section>
+        
+        <AnchorButton id='btn_cont' onClick={handleCSubmit} href="/#" label="Ingresar"/>
     </div>
     
 }

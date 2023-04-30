@@ -6,13 +6,14 @@
     margin-top: 5em;
 }
 
+/*section: fullCont*/
 .fullCont_Txt{
     text-align: center;
     margin-bottom: 2em;
 }
 
 .fullCont_Tlt{
-    font-size: 1.5em;
+    font-size: 2em;
     color: #5C7AFF;
 }
 
@@ -21,7 +22,7 @@
 }
 
 .fullCont_Ln{
-    font-size: 1.45em;
+    font-size: 1.5em;
 }
 
 #Ln_h{
