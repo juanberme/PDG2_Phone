@@ -32,6 +32,11 @@
 
 
 /*section: button*/
+.btn{
+    display: flex;
+    justify-content: center;
+}
+
 #btn_cont{
     width: 100%;
 }

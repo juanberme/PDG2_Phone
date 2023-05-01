@@ -1,0 +1,9 @@
+@media all and (min-width: 1024px){
+    .tags{
+        margin: 2em 0em 5em;
+    }
+
+    #btn_cont{
+        width: 25em;
+    }
+}

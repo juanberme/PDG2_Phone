@@ -9,24 +9,28 @@
 /*section: fullCont*/
 .fullCont_Txt{
     text-align: center;
-    margin-bottom: 2em;
+    margin-bottom: 7em;
 }
 
 .fullCont_Tlt{
-    font-size: 2em;
+    font-size: 1.5em;
     color: #5C7AFF;
 }
 
 #Tlt_h{
-    margin: 0.25em 0em;
+    margin: 0.25em 0em 0em;
 }
 
 .fullCont_Ln{
-    font-size: 1.5em;
+    font-size: 1em;
+}
+
+#fullCont_Txt_L{
+    margin-bottom: 3em;
 }
 
 #Ln_h{
-    margin: 0.35em 0em;
+    margin: -0.35em 0em 0em;
 }
 
 #ln1{

@@ -6,7 +6,8 @@ import { useSearchParams } from 'react-router-dom';
 import { AnchorButton } from '../components/Btn';
 import { db } from '../utils/firebase';
 
-import '../styles/tagPage.css'
+import '../styles/tagPage.css';
+import '../styles/mediaQTag.css';
 
 export default function Tags(){
 
@@ -66,7 +67,9 @@ export default function Tags(){
                     rounded/>)}
         </section>
         
-        <AnchorButton id='btn_cont' onClick={handleCSubmit} href="/#" label="Ingresar"/>
+        <div className='btn'>
+            <AnchorButton id='btn_cont' onClick={handleCSubmit} href="/#" label="Ingresar"/>
+        </div>
     </div>
     
 }

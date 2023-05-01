@@ -2,6 +2,7 @@ import { Button } from 'primereact/button';
 import { PDGButton } from '../components/PDGButton.js';
 
 import '../styles/beginPage.css';
+import '../styles/mediaQBegin.css';
 
 export default function Begin(){
     return <section className='fullCont'>
@@ -28,7 +29,7 @@ export default function Begin(){
                 
             </div>
             
-            <div className='fullCont_Txt'>
+            <div className='fullCont_Txt' id='fullCont_Txt_L'>
                 <div className="fullCont_Tlt">
                     <h1 id='Tlt_h'>Toca aquí</h1>
                     <h1 id='Tlt_h'>para continuar</h1>
