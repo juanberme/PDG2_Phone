@@ -12,6 +12,8 @@ import Login from './routes/Login';
 import Tags from './routes/Tags';
 import Final from './routes/Final';
 import Error from './routes/Error';
+import { Admin } from './routes/Admin';
+import { NewAdmin } from './routes/NewAdmin';
 
 
 
@@ -32,6 +34,13 @@ const router = createBrowserRouter([
   {
     path:'/final',
     element: <Final/>
+  },
+  {
+    path:'/admin',
+    element: <Admin/>
+  },{
+    path:'/newAdmin',
+    element: <NewAdmin/>
   }
 ]);
 
