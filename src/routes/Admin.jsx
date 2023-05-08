@@ -32,6 +32,7 @@ export const Admin = () => {
             <h3 id='hs'>de la empresa</h3>
           </span>
         </div>
+
         <div className="admin_Frm">
           <div className='frm_Dv'>
             <label htmlFor='username'>Nombre de la empresa</label>
@@ -54,8 +55,9 @@ export const Admin = () => {
           <Button className='btn_CTA' label="Ingresar"/>
         </div>
       </section>
+      
       <section className="SCT_DEC">
-        <img src="" alt="_ERROR: Imagen no carga"/>
+        <img src="" alt="_ERROR_img-logo.svg"/>
       </section>
     </section>
   )

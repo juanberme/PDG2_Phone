@@ -7,6 +7,10 @@
     margin: 0.5em 0em;
 }
 
+.p-button-label{
+    width: 20em;
+}
+
 
 /*====================================================================================================*/
 
@@ -36,7 +40,7 @@
     flex-direction: column;
     align-items: center;
 
-    margin: 1em 0em 5em;
+    margin: 0em 0em 5em;
 }
 
 #hs{
@@ -73,10 +77,6 @@
     flex-direction: column;
 }
 
-.newAdmin_DV{
-    margin: 0.5em 0em;
-}
-
 
 /*--------------------------------------------------------------------------------------*/
 
@@ -85,8 +85,4 @@
 .btn_CTA{
     width: fit-content;
     margin: 2em 0em 0em;
-}
-
-.p-button-label{
-    width: 20em;
 }

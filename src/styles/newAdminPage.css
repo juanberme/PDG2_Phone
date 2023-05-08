@@ -1,13 +1,63 @@
+/*====================================================================================================*/
+
+
+/*Body: css*/
 .newAdmin_SCT{
     display: flex;
-    flex-direction: column;
-    align-items: center;
 
     margin: 5em 3em 0em;
 }
 
+.SCT_CTA{
+    width: 50%;
+}
 
-/*Section: Input*/
-.newAdmin_DV{
-    margin: 0.5em 0em;
+.SCT_DEC{
+    width: 50%;
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+
+/*Divisor: Title*/
+.newAdmin_Ttl{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0em 0em 3em;
+}
+
+#hs{
+    margin: 0em;
+}
+
+.Ttl_h1{
+    margin: 0em 0em 0.1em;
+    color: #5C7AFF;
+    font-size: 1.75em;
+}
+
+.Ttl_h3{
+    margin: 0em 0em -0.3em;
+    color: #4A8FE7;
+    font-size: 1.5em;
+}
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+/*Divisor: Form*/
+.newAdmin_Frm{
+    margin: 1em 0em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Frm_Dv{
+    margin: 1em 0em 0em;
+    display: flex;
+    flex-direction: column;
 }
