@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Password } from 'primereact/password';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
+import { Image } from 'primereact/image';
 
 import '../styles/newAdminPage.css';
 
@@ -73,7 +74,7 @@ export const NewAdmin = () => {
         </section>
         
         <section className="SCT_DEC">
-            <img src="" alt="_ERROR_img-logo.svg"/>
+            <Image src='../gallery/placeholder-image.png' alt='_ERROR_img-logo.svg' width='250'/>
         </section>
     </section>
   )
