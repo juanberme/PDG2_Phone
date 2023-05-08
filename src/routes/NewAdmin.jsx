@@ -3,6 +3,8 @@ import { Password } from 'primereact/password';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 
+import '../styles/newAdminPage.css';
+
 export const NewAdmin = () => {
     const [inputNewUsername, setInputNewUsername] = useState('');
     const handleNewUsernameInput = (e) => {
@@ -24,26 +26,26 @@ export const NewAdmin = () => {
         setInputPasswordConfirm(e.target.value);
     }
   return (
-    <div>
-        <div>
+    <section className='newAdmin_SCT'>
+        <div className='newAdmin_DV'>
             <label htmlFor='newUsername'>Nombre de la compañía</label>
             <InputText id='newUsername' value={inputNewUsername} onChange={handleNewUsernameInput}/>
         </div>
-        <div>
+        <div className='newAdmin_DV'>
             <label htmlFor='email'>Correo</label>
             <InputText id='email'value={inputEmail} onChange={handleEmailInput}/>
         </div>
-        <div>
+        <div className='newAdmin_DV'>
             <label htmlFor='newPassword'>Constraseña</label>
             <Password id='newPassword' value={inputNewPassword} onChange={handleNewPasswordInput} toggleMask/>
         </div>
 
-        <div>
+        <div className='newAdmin_DV'>
             <label htmlFor='passwordConfirm'>Confirmar contraseña</label>
             <InputText id='passwordConfirm' value={inputPasswordConfirm} onChange={handlePasswordConfirmInput} feedback={false}/>
         </div>
 
-        <Button label="Registrarme"/>
-    </div>
+        <Button className='btn_CTA' label="Registrarme"/>
+    </section>
   )
 }

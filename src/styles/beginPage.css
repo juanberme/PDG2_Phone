@@ -1,3 +1,9 @@
+.p-button{
+    background: #5C7AFF;
+    border: 1px solid #5C7AFF;
+}
+
+
 .fullCont{
     display: flex;
     flex-direction: column;

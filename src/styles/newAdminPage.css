@@ -1,0 +1,13 @@
+.newAdmin_SCT{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 5em 3em 0em;
+}
+
+
+/*Section: Input*/
+.newAdmin_DV{
+    margin: 0.5em 0em;
+}
