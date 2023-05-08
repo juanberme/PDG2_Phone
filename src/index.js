@@ -12,6 +12,7 @@ import Login from './routes/Login';
 import Tags from './routes/Tags';
 import Final from './routes/Final';
 import Error from './routes/Error';
+import Prueba from './routes/Prueba';
 import { Admin } from './routes/Admin';
 import { NewAdmin } from './routes/NewAdmin';
 
@@ -41,7 +42,10 @@ const router = createBrowserRouter([
   },{
     path:'/newAdmin',
     element: <NewAdmin/>
-  }
+  },{
+    path: '/Prueba',
+    element: <Prueba/>
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
