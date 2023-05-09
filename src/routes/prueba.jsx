@@ -12,7 +12,17 @@ export default function Prueba(){
     const [inputSearch, setInputSearch] = useState('');
     const handleSearchInput = (e) => {
     setInputSearch(e.target.value);
-}
+    }
+
+    var standList = [
+        "S1-Unicentro (Bogotá) Zona A",
+        "S1-Unicentro (Bogotá) Zona B",
+        "S1-Unicentro (Bogotá) Zona C",
+        "S2-Unicentro (Cali) Zona A",
+        "S2-Unicentro (Cali) Zona B",
+        "S2-Unicentro (Cali) Zona C",
+        "S3-Único (Cali) Zona A"
+    ];
 
     return <section className="CLP_CONT">
         <header className="NAV_SUP">
@@ -49,6 +59,8 @@ export default function Prueba(){
             </nav>
         </header>
 
+        <Divider layout='horizontal'/>
+
         <section className="SCT_CONT">
             <section className="SCT_INFO">
                 <div className="INFO_Deco">
@@ -60,10 +72,13 @@ export default function Prueba(){
                         <h1 className="Ttl_cmp">Nombre de la empresa</h1>
                     </span>
                     <span className="Company_Cont">
-                        <h1 className="Sttl_cmp">Tienes 0 stands:</h1>
+                        <h1 className="Sttl_cmp">Tienes 7 stands:</h1>
                     </span>
                     <span className="Company_Cont">
-                        <MultiSelect value={inputSearch} onChange={handleSearchInput} filter/>
+                        <MultiSelect value={inputSearch} onChange={handleSearchInput} filter options={standList} maxSelectedLabels={1}/>
+                    </span>
+                    <span className="Company_Cont">
+                        <Button className='btn_AddStand' label='Agregar' icon="pi pi-plus" iconPos='right'/>
                     </span>
                 </div>
             </section>
@@ -71,6 +86,41 @@ export default function Prueba(){
             <Divider layout='vertical'/>
 
             <section className="SCT_LIST">
+                <span className="LIST_Card">
+                    <Card title="Stand: S1-Unicentro" subTitle="Unicentro: Bogotá - Zona A" className='md:w-25rem'>
+                        <Button className='btn_Card' label='Ver más' icon="pi pi-ellipsis-v" iconPos='right'/>
+                    </Card>
+                </span>
+                <span className="LIST_Card">
+                    <Card title="Stand: S1-Unicentro" subTitle="Unicentro: Bogotá - Zona B" className='md:w-25rem'>
+                        <Button className='btn_Card' label='Ver más' icon="pi pi-ellipsis-v" iconPos='right'/>
+                    </Card>
+                </span>
+                <span className="LIST_Card">
+                    <Card title="Stand: S1-Unicentro" subTitle="Unicentro: Bogotá - Zona C" className='md:w-25rem'>
+                        <Button className='btn_Card' label='Ver más' icon="pi pi-ellipsis-v" iconPos='right'/>
+                    </Card>
+                </span>
+                <span className="LIST_Card">
+                    <Card title="Stand: S2-Unicentro" subTitle="Unicentro: Cali - Zona A" className='md:w-25rem'>
+                        <Button className='btn_Card' label='Ver más' icon="pi pi-ellipsis-v" iconPos='right'/>
+                    </Card>
+                </span>
+                <span className="LIST_Card">
+                    <Card title="Stand: S2-Unicentro" subTitle="Unicentro: Cali - Zona B" className='md:w-25rem'>
+                        <Button className='btn_Card' label='Ver más' icon="pi pi-ellipsis-v" iconPos='right'/>
+                    </Card>
+                </span>
+                <span className="LIST_Card">
+                    <Card title="Stand: S2-Unicentro" subTitle="Unicentro: Cali - Zona C" className='md:w-25rem'>
+                        <Button className='btn_Card' label='Ver más' icon="pi pi-ellipsis-v" iconPos='right'/>
+                    </Card>
+                </span>
+                <span className="LIST_Card">
+                    <Card title="Stand: S3-Único" subTitle="Único: Cali - Zona A" className='md:w-25rem'>
+                        <Button className='btn_Card' label='Ver más' icon="pi pi-ellipsis-v" iconPos='right'/>
+                    </Card>
+                </span>
             </section>
         </section>
     </section>
