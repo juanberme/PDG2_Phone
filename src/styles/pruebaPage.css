@@ -1,3 +1,9 @@
+/*React*/
+.p-multiselect{
+    width: 12em;
+}
+
+
 /*====================================================================================================*/
 
 
@@ -13,12 +19,91 @@
 /*--------------------------------------------------------------------------------------*/
 
 
-/*Section: Banner*/
-.Banner_Ttl{
+/*Section: Header*/
+.NAV_SUP{
     display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
     align-items: baseline;
+
+    width: 100%;
+
+    margin: 0em 0em 4em;
 }
 
-.Ttl_h1{
-    margin-right: 0.3em;
+.btn_link_1{
+    width: 5em;
+    margin: 0em 0em;
+
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+.LNK_List{
+    display: flex;
+    flex-direction: row;
+
+    list-style: none;
+    margin: 0em 0em;
+}
+
+.btn_link_2{
+    width: 10em;
+    margin: 0em 0em;
+
+    font-size: 0.75em;
+}
+
+.ICN_List{
+    display: flex;
+    flex-direction: row;
+
+    list-style: none;
+    margin: 0em 0em;
+}
+
+.btn_link_3{
+    width: 3em;
+    margin: 0em 0em;
+}
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+/*Section: Cont*/
+.SCT_CONT{
+    display: flex;
+    flex-direction: row;
+}
+
+.INFO_Deco{
+    margin: 1em 1em;
+}
+
+.INFO_Company{
+    display: flex;
+    flex-direction: column;
+
+    margin: 0em 1em;
+}
+
+.Company_Cont{
+    margin: 0em 1em 0.5em;
+}
+
+.Ttl_cmp{
+    margin: 0em 0em;
+
+    color: #5C7AFF;
+    font-size: 1em;
+}
+
+.Sttl_cmp{
+    margin: 0em 0em;
+
+    color: #5C6679;
+    font-size: 0.9em;
+    font-weight: lighter;
 }
