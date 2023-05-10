@@ -37,19 +37,19 @@ export const Admin = () => {
         <div className="admin_Frm">
           <div className='frm_Dv'>
             <label htmlFor='username'>Nombre de la empresa</label>
-            <span className="p-input">
-              <InputText value={inputCompany} onChange={handleCompanyInput}/>
+            <span className="Input_Spn">
+              <InputText id='inpt_txt_Admin' value={inputCompany} onChange={handleCompanyInput}/>
             </span>
           </div>
           <div className='frm_Dv'>
             <label htmlFor='password'>Contraseña</label>
-            <span className="p-input">
+            <span className="Input_Spn">
               <Password value={inputPassword} onChange={handlePasswordInput} feedback={false} toggleMask/>
             </span>
           </div>
           <div className='frm_Dv'>
             <label htmlFor='password'>Código de empresa</label>
-            <span className="p-input">
+            <span className="Input_Spn">
               <Password value={inputPassword} onChange={handlePasswordInput} feedback={false} toggleMask/>
             </span>
           </div>

@@ -7,7 +7,6 @@ import { AnchorButton } from '../components/Btn';
 import { db } from '../utils/firebase';
 
 import '../styles/tagPage.css';
-import '../styles/mediaQTag.css';
 
 export default function Tags(){
 

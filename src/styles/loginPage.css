@@ -1,13 +1,14 @@
 .login{
     display: flex;
     flex-direction: column;
+
+    margin: 4em 3em 0em;
 }
 
 
 /*Section: text*/
 .text{
     text-align: center;
-    margin: 5em 2em 0em;
 }
 
 .text_Ttl{
@@ -37,7 +38,7 @@
 
 /*Section: content*/
 .content{
-    margin: 0em 2em 5em;
+    margin: 0em 0em 10em;
 }
 
 .input{
@@ -46,17 +47,16 @@
     flex-direction: column;
 }
 
-.calendarContainer{
-    display: flex;
-    flex-direction: row;
+#login_name{
+    width: 21em;
+}
+
+#login_gender{
+    width: 21em;
 }
 
 
 /*Section: button*/
-#btn_ing{
-    margin: 1em 2em;
-}
-
 .labelName{
     color: #33373f;
     font-size: 1em;

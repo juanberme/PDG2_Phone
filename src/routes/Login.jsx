@@ -10,7 +10,6 @@ import { Button } from 'primereact/button';
 import { useNavigate } from 'react-router';
 
 import '../styles/loginPage.css';
-import '../styles/mediaQLogin.css';
 
 export default function Login(){
     const navigate = useNavigate();
@@ -76,18 +75,20 @@ export default function Login(){
         <section className='content'>
             <div className='input'>
                 <label className='labelName' htmlFor="name">Nombre</label>
-                <InputText className='inputName' id="name" aria-describedby="name-help" value={inputName} onChange={handleNameInput}/>
+                <span className="INPT_Name">
+                    <InputText id="login_name" aria-describedby="name-help" value={inputName} onChange={handleNameInput}/>
+                </span>
             </div>
 
             <div className='input'>
                 <label className='labelName' htmlFor="gender">Genero</label>
-                <MultiSelect value={inputGender} id="gender" onChange={handleGenderInput} options={allGenders} optionLabel="gender" 
+                <MultiSelect value={inputGender} id="login_gender" onChange={handleGenderInput} options={allGenders} optionLabel="gender" 
                 placeholder="Selecciona tu genere" selectionLimit={1} maxSelectedLabels={1} multiple={false} className="w-full md:w-20rem" />
             </div>
 
             <div className='input'>
                 <label className='labelName'>Fecha de nacimiento</label>
-                <Calendar value={inputDate} onChange={handleDateInput} dateFormat="dd/mm/yy" showIcon />
+                <Calendar id='login_calendar' value={inputDate} onChange={handleDateInput} dateFormat="dd/mm/yy" showIcon />
             </div>
         </section>
         
