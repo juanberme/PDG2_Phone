@@ -55,7 +55,7 @@ useFrame((state) =>{
 })
   return (
 
-    <mesh ref={mesh}>
+    <mesh ref={mesh} scale={3.0}>
         <icosahedronGeometry args={[1, 100]}/>
         <shaderMaterial vertexShader={vertexShader} fragmentShader={fragmentShader} uniforms={uniforms}/>
     </mesh> 

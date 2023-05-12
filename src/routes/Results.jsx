@@ -10,7 +10,7 @@ const Results = () => {
     const mesh = useRef();
   return (
     <div>
-        <div className='3DPersonality' style={{width: "100%" , height: "100vh"}}>
+        <div className='3DPersonality' style={{width: "100%" , height: "300px"}}>
             <Canvas camera={{position: [10, 0, 10]}}>
                 <Camera/>
                 <mesh ref={mesh}>
@@ -19,7 +19,9 @@ const Results = () => {
                 <OrbitControls/>
             </Canvas>
         </div>
-        
+        <div className='results'>
+            <p>Y la queso</p>
+        </div>
     </div>
   )
 }
