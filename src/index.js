@@ -15,6 +15,7 @@ import Error from './routes/Error';
 import Prueba from './routes/Prueba';
 import { Admin } from './routes/Admin';
 import { NewAdmin } from './routes/NewAdmin';
+import Results from './routes/Results';
 
 
 
@@ -45,7 +46,10 @@ const router = createBrowserRouter([
   },{
     path: '/Prueba',
     element: <Prueba/>
-  },
+  },{
+    path: '/resultados',
+    element: <Results/>
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
