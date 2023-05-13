@@ -13,10 +13,7 @@ export default function Tags(){
     const [searchParams] = useSearchParams();
 
     const [items, setItems] = useState([
-        {id:1, value : "Casero(a)", activated:false, color: "fucsia"},
-        {id:2, value : "Reservado(a)", activated:false},
-        {id:3, value : "Extorvertido(a)", activated:false},
-        {id:4, value : "Solitario(a)", activated:false},
+        {id:1, value : "Casero(a)", activated:false, pattern: 0},
     ]);
 
     //sconst 

@@ -9,7 +9,7 @@ const Tags2 = () => {
     const [searchParams] = useSearchParams();
 
     const [items, setItems] = useState([
-        {id:1, value : "Fiestero(a)", activated:false},
+        {id:1, value : "Fiestero(a)", activated:false, intensity: "2.3"},
         {id:2, value : "Tímido(a)", activated:false},
     ]);
 
