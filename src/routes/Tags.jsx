@@ -10,10 +10,23 @@ import '../styles/tagPage.css';
 
 export default function Tags(){
 
+    function getRandomInt(){
+        return Math.floor(Math.random()*4);
+    }
+
     const [searchParams] = useSearchParams();
 
     const [items, setItems] = useState([
-        {id:1, value : "Casero(a)", activated:false, pattern: 0},
+        {id:1, value : "Casero(a)", activated:false, pattern: getRandomInt()},
+        {id:2, value : "Tímido(a)", activated:false, pattern: getRandomInt()},
+        {id:3, value : "Reservado(a)", activated:false, pattern: getRandomInt()},
+        {id:4, value : "Introvertido(a)", activated:false, pattern: getRandomInt()},
+        {id:5, value : "Solitario(a)", activated:false, pattern: getRandomInt()},
+        {id:6, value : "Fiestero(a)", activated:false, pattern: getRandomInt()},
+        {id:7, value : "Elocuente", activated:false, pattern: getRandomInt()},
+        {id:8, value : "Influenciador(a)", activated:false, pattern: getRandomInt()},
+        {id:9, value : "Extrovertido(a)", activated:false, pattern: getRandomInt()},
+        {id:0, value : "Amiguero(a)", activated:false, pattern: getRandomInt()},
     ]);
 
     //sconst 
@@ -38,7 +51,7 @@ export default function Tags(){
     
     //Para hacer que el valor se cambie en el setValue
     const handleClickTag = (index) => {
-        const LIMIT = 5;
+        const LIMIT = 1;
         if(items.filter(({activated}) => activated).length >= LIMIT && !items[index].activated) return;
 
         const copy = [...items];

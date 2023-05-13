@@ -6,10 +6,30 @@ import { collection, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase';
 
 const Tags4 = () => {
+
+    function getRandomR(){
+        return Math.random().toFixed(3);
+    }
+    function getRandomG(){
+        return Math.random().toFixed(3);
+    }
+    function getRandomB(){
+        return Math.random().toFixed(3);
+    }
+
     const [searchParams] = useSearchParams();
 
     const [items, setItems] = useState([
-        {id:1, value : "Harta", activated:false, r: 0.392, g: 0.714, b: 0.675},
+        {id:1, value : "Distraído(a)", activated:false, r: getRandomR(), g: getRandomG(), b: getRandomB()},
+        {id:2, value : "Caótico(a)", activated:false, r: getRandomR(), g: getRandomG(), b: getRandomB()},
+        {id:3, value : "Diferente", activated:false, r: getRandomR(), g: getRandomG(), b: getRandomB()},
+        {id:4, value : "Esporádico(a)", activated:false, r: getRandomR(), g: getRandomG(), b: getRandomB()},
+        {id:5, value : "Improvisador(a)", activated:false, r: getRandomR(), g: getRandomG(), b: getRandomB()},
+        {id:6, value : "Atento(a)", activated:false, r: getRandomR(), g: getRandomG(), b: getRandomB()},
+        {id:7, value : "Ordenado(a)", activated:false, r: getRandomR(), g: getRandomG(), b: getRandomB()},
+        {id:8, value : "Moda", activated:false, r: getRandomR(), g: getRandomG(), b: getRandomB()},
+        {id:9, value : "Metodológico(a)", activated:false, r: getRandomR(), g: getRandomG(), b: getRandomB()},
+        {id:0, value : "Planeador(a)", activated:false, r: getRandomR(), g: getRandomG(), b: getRandomB()},
     ]);
 
     const handleSubmit = async() =>{

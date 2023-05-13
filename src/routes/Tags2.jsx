@@ -6,11 +6,24 @@ import { collection, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase';
 
 const Tags2 = () => {
+
+    function getRandomFloat(){
+        return (((Math.random()*6)).toFixed(1)).toString();
+    }
+
     const [searchParams] = useSearchParams();
 
     const [items, setItems] = useState([
-        {id:1, value : "Fiestero(a)", activated:false, intensity: "2.3"},
-        {id:2, value : "Tímido(a)", activated:false},
+        {id:1, value : "Intuitivo(a)", activated:false, intensity: getRandomFloat()},
+        {id:2, value : "Flexible", activated:false, intensity: getRandomFloat()},
+        {id:3, value : "Imaginativo(a)", activated:false, intensity: getRandomFloat()},
+        {id:4, value : "Distraído(a)", activated:false, intensity: getRandomFloat()},
+        {id:5, value : "Influenciador(a)", activated:false, intensity: getRandomFloat()},
+        {id:6, value : "Observador(a)", activated:false, intensity: getRandomFloat()},
+        {id:7, value : "Rígido(a)", activated:false, intensity: getRandomFloat()},
+        {id:8, value : "Realista", activated:false, intensity: getRandomFloat()},
+        {id:9, value : "Atento(a)", activated:false, intensity: getRandomFloat()},
+        {id:0, value : "Reservado(a)", activated:false, intensity: getRandomFloat()},
     ]);
 
     const handleSubmit = async() =>{
@@ -32,7 +45,7 @@ const Tags2 = () => {
     }
 
     const handleClickTag = (index) => {
-        const LIMIT = 5;
+        const LIMIT = 1;
         if(items.filter(({activated}) => activated).length >= LIMIT && !items[index].activated) return;
 
         const copy = [...items];
