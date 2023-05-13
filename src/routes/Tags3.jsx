@@ -9,7 +9,7 @@ const Tags3 = () => {
     const [searchParams] = useSearchParams();
 
     const [items, setItems] = useState([
-        {id:1, value : "Peleon", activated:false},
+        {id:1, value : "Peleon", activated:false, r: 0.753, g: 0.992, b: 0.984},
     ]);
 
     const handleSubmit = async() =>{

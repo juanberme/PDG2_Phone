@@ -9,7 +9,7 @@ const Tags4 = () => {
     const [searchParams] = useSearchParams();
 
     const [items, setItems] = useState([
-        {id:1, value : "Harta", activated:false},
+        {id:1, value : "Harta", activated:false, r: 0.392, g: 0.714, b: 0.675},
     ]);
 
     const handleSubmit = async() =>{
