@@ -1,31 +1,23 @@
-import { async } from '@firebase/util';
-import { addDoc, getDocs, collection, doc, updateDoc, getDoc } from 'firebase/firestore';
-import { Tag } from 'primereact/tag';
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React, { useState } from 'react'
 import { AnchorButton } from '../components/Btn';
+import { Tag } from 'primereact/tag';
+import { useSearchParams } from 'react-router-dom';
+import { collection, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase';
 
-import '../styles/tagPage.css';
-
-export default function Tags(){
-
+const Tags4 = () => {
     const [searchParams] = useSearchParams();
 
     const [items, setItems] = useState([
-        {id:1, value : "Casero(a)", activated:false, color: "fucsia"},
-        {id:2, value : "Reservado(a)", activated:false},
-        {id:3, value : "Extorvertido(a)", activated:false},
-        {id:4, value : "Solitario(a)", activated:false},
+        {id:1, value : "Harta", activated:false},
     ]);
 
-    //sconst 
-    const handleCSubmit = async () => {
+    const handleSubmit = async() =>{
         try {
             const activeItem = items.filter(({activated}) => activated);
 
             if(activeItem.length === 0) return;
-
+            
             const editCol = collection(db, 'users');
             const docRef = doc(editCol, searchParams.get("id"));
             const docData = await getDoc(docRef);
@@ -36,10 +28,8 @@ export default function Tags(){
         } catch (error) {
             console.error(error.message);
         }
-        
     }
-    
-    //Para hacer que el valor se cambie en el setValue
+
     const handleClickTag = (index) => {
         const LIMIT = 5;
         if(items.filter(({activated}) => activated).length >= LIMIT && !items[index].activated) return;
@@ -49,16 +39,8 @@ export default function Tags(){
         copy[index].activated = !copy[index].activated;
         setItems(copy);
     }
-    
-    return <div className='page'>
-        <section className='titleTxt'>
-            <p>Escoge las <strong>5 palabras</strong> que más te definen en menos de:</p>
-        </section>
-
-        <section className='clock'>
-            <h5>aqui va el reloj</h5>
-        </section>
-
+  return (
+    <div>
         <section className='tags'>
             {items.map(({id, value, activated}, index) => 
                 <Tag 
@@ -69,17 +51,11 @@ export default function Tags(){
                     value={value}
                     rounded/>)}
         </section>
-        
-        <div className='btn'>
-            <AnchorButton 
-                id='btn_cont' 
-                onClick={handleCSubmit}
-                href={`/tags2?id=${searchParams.get('id')}`} 
-                label="Ingresar"/>
+        <div>
+            <AnchorButton onClick={handleSubmit} href="#" label="Enviar"/>
         </div>
     </div>
-    
+  )
 }
 
-
-
+export default Tags4

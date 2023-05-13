@@ -16,6 +16,9 @@ import Prueba from './routes/Prueba';
 import { Admin } from './routes/Admin';
 import { NewAdmin } from './routes/NewAdmin';
 import Results from './routes/Results';
+import Tags2 from './routes/Tags2';
+import Tags3 from './routes/Tags3';
+import Tags4 from './routes/Tags4';
 
 
 
@@ -32,6 +35,18 @@ const router = createBrowserRouter([
   {
     path:'/tags',
     element: <Tags/>
+  },
+  {
+    path:'/tags2',
+    element: <Tags2/>
+  },
+  {
+    path:'/tags3',
+    element: <Tags3/>
+  },
+  {
+    path:'/tags4',
+    element: <Tags4/>
   },
   {
     path:'/final',
