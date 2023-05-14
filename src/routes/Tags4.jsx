@@ -45,7 +45,7 @@ const Tags4 = () => {
     //console.log(viewData);
 
     const handleClickTag = (index) => {
-        const LIMIT = 5;
+        const LIMIT = 1;
         if(items.filter(({activated}) => activated).length >= LIMIT && !items[index].activated) return;
 
         const copy = [...items];

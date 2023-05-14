@@ -38,12 +38,12 @@ const Results = () => {
         //console.log(userData.tags[1].intensity);
     }, [searchParams]);
 
-    useEffect(() => {
+    /*useEffect(() => {
       if(loadedData && userData && userData.tags){
         setPattern(userData.tags[0].pattern);
         setIntensity(userData.tags[1].intensity);
       }
-    });
+    });*/
 
     //const pattern = userData.tags[0].pattern;
     //const pattern = userData && userData.tags ? userData.tags[0].pattern : 'default-pattern';
@@ -55,7 +55,8 @@ const Results = () => {
             <Canvas camera={{position: [10, 0, 10]}}>
                 <Camera/>
                 
-                {userData ? (
+                {userData && userData.tags && userData.tags[2] && userData.tags[3] && (
+                  //la parte de la linea 58 antes tenia solo hasta userdatatags
                   <mesh ref={mesh}>
                     <Blob
                       pattern={userData.tags[0].pattern}
@@ -64,7 +65,7 @@ const Results = () => {
                       color2={{r: userData.tags[3].r, g: userData.tags[3].g, b: userData.tags[3].b}}
                     />
                   </mesh>
-                ) : null}
+                )}
                 <OrbitControls/>
             </Canvas>
         </div>
