@@ -8,7 +8,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 //import vertexShaderPars from './pruebas/vertex_pars.js';
 //import vertexShaderMain from './pruebas/vertex_main.js';
 
-const Blob = () => {
+const Blob = ({pattern, intensity, color1, color2}) => {
 const mesh = useRef();
 const hover = useRef(false);
 
@@ -50,14 +50,14 @@ useFrame((state) =>{
   //<meshStandardMaterial onBeforeCompile={onBeforeCompile}/>
   
   
-  console.log(typeof vertexShader);
+  //console.log(typeof vertexShader);
   
 })
   return (
 
     <mesh ref={mesh} scale={3.0}>
         <icosahedronGeometry args={[1, 100]}/>
-        <shaderMaterial vertexShader={vertexShader} fragmentShader={fragmentShader} uniforms={uniforms}/>
+        <shaderMaterial vertexShader={vertexShader(pattern, intensity)} fragmentShader={fragmentShader(color1, color2)} uniforms={uniforms}/>
     </mesh> 
   )
 }

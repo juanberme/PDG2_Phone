@@ -1,4 +1,4 @@
-const vertexShader = /*glsl*/` 
+const vertexShader = (pattern, intensity ) => /*glsl*/` 
     uniform float uIntensity;
     uniform float uTime;
 
@@ -131,11 +131,26 @@ const vertexShader = /*glsl*/`
         //vDisplacement = noise(position + vec3(1.0 * coords));
 
         //patron con con las lineas
-        vDisplacement = smoothMod(coords.x * 4.0, 0.8, 1.0);   
+        //vDisplacement = smoothMod(coords.x * 4.0, 0.8, 1.0);  
+        
+        switch (${pattern}) {
+            case 0: 
+                vDisplacement = pattern;
+                break;
+            case 1: 
+                vDisplacement = noise(position + vec3(8.0 * coords));
+                break;
+            case 2: 
+                vDisplacement = noise(position + vec3(1.0 * coords));
+                break;
+            case 3: 
+                vDisplacement = smoothMod(coords.x * 4.0, 0.8, 1.0);   
+                break;
+        }
 
         //MVP
         //la linea 147 modifica la intensidad
-        float displacement = vDisplacement / 1.0;
+        float displacement = vDisplacement / ${intensity};
         vec3 newPosition = position + normal * displacement;
         vec4 modelViewPosition = modelViewMatrix * vec4(newPosition, 1.0);
         vec4 projectedPosition = projectionMatrix * modelViewPosition;

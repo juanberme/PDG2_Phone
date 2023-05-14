@@ -7,6 +7,7 @@ import { db } from '../utils/firebase';
 
 const Tags4 = () => {
     const [searchParams] = useSearchParams();
+    const [viewData, setViewData] = useState();
 
     const [items, setItems] = useState([
         {id:1, value : "Distraído(a)", activated:false, r: 0.424, g: 0.745, b: 0.929},
@@ -30,14 +31,18 @@ const Tags4 = () => {
             const editCol = collection(db, 'users');
             const docRef = doc(editCol, searchParams.get("id"));
             const docData = await getDoc(docRef);
+            setViewData(docData.data());
             const {tags} = docData.data();
             await updateDoc(docRef, {tags: tags ? [...tags, ...activeItem] : activeItem});
 
+            //console.log(docData.data());
             console.log('Document written with ID:', docRef.id);
         } catch (error) {
             console.error(error.message);
         }
     }
+
+    //console.log(viewData);
 
     const handleClickTag = (index) => {
         const LIMIT = 5;
@@ -61,7 +66,7 @@ const Tags4 = () => {
                     rounded/>)}
         </section>
         <div>
-            <AnchorButton onClick={handleSubmit} href="#" label="Enviar"/>
+            <AnchorButton onClick={handleSubmit} href={`/resultados?id=${searchParams.get('id')}`} label="Enviar"/>
         </div>
     </div>
   )
