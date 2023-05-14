@@ -5,15 +5,24 @@
     margin: 0.5em;
 }
 
-.page{
-    margin: 0em 2em;
+.T1_CONT{
+    margin: 5em 3em 0em;
 }
 
 
 /*section: titleTxt*/
 .titleTxt{
-    font-size: 0.9em;
-    margin: 5em 0em 0em;
+    font-size: 2em;
+    text-align: center;
+
+    color: #4A8FE7;
+}
+
+#Ttl_Strong{
+    font-size: 1.25em;
+    font-weight: bolder;
+
+    color: #5C7AFF;
 }
 
 

@@ -1,7 +1,12 @@
 import { async } from '@firebase/util';
 import { addDoc, getDocs, collection, doc, updateDoc, getDoc } from 'firebase/firestore';
+
+
 import { Tag } from 'primereact/tag';
 import { useEffect, useState } from 'react';
+import { Knob } from 'primereact/knob';
+
+
 import { useSearchParams } from 'react-router-dom';
 import { AnchorButton } from '../components/Btn';
 import { db } from '../utils/firebase';
@@ -9,24 +14,19 @@ import { db } from '../utils/firebase';
 import '../styles/tagPage.css';
 
 export default function Tags(){
-
-    function getRandomInt(){
-        return Math.floor(Math.random()*4);
-    }
-
     const [searchParams] = useSearchParams();
 
     const [items, setItems] = useState([
-        {id:1, value : "Casero(a)", activated:false, pattern: getRandomInt()},
-        {id:2, value : "Tímido(a)", activated:false, pattern: getRandomInt()},
-        {id:3, value : "Reservado(a)", activated:false, pattern: getRandomInt()},
-        {id:4, value : "Introvertido(a)", activated:false, pattern: getRandomInt()},
-        {id:5, value : "Solitario(a)", activated:false, pattern: getRandomInt()},
-        {id:6, value : "Fiestero(a)", activated:false, pattern: getRandomInt()},
-        {id:7, value : "Elocuente", activated:false, pattern: getRandomInt()},
-        {id:8, value : "Influenciador(a)", activated:false, pattern: getRandomInt()},
-        {id:9, value : "Extrovertido(a)", activated:false, pattern: getRandomInt()},
-        {id:0, value : "Amiguero(a)", activated:false, pattern: getRandomInt()},
+        {id:1, value : "Casero(a)", activated:false, pattern: 3},
+        {id:2, value : "Tímido(a)", activated:false, pattern: 2},
+        {id:3, value : "Reservado(a)", activated:false, pattern: 2},
+        {id:4, value : "Introvertido(a)", activated:false, pattern: 3},
+        {id:5, value : "Solitario(a)", activated:false, pattern: 2},
+        {id:6, value : "Fiestero(a)", activated:false, pattern: 0},
+        {id:7, value : "Elocuente", activated:false, pattern: 0},
+        {id:8, value : "Influenciador(a)", activated:false, pattern: 1},
+        {id:9, value : "Extrovertido(a)", activated:false, pattern: 1},
+        {id:0, value : "Amiguero(a)", activated:false, pattern: 0},
     ]);
 
     //sconst 
@@ -59,14 +59,21 @@ export default function Tags(){
         copy[index].activated = !copy[index].activated;
         setItems(copy);
     }
+
+    //Temporalizador
+    let knobVal = 60;
+
+    function timer(){
+        
+    }
     
-    return <div className='page'>
+    return <section className='T1_CONT'>
         <section className='titleTxt'>
-            <p>Escoge las <strong>5 palabras</strong> que más te definen en menos de:</p>
+            <p><strong id='Ttl_Strong'>Escoge la palabra</strong> que más te definen en menos de:</p>
         </section>
 
-        <section className='clock'>
-            <h5>aqui va el reloj</h5>
+        <section className='card flex justify-content-center'>
+            <Knob value={knobVal} max={60} readOnly/>
         </section>
 
         <section className='tags'>
@@ -87,7 +94,7 @@ export default function Tags(){
                 href={`/tags2?id=${searchParams.get('id')}`} 
                 label="Ingresar"/>
         </div>
-    </div>
+    </section>
     
 }
 

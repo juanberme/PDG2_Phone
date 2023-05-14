@@ -6,24 +6,19 @@ import { collection, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase';
 
 const Tags2 = () => {
-
-    function getRandomFloat(){
-        return (((Math.random()*6)).toFixed(1)).toString();
-    }
-
     const [searchParams] = useSearchParams();
 
     const [items, setItems] = useState([
-        {id:1, value : "Intuitivo(a)", activated:false, intensity: getRandomFloat()},
-        {id:2, value : "Flexible", activated:false, intensity: getRandomFloat()},
-        {id:3, value : "Imaginativo(a)", activated:false, intensity: getRandomFloat()},
-        {id:4, value : "Distraído(a)", activated:false, intensity: getRandomFloat()},
-        {id:5, value : "Influenciador(a)", activated:false, intensity: getRandomFloat()},
-        {id:6, value : "Observador(a)", activated:false, intensity: getRandomFloat()},
-        {id:7, value : "Rígido(a)", activated:false, intensity: getRandomFloat()},
-        {id:8, value : "Realista", activated:false, intensity: getRandomFloat()},
-        {id:9, value : "Atento(a)", activated:false, intensity: getRandomFloat()},
-        {id:0, value : "Reservado(a)", activated:false, intensity: getRandomFloat()},
+        {id:1, value : "Intuitivo(a)", activated:false, intensity: "1.3"},
+        {id:2, value : "Flexible", activated:false, intensity: "2.5"},
+        {id:3, value : "Imaginativo(a)", activated:false, intensity: "3.3"},
+        {id:4, value : "Distraído(a)", activated:false, intensity: "4.2"},
+        {id:5, value : "Influenciador(a)", activated:false, intensity: "5.1"},
+        {id:6, value : "Observador(a)", activated:false, intensity: "6.4"},
+        {id:7, value : "Rígido(a)", activated:false, intensity: "7.1"},
+        {id:8, value : "Realista", activated:false, intensity: "8.3"},
+        {id:9, value : "Atento(a)", activated:false, intensity: "9.5"},
+        {id:0, value : "Reservado(a)", activated:false, intensity: "10.0"},
     ]);
 
     const handleSubmit = async() =>{
