@@ -35,7 +35,7 @@ export default function Final(){
           };
       
           getUsers();
-          console.log(usersData);
+          console.log(usersData[1].tags);
 
         const data = {
             datasets: [
@@ -125,6 +125,11 @@ export default function Final(){
 
             <section className="SCT_GRAPH">
                 <div className="card">
+                    {
+                        usersData.map((user) => {
+                            console.log(user.tags);
+                        })
+                    }
                     <Chart type="polarArea" data={chartData} options={chartOptions} id='graph_element'/>
                 </div>
             </section>
