@@ -2,76 +2,45 @@ import React, {useState, useEffect} from 'react';
 import { Button } from 'primereact/button';
 import { Divider } from 'primereact/divider';
 import { Chart } from 'primereact/chart';
-//import { Colors } from 'chart.js';
+import { collection, getDocs, onSnapshot } from 'firebase/firestore';
 
+import { db } from '../components/utils/firebase.js';
 import '../styles/FinalPage.css';
 
 export default function Final(){
-    /*const [chartData, setChartData] = useState({});
-    const [chartOptions, setChartOptions] = useState({});
-
-    useEffect(() => {
-        const documentStyle = getComputedStyle(document.documentElement);
-        const textColor = documentStyle.getPropertyValue('--text-color');
-        const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
-        const data = {
-            datasets: [{
-                data: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
-                backgroundColor: [
-                    documentStyle.getPropertyValue('--red-500'),
-                    documentStyle.getPropertyValue('--green-500'),
-                    documentStyle.getPropertyValue('--yellow-500'),
-                    documentStyle.getPropertyValue('--bluegray-500'),
-                    documentStyle.getPropertyValue('--blue-500'),
-                    documentStyle.getPropertyValue('--cyan-500'),
-                    documentStyle.getPropertyValue('--pink-500'),
-                    documentStyle.getPropertyValue('--brown-500'),
-                    documentStyle.getPropertyValue('--gray-500'),
-                    documentStyle.getPropertyValue('--orange-500'),
-                    documentStyle.getPropertyValue('--lime-500'),
-                    documentStyle.getPropertyValue('--magenta-500'),
-                    documentStyle.getPropertyValue('--red-500'),
-                    documentStyle.getPropertyValue('--blue-500'),
-                    documentStyle.getPropertyValue('--yellow-500'),
-                    documentStyle.getPropertyValue('--green-500'),
-                ],
-                label: 'DataBase'
-            }],
-            labels: ['INFP', 'INFJ', 'INTP', 'INTJ', 'ISFP', 'ISFJ', 'ISTP', 'ISTJ', 'ENFP', 'ENFJ', 'ENTP', 'ENTJ', 'ESFP', 'ESFJ', 'ESTP', 'ESTJ']
-        };
-
-        const options = {
-            plugins: {
-                legend: {
-                    labels: {
-                        color: textColor
-                    }
-                }
-            },
-            scales: {
-                r: {
-                    grid: {
-                        color: surfaceBorder
-                    }
-                }
-            }
-        };
-
-        setChartData(data);
-        setChartOptions(options);
-    }, []);*/
 
     const [chartData, setChartData] = useState({});
     const [chartOptions, setChartOptions] = useState({});
+    const [usersData, setUsersData] = useState([]);
+
+    var userList = [];
 
     useEffect(() => {
         const documentStyle = getComputedStyle(document.documentElement);
         const textColor = documentStyle.getPropertyValue('--text-color');
         const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+
+        const getUsers = async () => {
+            try {
+              const userCollection = collection(db, "users");
+              const usersSnapshot = await getDocs(userCollection);
+      
+              usersSnapshot.forEach(doc => {
+                userList.push(doc.data());
+              });
+              setUsersData(userList);
+            } catch(e) {
+              console.error(e.message);
+            }
+          };
+      
+          getUsers();
+          console.log(usersData);
+
         const data = {
             datasets: [
                 {
-                    data: [10, 15, 10, 11, 17, 20, 21, 25],
+                    data: [10, 10, 20, 10, 10, 20, 10],
                     backgroundColor: [
                         documentStyle.getPropertyValue('--red-500'),
                         documentStyle.getPropertyValue('--green-500'),
@@ -84,7 +53,7 @@ export default function Final(){
                     label: 'My dataset'
                 }
             ],
-            labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue']
+            labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue', 'Orange', 'Purple']
         };
         const options = {
             plugins: {
