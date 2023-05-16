@@ -35,12 +35,11 @@ export default function Final(){
           };
       
           getUsers();
-          console.log(usersData[1].tags);
 
         const data = {
             datasets: [
                 {
-                    data: [10, 10, 20, 10, 10, 20, 10],
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     backgroundColor: [
                         documentStyle.getPropertyValue('--red-500'),
                         documentStyle.getPropertyValue('--green-500'),
@@ -53,7 +52,7 @@ export default function Final(){
                     label: 'My dataset'
                 }
             ],
-            labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue', 'Orange', 'Purple']
+            labels: ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "p12", "p13", "p14", "p15", "p16"]
         };
         const options = {
             plugins: {
@@ -73,6 +72,7 @@ export default function Final(){
         };
 
         setChartData(data);
+        console.log(data);
         setChartOptions(options);
     }, []);
 
@@ -127,7 +127,48 @@ export default function Final(){
                 <div className="card">
                     {
                         usersData.map((user) => {
+                            
                             console.log(user.tags);
+
+                            user.tags.forEach(element =>{
+                                var MIBT = "";
+                                var count_I = 0;
+                                var count_E = 0;
+                                var count_N = 0;
+                                var count_S = 0;
+                                var count_F = 0;
+                                var count_T = 0;
+                                var count_P = 0;
+                                var count_J = 0;
+
+                                if(element.value === "Casero(a)" || element.value === "Tímido(a)" || element.value === "Reservado(a)" || element.value === "Introvertido(a)" || element.value === "Solitario(a)"){
+                                    count_I ++;
+                                    MIBT += "I";
+                                } else if(element.value === "Fiestero(a)" || element.value === "Elocuente" || element.value === "Influenciador(a)" || element.value === "Extrovertido(a)" || element.value === "Amiguero(a)"){
+                                    count_E ++;
+                                    MIBT += "E";
+                                } else if(element.value === "Intuitivo(a)" || element.value === "Flexible" || element.value === "Imaginativo(a)" || element.value === "Distraído(a)" || element.value === "Influenciador(a)"){
+                                    count_N ++;
+                                    MIBT += "N";
+                                } else if(element.value === "Observador(a)" || element.value === "Rígido(a)" || element.value === "Realista" || element.value === "Atento(a)" || element.value === "Reservado(a)"){
+                                    count_S ++;
+                                    MIBT += "S";
+                                } else if(element.value === "Espiritual" || element.value === "Subjetivo(a)" || element.value === "Flexible(a)" || element.value === "Emocional(a)" || element.value === "Caótico(a)"){
+                                    count_F ++;
+                                    MIBT += "F";
+                                } else if(element.value === "Científico(a)" || element.value === "Objetivo(a)" || element.value === "Rígido(a)" || element.value === "Racional" || element.value === "Lógico(a)"){
+                                    count_T ++;
+                                    MIBT += "T";
+                                } else if(element.value === "Distraído(a)" || element.value === "Caótico(a)" || element.value === "Diferente" || element.value === "Esporádico(a)" || element.value === "Improvisador(a)"){
+                                    count_P ++;
+                                    MIBT += "P";
+                                } else if(element.value === "Atento(a)" || element.value === "Ordenado(a)" || element.value === "Moda" || element.value === "Metodológico(a)" || element.value === "Planeador(a)"){
+                                    count_J ++;
+                                    MIBT += "J";
+                                }
+
+                                //setChartData();
+                            })
                         })
                     }
                     <Chart type="polarArea" data={chartData} options={chartOptions} id='graph_element'/>
