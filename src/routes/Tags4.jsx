@@ -1,6 +1,11 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { AnchorButton } from '../components/Btn';
+
 import { Tag } from 'primereact/tag';
+import { Knob } from 'primereact/knob';
+import { Steps } from 'primereact/steps';
+import { Toast } from 'primereact/toast';
+
 import { useSearchParams } from 'react-router-dom';
 import { collection, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase';
@@ -26,6 +31,13 @@ const Tags4 = () => {
         {id:9, value : "Metodológico(a)", activated:false, r: 0.059, g: 0.639, b: 0.694},
         {id:0, value : "Planeador(a)", activated:false, r: 1.0, g: 0.608, b: 0.259},
     ]);
+
+    const stepsList = [
+        {label: 'Paso 1'},
+        {label: 'Paso 2'},
+        {label: 'Paso 3'},
+        {label: 'Paso 4'},
+    ];
 
     const handleSubmit = async() =>{
         try {
@@ -58,9 +70,46 @@ const Tags4 = () => {
         copy[index].activated = !copy[index].activated;
         setItems(copy);
     }
+
+    //Temporalizador
+    useEffect(() => {
+        _val = value;
+
+        interval.current = setInterval(() => {
+            _val += 1;
+
+            if (_val >= 60) {
+                toast.current.show({ severity: 'info', summary: 'Finalizó el tiempo!', detail: 'Si necesitas más tiempo, puedes quedarte :)' });
+                clearInterval(interval.current);
+            }
+
+            setValue(_val);
+        }, 1000);
+
+        return () => {
+            if (interval.current) {
+                clearInterval(interval.current);
+                interval.current = null;
+            }
+        };
+    }, []);
+
   return (
-    <div>
-        <section className='tags'>
+    <section className='T1_CONT'>
+        <section className='titleTxt'>
+            <p><strong id='Ttl_Strong'>Escoge la palabra</strong> que más te definen en menos de:</p>
+        </section>
+        
+        <section className='Knb_CONT'>
+            <Toast ref={toast}></Toast>
+            <Knob value={value} max={60} readOnly/>
+        </section>
+
+        <section className="Stp_CONT">
+            <Steps model={stepsList}/>
+        </section>
+
+        <section className='Tgs_CONT'>
             {items.map(({id, value, activated}, index) => 
                 <Tag 
                     style={activated ? {background: "red"} : {}}
@@ -70,10 +119,10 @@ const Tags4 = () => {
                     value={value}
                     rounded/>)}
         </section>
-        <div>
+        <div className='btn'>
             <AnchorButton onClick={handleSubmit} href={`/resultados?id=${searchParams.get('id')}`} label="Enviar"/>
         </div>
-    </div>
+    </section>
   )
 }
 
