@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import { Button } from 'primereact/button';
 import { Divider } from 'primereact/divider';
 import { Chart } from 'primereact/chart';
+import { TreeTable } from 'primereact/treetable';
+import { Column } from 'primereact/column';
 import { collection, getDocs, onSnapshot } from 'firebase/firestore';
 
 import { db } from '../components/utils/firebase.js';
@@ -28,7 +30,20 @@ export default function Final(){
               usersSnapshot.forEach(doc => {
                 userList.push(doc.data());
               });
-              setUsersData(userList);
+              setUsersData(userList.map(u => {
+                const data = {
+                    name: u.name,
+                    gender: u.gender[0],
+                    tag1: u.tags[0].value,
+                    tag2: u.tags[1].value,
+                    tag3: u.tags[2].value,
+                    tag4: u.tags[3].value,
+                };
+
+                return {
+                    data
+                }
+              }));
             } catch(e) {
               console.error(e.message);
             }
@@ -36,7 +51,8 @@ export default function Final(){
       
           getUsers();
 
-        const data = {
+        //= (p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16)
+        const data  = {
             datasets: [
                 {
                     data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -54,7 +70,8 @@ export default function Final(){
             ],
             labels: ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "p12", "p13", "p14", "p15", "p16"]
         };
-        const options = {
+        setChartData(data);
+        /*const options = {
             plugins: {
                 legend: {
                     labels: {
@@ -71,9 +88,9 @@ export default function Final(){
             }
         };
 
-        setChartData(data);
+        
         console.log(data);
-        setChartOptions(options);
+        setChartOptions(options);*/
     }, []);
 
 
@@ -125,13 +142,46 @@ export default function Final(){
 
             <section className="SCT_GRAPH">
                 <div className="card">
-                    {
-                        usersData.map((user) => {
-                            
-                            console.log(user.tags);
 
-                            user.tags.forEach(element =>{
-                                var MIBT = "";
+                    <TreeTable value={usersData}>
+                        <Column field="name" header="Name" />
+                        <Column field="gender" header="Gender" />
+                        <Column field="tag1" header="Name" />
+                        <Column field="tag2" header="Name" />
+                        <Column field="tag3" header="Name" />
+                        <Column field="tag4" header="Name" />
+                    </TreeTable>
+                    {
+                        /* usersData.map((user, i) => {
+
+                            const name = user.name;
+                           
+                            //const name = user['name'];
+                            const gender = user.gender;
+                            
+                            console.log(user);
+                            console.log(name);
+                            //console.log();
+                            //console.log(user.tags);
+                            return (
+                                <div className="card" key={i}>
+                                    <TreeTable  value={usersData.map(u => u.name)}>
+                                        <Column  field= {user.name} header="Nombre"></Column>
+                                    </TreeTable>
+                                </div>
+                            ) */
+
+
+                            //user.tags.forEach
+                            /* user.tags.forEach(element =>{ */
+                                //console.log(element.value);
+                                //console.log(element);
+                                /*switch(element.value){
+                                    case "Casero(a)":
+                                        console.log("sirvió");
+                                    break;
+                                }*/
+                                /*var MIBT = "";
                                 var count_I = 0;
                                 var count_E = 0;
                                 var count_N = 0;
@@ -139,9 +189,9 @@ export default function Final(){
                                 var count_F = 0;
                                 var count_T = 0;
                                 var count_P = 0;
-                                var count_J = 0;
+                                var count_J = 0;*/
 
-                                if(element.value === "Casero(a)" || element.value === "Tímido(a)" || element.value === "Reservado(a)" || element.value === "Introvertido(a)" || element.value === "Solitario(a)"){
+                                /*if(element.value === "Casero(a)" || element.value === "Tímido(a)" || element.value === "Reservado(a)" || element.value === "Introvertido(a)" || element.value === "Solitario(a)"){
                                     count_I ++;
                                     MIBT += "I";
                                 } else if(element.value === "Fiestero(a)" || element.value === "Elocuente" || element.value === "Influenciador(a)" || element.value === "Extrovertido(a)" || element.value === "Amiguero(a)"){
@@ -165,11 +215,14 @@ export default function Final(){
                                 } else if(element.value === "Atento(a)" || element.value === "Ordenado(a)" || element.value === "Moda" || element.value === "Metodológico(a)" || element.value === "Planeador(a)"){
                                     count_J ++;
                                     MIBT += "J";
-                                }
+                                }*/
 
+                                //console.log(element.value);
                                 //setChartData();
-                            })
-                        })
+                                
+                            /* })
+
+                        }) */
                     }
                     <Chart type="polarArea" data={chartData} options={chartOptions} id='graph_element'/>
                 </div>
