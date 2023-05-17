@@ -144,12 +144,12 @@ export default function Final(){
                 <div className="card">
 
                     <TreeTable value={usersData}>
-                        <Column field="name" header="Name" />
+                        <Column field="name" header="Nombre" />
                         <Column field="gender" header="Gender" />
-                        <Column field="tag1" header="Name" />
-                        <Column field="tag2" header="Name" />
-                        <Column field="tag3" header="Name" />
-                        <Column field="tag4" header="Name" />
+                        <Column field="tag1" header="1er Tag" />
+                        <Column field="tag2" header="2do Tag" />
+                        <Column field="tag3" header="3er Tag" />
+                        <Column field="tag4" header="4to Tag" />
                     </TreeTable>
                     {
                         /* usersData.map((user, i) => {
