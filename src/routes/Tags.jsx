@@ -1,10 +1,12 @@
 import { async } from '@firebase/util';
-import { addDoc, getDocs, collection, doc, updateDoc, getDoc } from 'firebase/firestore';
+import { collection, doc, updateDoc, getDoc } from 'firebase/firestore';
 
 
 import { Tag } from 'primereact/tag';
-import { useEffect, useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Knob } from 'primereact/knob';
+import { Steps } from 'primereact/steps';
+import { Toast } from 'primereact/toast';
 
 
 import { useSearchParams } from 'react-router-dom';
@@ -15,6 +17,11 @@ import '../styles/tagPage.css';
 
 export default function Tags(){
     const [searchParams] = useSearchParams();
+
+    const [value, setValue] = useState(0);
+    const toast = useRef(null);
+    const interval = useRef(null);
+    let _val = 60;
 
     const [items, setItems] = useState([
         {id:1, value : "Casero(a)", activated:false, pattern: 3},
@@ -28,6 +35,13 @@ export default function Tags(){
         {id:9, value : "Extrovertido(a)", activated:false, pattern: 1},
         {id:0, value : "Amiguero(a)", activated:false, pattern: 0},
     ]);
+
+    const stepsList = [
+        {label: 'Paso 1'},
+        {label: 'Paso 2'},
+        {label: 'Paso 3'},
+        {label: 'Paso 4'},
+    ];
 
     //sconst 
     const handleCSubmit = async () => {
@@ -61,22 +75,43 @@ export default function Tags(){
     }
 
     //Temporalizador
-    let knobVal = 60;
+    useEffect(() => {
+        _val = value;
 
-    function timer(){
-        
-    }
+        interval.current = setInterval(() => {
+            _val += 1;
+
+            if (_val >= 60) {
+                toast.current.show({ severity: 'info', summary: 'Finalizó el tiempo!', detail: 'Si necesitas más tiempo, puedes quedarte :)' });
+                clearInterval(interval.current);
+            }
+
+            setValue(_val);
+        }, 2000);
+
+        return () => {
+            if (interval.current) {
+                clearInterval(interval.current);
+                interval.current = null;
+            }
+        };
+    }, []);
     
     return <section className='T1_CONT'>
         <section className='titleTxt'>
             <p><strong id='Ttl_Strong'>Escoge la palabra</strong> que más te definen en menos de:</p>
         </section>
 
-        <section className='card flex justify-content-center'>
-            <Knob value={knobVal} max={60} readOnly/>
+        <section className='Knb_CONT'>
+            <Toast ref={toast}></Toast>
+            <Knob value={value} max={60} readOnly/>
         </section>
 
-        <section className='tags'>
+        <section className="Stp_CONT">
+            <Steps model={stepsList}/>
+        </section>
+
+        <section className='Tgs_CONT'>
             {items.map(({id, value, activated}, index) => 
                 <Tag 
                     style={activated ? {background: "red"} : {}}
@@ -92,11 +127,7 @@ export default function Tags(){
                 id='btn_cont' 
                 onClick={handleCSubmit}
                 href={`/tags2?id=${searchParams.get('id')}`} 
-                label="Ingresar"/>
+                label="Continuar"/>
         </div>
     </section>
-    
 }
-
-
-

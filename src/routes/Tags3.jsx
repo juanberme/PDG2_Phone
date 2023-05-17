@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState, useRef } from 'react';
 import { AnchorButton } from '../components/Btn';
 import { Tag } from 'primereact/tag';
 import { useSearchParams } from 'react-router-dom';
@@ -7,6 +7,11 @@ import { db } from '../utils/firebase';
 
 const Tags3 = () => {
     const [searchParams] = useSearchParams();
+
+    const [value, setValue] = useState(0);
+    const toast = useRef(null);
+    const interval = useRef(null);
+    let _val = 60;
 
     const [items, setItems] = useState([
         {id:1, value : "Espiritual", activated:false, r: 0.475, g: 0.678, b: 0.863},
@@ -49,7 +54,11 @@ const Tags3 = () => {
         setItems(copy);
     }
   return (
-    <div>
+    <section className='T1_CONT'>
+        <section className='titleTxt'>
+            <p><strong id='Ttl_Strong'>Escoge la palabra</strong> que más te definen en menos de:</p>
+        </section>
+
         <section className='tags'>
             {items.map(({id, value, activated}, index) => 
                 <Tag 
@@ -60,10 +69,11 @@ const Tags3 = () => {
                     value={value}
                     rounded/>)}
         </section>
-        <div>
+
+        <div className='btn'>
             <AnchorButton onClick={handleSubmit} href={`/tags4?id=${searchParams.get('id')}`} label="Siguiente"/>
         </div>
-    </div>
+    </section>
   )
 }
 

@@ -1,4 +1,7 @@
-/*MODIFICAR TAGS INDIVIDUALES*/
+/*====================================================================================================*/
+
+
+/*Body: tag*/
 .tag{
     padding: 0.75em;
     font-size: 1em;
@@ -6,11 +9,14 @@
 }
 
 .T1_CONT{
-    margin: 5em 3em 0em;
+    margin: 4em 3em 0em;
 }
 
 
-/*section: titleTxt*/
+/*--------------------------------------------------------------------------------------*/
+
+
+/*Divisor: Title*/
 .titleTxt{
     font-size: 2em;
     text-align: center;
@@ -26,26 +32,52 @@
 }
 
 
-/*section: clock*/
+/*--------------------------------------------------------------------------------------*/
 
 
-/*section: tags*/
-.tags{
+/*Divisor: Clock*/
+.Knb_CONT{
+    display: flex;
+    justify-content: center;
+
+    margin: 2.5em 0em 0em;
+}
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+/*Divisor: Steps*/
+.Stp_CONT{
+    margin: 2.5em 0em 0em;
+}
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+/*Divisor: Tags*/
+.Tgs_CONT{
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
 
-    margin: 3em 0em;
+    margin: 2.5em 0em 0em;
 
     height: 20em;
 }
 
 
-/*section: button*/
+/*--------------------------------------------------------------------------------------*/
+
+
+/*Divisor: Button*/
 .btn{
     display: flex;
     justify-content: center;
+
+    margin: 2.5em 0em 0em;
 }
 
 #btn_cont{

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState, useRef } from 'react';
 import { AnchorButton } from '../components/Btn';
 import { Tag } from 'primereact/tag';
 import { useSearchParams } from 'react-router-dom';
@@ -8,6 +8,11 @@ import { db } from '../utils/firebase';
 const Tags4 = () => {
     const [searchParams] = useSearchParams();
     const [viewData, setViewData] = useState();
+
+    const [value, setValue] = useState(0);
+    const toast = useRef(null);
+    const interval = useRef(null);
+    let _val = 60;
 
     const [items, setItems] = useState([
         {id:1, value : "Distraído(a)", activated:false, r: 0.424, g: 0.745, b: 0.929},
