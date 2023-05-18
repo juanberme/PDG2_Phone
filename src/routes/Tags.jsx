@@ -16,6 +16,7 @@ import { db } from '../utils/firebase';
 import '../styles/tagPage.css';
 
 export default function Tags(){
+    const [stepInfo, setStepInfo] = useState(0);
     const [searchParams] = useSearchParams();
 
     const [value, setValue] = useState(0);
@@ -108,7 +109,7 @@ export default function Tags(){
         </section>
 
         <section className="Stp_CONT">
-            <Steps model={stepsList}/>
+            <Steps model={stepsList} activeIndex={stepInfo}/>
         </section>
 
         <section className='Tgs_CONT'>

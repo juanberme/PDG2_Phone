@@ -11,6 +11,7 @@ import { collection, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase';
 
 const Tags3 = () => {
+    const [stepInfo, setStepInfo] = useState(2);
     const [searchParams] = useSearchParams();
 
     const [value, setValue] = useState(0);
@@ -101,7 +102,7 @@ const Tags3 = () => {
         </section>
 
         <section className="Stp_CONT">
-            <Steps model={stepsList}/>
+            <Steps model={stepsList} activeIndex={stepInfo}/>
         </section>
 
         <section className='Tgs_CONT'>
