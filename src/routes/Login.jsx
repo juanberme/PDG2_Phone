@@ -1,6 +1,8 @@
 import { InputText } from 'primereact/inputtext';
 import { Calendar } from 'primereact/calendar';
 import { MultiSelect } from 'primereact/multiselect';
+import { InputNumber } from 'primereact/inputnumber';
+        
 import { AnchorButton } from '../components/Btn.js';
 
 import React, { useState } from 'react';
@@ -15,6 +17,13 @@ export default function Login(){
     const navigate = useNavigate();
     //name input
     const [inputName, setInputName] = useState('');
+    const [validName, setValidName] = useState(true);
+
+    const validateName = () => {
+        const regex = /^(?!\s*$).+/;
+        setValidName(regex.test(inputName));
+    }
+
     const handleNameInput = (e) =>{
         setInputName(e.target.value);
     }
@@ -39,27 +48,52 @@ export default function Login(){
 
     //date input
     const [inputDate, setInputDate] = useState('');
+    const [validDate, setValidDate] = useState(true);
+
+    const validateDate = () => {
+        const regex = /^(?!\s*$).+/;
+        setValidDate(regex.test(inputDate));
+    }
     const handleDateInput = (e) => {
         setInputDate(e.value);
     }
+
+    //email input
+    const [email, setEmail] = useState('');
+    const [valid, setValid] = useState(true);
+
+    const validateEmail = () => {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        setValid(regex.test(email));
+    };
+
+    const handleEmailInput = (e) => {
+        setEmail(e.target.value);
+    };
 
     //send data
     const handleLogin = async () => {
         try {
             const col = collection(db, 'users');
-            const doc = await addDoc(col, {
-                name: inputName,
-                gender: inputGender,
-                date: inputDate
-            });
             
-            navigate(`/tags?id=${doc.id}`);
-            console.log(`User ${doc.id} stored in db`);
+            
+            if(valid && validDate && validName){
+                const doc = await addDoc(col, {
+                    name: inputName,
+                    gender: inputGender,
+                    date: inputDate,
+                    email: email
+                });
+                
+                navigate(`/tags?id=${doc.id}`);
+                console.log(`User ${doc.id} stored in db`);
+            }
         } catch (error) {
             console.error(error.message);
         }
     }
     
+    //<Calendar id='login_calendar' value={inputDate} onChange={handleDateInput} dateFormat="dd/mm/yy" showIcon />
     return <div className='login'>
         <section className='text'>
             <div className="text_up">
@@ -76,8 +110,15 @@ export default function Login(){
             <div className='input'>
                 <label className='labelName' htmlFor="name">Nombre</label>
                 <span className="INPT_Name">
-                    <InputText id="login_name" aria-describedby="name-help" value={inputName} onChange={handleNameInput}/>
+                    <InputText id="login_name" aria-describedby="name-help" value={inputName} onChange={handleNameInput} onBlur={validateName}/>
+                    {!validName && <small className="p-error">Ingresa tu Nombre</small>}
                 </span>
+            </div>
+
+            <div className='input'>
+                <label className='labelName'>Correo electrónico</label>
+                <InputText id='login_email' value={email} onChange={handleEmailInput} onBlur={validateEmail} className={!valid ? 'p-invalid' : ''}/>
+                {!valid && <small className="p-error">Ingresa un correo electrónico válido.</small>}
             </div>
 
             <div className='input'>
@@ -87,8 +128,9 @@ export default function Login(){
             </div>
 
             <div className='input'>
-                <label className='labelName'>Fecha de nacimiento</label>
-                <Calendar id='login_calendar' value={inputDate} onChange={handleDateInput} dateFormat="dd/mm/yy" showIcon />
+                <label className='labelName'>Edad</label>
+                <InputNumber inputId='login_calendar' value={inputDate} onChange={handleDateInput} onBlur={validateDate} min={0} max={100}/>
+                {!validDate && <small className="p-error">Ingresa tu edad.</small>}
             </div>
         </section>
         

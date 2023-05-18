@@ -76,15 +76,13 @@ const Results = () => {
         <div className='Ttl_DIV'>
           <p className='Ttl_Element'><strong id='Ttl_Strong'>Esta es la figura</strong> que te representa:</p>
           {userData && userData.tags && userData.tags[2] && userData.tags[3] && (
-            <mesh ref={mesh}>
               <p className='Ttl_Element'>{userData.name}</p>
-            </mesh>
           )}
         </div>
 
         <div className="Tags_DIV">
           {userData && userData.tags && userData.tags[2] && userData.tags[3] && (
-            <mesh ref={mesh}>
+           <div>
               <p className="userTagLine">
                 <i className="pi pi-circle-fill"></i> <span>{userData.tags[0].value}</span>
               </p>
@@ -97,7 +95,9 @@ const Results = () => {
               <p className="userTagLine">
                 <i className="pi pi-circle-fill"></i> <span>{userData.tags[3].value}</span>
               </p>
-            </mesh>
+           </div>
+              
+
           )}
         </div>
 
