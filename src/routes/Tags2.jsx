@@ -95,7 +95,7 @@ const Tags2 = () => {
   return (
     <section className='T1_CONT'>
         <section className='titleTxt'>
-            <p><strong id='Ttl_Strong'>Escoge la palabra</strong> que más te definen en menos de:</p>
+            <p><strong id='Ttl_Strong'>Escoge 1 palabra</strong> que más te definen en menos de 60s:</p>
         </section>
 
         <section className='Knb_CONT'>

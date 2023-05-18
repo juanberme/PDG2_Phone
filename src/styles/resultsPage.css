@@ -23,7 +23,7 @@
 
 /*Divisor: Titulo*/
 .Info_CONT{
-    margin: 2em 0em 0em;
+    margin: 0em;
 }
 
 .Ttl_DIV{
@@ -33,14 +33,35 @@
 }
 
 .Ttl_Element{
-    margin: 0em 0em 1em;
+    margin: 0em 0em 0.5em;
 }
 
+#userName{
+    font-weight: 700;
+
+    margin: 0em 0em 1em;
+
+    color: #5C7AFF;
+}
 
 /*--------------------------------------------------------------------------------------*/
 
 
 /*Divisor: Tags*/
+.Tags_DIV{
+    margin: 5em 0em 0em;
+}
+
 .userTagLine{
-    font-size: 1em;
+    font-size: 1.5em;
+    margin: 1em 0em 0em;
+}
+
+.txt_Line{
+    color: #4A8FE7;
+    font-size: 1.15em;
+}
+
+.iconCircle{
+    color: #5C7AFF;
 }

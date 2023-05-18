@@ -17,7 +17,7 @@
 /*Section: Txt_Cont*/
 .Cont_Txt{
     text-align: center;
-    margin-bottom: 7em;
+    margin: 0em 0em 3em;
 }
 
 .Cont_Tlt{
@@ -26,7 +26,7 @@
 }
 
 .Tlt_h{
-    margin: 0em 0em 0em;
+    margin: 0em;
 }
 
 .Cont_Ln{
@@ -43,6 +43,10 @@
 
 #ln2{
     color: #5C6679;
+}
+
+.Cont_Btn{
+    margin: 3em 0em 0em;
 }
 
 #btn_begin{

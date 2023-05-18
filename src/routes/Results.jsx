@@ -76,34 +76,26 @@ const Results = () => {
         <div className='Ttl_DIV'>
           <p className='Ttl_Element'><strong id='Ttl_Strong'>Esta es la figura</strong> que te representa:</p>
           {userData && userData.tags && userData.tags[2] && userData.tags[3] && (
-              <p className='Ttl_Element'>{userData.name}</p>
+              <p className='Ttl_Element' id='userName'>{userData.name}</p>
           )}
         </div>
 
-        <div className="Tags_DIV">
-          {userData && userData.tags && userData.tags[2] && userData.tags[3] && (
-           <div>
-              <p className="userTagLine">
-                <i className="pi pi-circle-fill"></i> <span>{userData.tags[0].value}</span>
-              </p>
-              <p className="userTagLine">
-                <i className="pi pi-circle-fill"></i> <span>{userData.tags[1].value}</span>
-              </p>
-              <p className="userTagLine">
-                <i className="pi pi-circle-fill"></i> <span>{userData.tags[2].value}</span>
-              </p>
-              <p className="userTagLine">
-                <i className="pi pi-circle-fill"></i> <span>{userData.tags[3].value}</span>
-              </p>
-           </div>
-              
-
-          )}
-        </div>
-
-        <div className='btn'>
-          <Button label='Finalizar'/>
-        </div>
+        {userData && userData.tags && userData.tags[2] && userData.tags[3] && (
+          <div className="Tags_DIV">
+            <p className="userTagLine">
+              <i className="iconCircle pi pi-circle-fill"></i> <span className='txt_Line'>{userData.tags[0].value}</span>
+            </p>
+            <p className="userTagLine">
+              <i className="iconCircle pi pi-circle-fill"></i> <span className='txt_Line'>{userData.tags[1].value}</span>
+            </p>
+            <p className="userTagLine">
+              <i className="iconCircle pi pi-circle-fill"></i> <span className='txt_Line'>{userData.tags[2].value}</span>
+            </p>
+            <p className="userTagLine">
+              <i className="iconCircle pi pi-circle-fill"></i> <span className='txt_Line'>{userData.tags[3].value}</span>
+            </p>
+          </div>
+        )}
       </section>
     </section>
   )}

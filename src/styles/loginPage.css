@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
 
-    margin: 4em 3em 0em;
+    margin: 5em 3em 0em;
 }
 
 
@@ -24,7 +24,7 @@
 }
 
 .text_down{
-    margin: 12em 0em 1em;
+    margin: 9em 0em 1em;
 }
 
 .text_Ln{
@@ -38,7 +38,7 @@
 
 /*Section: content*/
 .content{
-    margin: 0em 0em 10em;
+    margin: 0em 0em 3em;
 }
 
 .input{
