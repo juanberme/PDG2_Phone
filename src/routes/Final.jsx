@@ -34,6 +34,8 @@ export default function Final(){
                 const data = {
                     name: u.name,
                     gender: u.gender[0],
+                    age: u.date,
+                    email: u.email,
                     tag1: u.tags[0].value,
                     tag2: u.tags[1].value,
                     tag3: u.tags[2].value,
@@ -146,10 +148,12 @@ export default function Final(){
                     <TreeTable value={usersData}>
                         <Column field="name" header="Nombre" />
                         <Column field="gender" header="Gender" />
+                        <Column field="age" header="Edad" />
                         <Column field="tag1" header="1er Tag" />
                         <Column field="tag2" header="2do Tag" />
                         <Column field="tag3" header="3er Tag" />
                         <Column field="tag4" header="4to Tag" />
+                        <Column field="email" header="correo" />
                     </TreeTable>
                     {
                         /* usersData.map((user, i) => {
