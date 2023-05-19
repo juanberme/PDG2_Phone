@@ -15,9 +15,17 @@ const hover = useRef(false);
 const uniforms = useMemo(() => {
   return {
     uTime: {value: 0},
-    uIntensity: {value: 0.3}
+    uIntensity: {value: 0.5},
+    uForce: {value: intensity},
+    uPattern: {value: pattern},
+    uR1: {value: color1.r},
+    uG1: {value: color1.g},
+    uB1: {value: color1.b},
+    uR2: {value: color2.r},
+    uG2: {value: color2.g},
+    uB2: {value: color2.b}
   };
-});
+}, []);
 
 const onBeforeCompile = (shader) => {
     mesh.current.material.shader = shader
@@ -57,7 +65,7 @@ useFrame((state) =>{
 
     <mesh ref={mesh} scale={3.0}>
         <icosahedronGeometry args={[1, 100]}/>
-        <shaderMaterial vertexShader={vertexShader(pattern, intensity)} fragmentShader={fragmentShader(color1, color2)} uniforms={uniforms}/>
+        <shaderMaterial vertexShader={vertexShader} fragmentShader={fragmentShader} uniforms={uniforms}/>
     </mesh> 
   )
 }

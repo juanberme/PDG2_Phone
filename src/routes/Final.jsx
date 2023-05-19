@@ -15,6 +15,8 @@ export default function Final(){
     const [chartOptions, setChartOptions] = useState({});
     const [usersData, setUsersData] = useState([]);
 
+
+    const [userAges, setUserAges] = useState({});
     var userList = [];
 
     useEffect(() => {
@@ -42,6 +44,8 @@ export default function Final(){
                     tag4: u.tags[3].value,
                 };
 
+                //setUserAges(userList);
+
                 return {
                     data
                 }
@@ -52,47 +56,82 @@ export default function Final(){
           };
       
           getUsers();
+          console.log(userList);
 
-        //= (p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16)
-        const data  = {
-            datasets: [
-                {
-                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                    backgroundColor: [
-                        documentStyle.getPropertyValue('--red-500'),
-                        documentStyle.getPropertyValue('--green-500'),
-                        documentStyle.getPropertyValue('--yellow-500'),
-                        documentStyle.getPropertyValue('--bluegray-500'),
-                        documentStyle.getPropertyValue('--blue-500'),
-                        documentStyle.getPropertyValue('--orange-500'),
-                        documentStyle.getPropertyValue('--purple-500'),
-                    ],
-                    label: 'My dataset'
-                }
-            ],
-            labels: ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "p12", "p13", "p14", "p15", "p16"]
+        // Obtén las edades de los usuarios
+
+        console.log(usersData);
+
+        // Calcula el recuento de cada rango de edad
+        const ages = {
+            ageRanges: ['0 a 18', '19 a 30', '31 a 40', '41 a 50', '51 a 60', '61 a 70', 'más de 70'],
+            datasets: [{
+                label: 'edades',
+                data: [userList.date],
+                backgroundColor: [
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                ],
+                borderColor: [
+                    'rgb(255, 159, 64)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                    'rgb(255, 159, 64)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                  ],
+                  borderWidth: 1
+            }]
         };
-        setChartData(data);
-        /*const options = {
-            plugins: {
-                legend: {
-                    labels: {
-                        color: textColor
-                    }
-                }
-            },
+        const options = {
             scales: {
-                r: {
-                    grid: {
-                        color: surfaceBorder
-                    }
+                y: {
+                    beginAtZero: true
                 }
             }
         };
+        setChartData(ages);
+        setChartOptions(options);
+        /*
+        const ageCounts = ageRanges.map(range => ages.filter(age => age === range).length);
+
+        // Crea los datos del gráfico
+        const chartData = {
+            labels: ageRanges,
+            datasets: [
+        {
+            label: 'Edades',
+            data: ageCounts,
+            backgroundColor: '#42A5F5', // Color de fondo de las barras
+            borderColor: '#1E88E5', // Color del borde de las barras
+            borderWidth: 1, // Ancho del borde de las barras
+        },],};
+
+        // Opciones del gráfico
+        const chartOptions = {
+            responsive: true,
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  precision: 0, // Sin decimales en los ejes y
+                },
+              },
+            },
+          };
+        
+        setChartData(chartData);
+        setChartOptions(chartOptions);*/
 
         
-        console.log(data);
-        setChartOptions(options);*/
+  
+
     }, []);
 
 
@@ -155,80 +194,10 @@ export default function Final(){
                         <Column field="tag4" header="4to Tag" />
                         <Column field="email" header="correo" />
                     </TreeTable>
-                    {
-                        /* usersData.map((user, i) => {
+                </div>
 
-                            const name = user.name;
-                           
-                            //const name = user['name'];
-                            const gender = user.gender;
-                            
-                            console.log(user);
-                            console.log(name);
-                            //console.log();
-                            //console.log(user.tags);
-                            return (
-                                <div className="card" key={i}>
-                                    <TreeTable  value={usersData.map(u => u.name)}>
-                                        <Column  field= {user.name} header="Nombre"></Column>
-                                    </TreeTable>
-                                </div>
-                            ) */
-
-
-                            //user.tags.forEach
-                            /* user.tags.forEach(element =>{ */
-                                //console.log(element.value);
-                                //console.log(element);
-                                /*switch(element.value){
-                                    case "Casero(a)":
-                                        console.log("sirvió");
-                                    break;
-                                }*/
-                                /*var MIBT = "";
-                                var count_I = 0;
-                                var count_E = 0;
-                                var count_N = 0;
-                                var count_S = 0;
-                                var count_F = 0;
-                                var count_T = 0;
-                                var count_P = 0;
-                                var count_J = 0;*/
-
-                                /*if(element.value === "Casero(a)" || element.value === "Tímido(a)" || element.value === "Reservado(a)" || element.value === "Introvertido(a)" || element.value === "Solitario(a)"){
-                                    count_I ++;
-                                    MIBT += "I";
-                                } else if(element.value === "Fiestero(a)" || element.value === "Elocuente" || element.value === "Influenciador(a)" || element.value === "Extrovertido(a)" || element.value === "Amiguero(a)"){
-                                    count_E ++;
-                                    MIBT += "E";
-                                } else if(element.value === "Intuitivo(a)" || element.value === "Flexible" || element.value === "Imaginativo(a)" || element.value === "Distraído(a)" || element.value === "Influenciador(a)"){
-                                    count_N ++;
-                                    MIBT += "N";
-                                } else if(element.value === "Observador(a)" || element.value === "Rígido(a)" || element.value === "Realista" || element.value === "Atento(a)" || element.value === "Reservado(a)"){
-                                    count_S ++;
-                                    MIBT += "S";
-                                } else if(element.value === "Espiritual" || element.value === "Subjetivo(a)" || element.value === "Flexible(a)" || element.value === "Emocional(a)" || element.value === "Caótico(a)"){
-                                    count_F ++;
-                                    MIBT += "F";
-                                } else if(element.value === "Científico(a)" || element.value === "Objetivo(a)" || element.value === "Rígido(a)" || element.value === "Racional" || element.value === "Lógico(a)"){
-                                    count_T ++;
-                                    MIBT += "T";
-                                } else if(element.value === "Distraído(a)" || element.value === "Caótico(a)" || element.value === "Diferente" || element.value === "Esporádico(a)" || element.value === "Improvisador(a)"){
-                                    count_P ++;
-                                    MIBT += "P";
-                                } else if(element.value === "Atento(a)" || element.value === "Ordenado(a)" || element.value === "Moda" || element.value === "Metodológico(a)" || element.value === "Planeador(a)"){
-                                    count_J ++;
-                                    MIBT += "J";
-                                }*/
-
-                                //console.log(element.value);
-                                //setChartData();
-                                
-                            /* })
-
-                        }) */
-                    }
-                    <Chart type="polarArea" data={chartData} options={chartOptions} id='graph_element'/>
+                <div className='columnChart'>
+                    <Chart type="bar" data={chartData} options={chartOptions} />
                 </div>
             </section>
         </section>
