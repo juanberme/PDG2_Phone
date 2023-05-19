@@ -12,7 +12,8 @@ import Login from './routes/Login';
 import Tags from './routes/Tags';
 import Final from './routes/Final';
 import Error from './routes/Error';
-import Prueba from './routes/prueba';
+//import Prueba from './routes/prueba';
+import AdminStand from './routes/AdminStand';
 import { Admin } from './routes/Admin';
 import { NewAdmin } from './routes/NewAdmin';
 import Results from './routes/Results';
@@ -59,8 +60,8 @@ const router = createBrowserRouter([
     path:'/newAdmin',
     element: <NewAdmin/>
   },{
-    path: '/prueba',
-    element: <Prueba/>
+    path: '/adminStand',
+    element: <AdminStand/>
   },{
     path: '/resultados',
     element: <Results/>
