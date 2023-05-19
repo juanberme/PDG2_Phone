@@ -59,7 +59,7 @@ const router = createBrowserRouter([
     path:'/newAdmin',
     element: <NewAdmin/>
   },{
-    path: '/Prueba',
+    path: '/prueba',
     element: <Prueba/>
   },{
     path: '/resultados',
