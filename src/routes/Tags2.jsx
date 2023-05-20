@@ -15,7 +15,7 @@ const Tags2 = () => {
     const [stepInfo, setStepInfo] = useState(1);
     const [searchParams] = useSearchParams();
 
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState(60);
     const toast = useRef(null);
     const interval = useRef(null);
     let _val = 60;
@@ -73,9 +73,9 @@ const Tags2 = () => {
         _val = value;
 
         interval.current = setInterval(() => {
-            _val += 1;
+            _val -= 1;
 
-            if (_val >= 60) {
+            if (_val === 0) {
                 toast.current.show({ severity: 'info', summary: 'Finalizó el tiempo!', detail: 'Si necesitas más tiempo, puedes quedarte :)' });
                 clearInterval(interval.current);
             }

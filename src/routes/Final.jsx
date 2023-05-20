@@ -4,7 +4,7 @@ import { Divider } from 'primereact/divider';
 import { Chart } from 'primereact/chart';
 import { TreeTable } from 'primereact/treetable';
 import { Column } from 'primereact/column';
-import { collection, getDocs, onSnapshot } from 'firebase/firestore';
+import { collection, doc, getDocs, onSnapshot } from 'firebase/firestore';
 
 import { db } from '../components/utils/firebase.js';
 import '../styles/FinalPage.css';
@@ -13,126 +13,106 @@ export default function Final(){
 
     const [chartData, setChartData] = useState({});
     const [chartOptions, setChartOptions] = useState({});
+    const [genderChart, setGenderChart] = useState({});
+    const [genderChartOptions, setenderChartOption] = useState({});
+    
+
     const [usersData, setUsersData] = useState([]);
+    const [userGenderData, setUserGenderData] = useState([]);
 
+    const [genderCounter, setGenderCounter] = useState([])
 
-    const [userAges, setUserAges] = useState({});
     var userList = [];
+    var userGender = [];
+
+    console.log(usersData);
+    console.log(userGenderData);
+
 
     useEffect(() => {
-        const documentStyle = getComputedStyle(document.documentElement);
-        const textColor = documentStyle.getPropertyValue('--text-color');
-        const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+        const getUsers = () => {
+          try {
+            const userCollection = collection(db, "users");
+            const unsubscribe = onSnapshot(userCollection, (snapshot) => {
+                const updatedUsersData = snapshot.docs.map((doc) => doc.data());
+                const updatedUserGender = snapshot.docs.map((doc) => doc.data().gender);
+                //setUsersData(updatedUsersData);   
+                setUserGenderData(updatedUserGender);
+                setUsersData(updatedUsersData.map(u => {
+                    const data = {
+                        name: u.name,
+                        gender: u.gender,
+                        age: u.date,
+                        email: u.email,
+                        tag1: u.tags[0].value,
+                        tag2: u.tags[1].value,
+                        tag3: u.tags[2].value,
+                        tag4: u.tags[3].value,
+                    };
+    
+                    return {
+                        data
+                    }
+                })); 
 
-        const getUsers = async () => {
-            try {
-              const userCollection = collection(db, "users");
-              const usersSnapshot = await getDocs(userCollection);
-      
-              usersSnapshot.forEach(doc => {
-                userList.push(doc.data());
-              });
-              setUsersData(userList.map(u => {
-                const data = {
-                    name: u.name,
-                    gender: u.gender[0],
-                    age: u.date,
-                    email: u.email,
-                    tag1: u.tags[0].value,
-                    tag2: u.tags[1].value,
-                    tag3: u.tags[2].value,
-                    tag4: u.tags[3].value,
-                };
+                const userGenderData = ['Male', 'Female', 'Prefer not to say'];
+                setGenderCounter(userGenderData);
 
-                //setUserAges(userList);
-
-                return {
-                    data
-                }
-              }));
-            } catch(e) {
-              console.error(e.message);
-            }
-          };
-      
-          getUsers();
-          console.log(userList);
-
-        // Obtén las edades de los usuarios
-
-        console.log(usersData);
-
-        // Calcula el recuento de cada rango de edad
-        const ages = {
-            ageRanges: ['0 a 18', '19 a 30', '31 a 40', '41 a 50', '51 a 60', '61 a 70', 'más de 70'],
-            datasets: [{
-                label: 'edades',
-                data: [userList.date],
-                backgroundColor: [
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                ],
-                borderColor: [
-                    'rgb(255, 159, 64)',
-                    'rgb(75, 192, 192)',
-                    'rgb(54, 162, 235)',
-                    'rgb(153, 102, 255)',
-                    'rgb(255, 159, 64)',
-                    'rgb(75, 192, 192)',
-                    'rgb(54, 162, 235)',
-                  ],
-                  borderWidth: 1
-            }]
+                
+            });
+            return unsubscribe;
+          } catch (e) {
+            console.error(e.message);
+          }
         };
-        const options = {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
+      
+        const unsubscribe = getUsers();
+      
+        return () => {
+          // Cancelar la suscripción al salir del componente
+          unsubscribe();
         };
-        setChartData(ages);
-        setChartOptions(options);
-        /*
-        const ageCounts = ageRanges.map(range => ages.filter(age => age === range).length);
+        
+      }, []);      
 
-        // Crea los datos del gráfico
-        const chartData = {
-            labels: ageRanges,
+    const countGender = gender => {
+        return genderCounter.filter(g => g === gender).length;
+    };
+   /*const documentStyle = getComputedStyle(document.documentElement);
+            const data = {
+            labels: ['Hombre', 'Mujer', 'Prefiero no decirlo'],
             datasets: [
-        {
-            label: 'Edades',
-            data: ageCounts,
-            backgroundColor: '#42A5F5', // Color de fondo de las barras
-            borderColor: '#1E88E5', // Color del borde de las barras
-            borderWidth: 1, // Ancho del borde de las barras
-        },],};
+                {
+                    data: [
+                        countGender('Male'),
+                        countGender('Female'),
+                        countGender('Prefer not to say')
+                    ],
+                    backgroundColor: [
+                        documentStyle.getPropertyValue('--blue-500'), 
+                        documentStyle.getPropertyValue('--yellow-500'), 
+                        documentStyle.getPropertyValue('--green-500')
+                    ],
+                    hoverBackgroundColor: [
+                        documentStyle.getPropertyValue('--blue-400'), 
+                        documentStyle.getPropertyValue('--yellow-400'), 
+                        documentStyle.getPropertyValue('--green-400')
+                    ]
+                }
+        ]
+    };
+    const options = {
+        cutout: '60%'
+    };
+            
+    setGenderChart(data);
+    setenderChartOption(options);*/
 
-        // Opciones del gráfico
-        const chartOptions = {
-            responsive: true,
-            scales: {
-              y: {
-                beginAtZero: true,
-                ticks: {
-                  precision: 0, // Sin decimales en los ejes y
-                },
-              },
-            },
-          };
-        
-        setChartData(chartData);
-        setChartOptions(chartOptions);*/
-
-        
-  
-
-    }, []);
+    
+    console.log(userList);
+    console.log(userGender);
+    //console.log(countGender);
+    //console.log(userAgeData);
 
 
 
@@ -183,21 +163,23 @@ export default function Final(){
 
             <section className="SCT_GRAPH">
                 <div className="card">
-
-                    <TreeTable value={usersData}>
-                        <Column field="name" header="Nombre" />
-                        <Column field="gender" header="Gender" />
-                        <Column field="age" header="Edad" />
-                        <Column field="tag1" header="1er Tag" />
-                        <Column field="tag2" header="2do Tag" />
-                        <Column field="tag3" header="3er Tag" />
-                        <Column field="tag4" header="4to Tag" />
-                        <Column field="email" header="correo" />
-                    </TreeTable>
+                        <TreeTable value={usersData}>
+                            <Column field="name" header="Nombre" />
+                            <Column field="gender" header="Gender" />
+                            <Column field="age" header="Edad" />
+                            <Column field='tag1' header="1er tag" />
+                            <Column field='tag2' header="2do tag" />
+                            <Column field='tag3' header="3er tag" />
+                            <Column field='tag4' header="4to tag" />
+                            <Column field='email' header="Correo"/>
+                        </TreeTable>
                 </div>
 
                 <div className='columnChart'>
-                    <Chart type="bar" data={chartData} options={chartOptions} />
+                    
+                <h3>Hombres: {countGender('Hombre')}</h3>
+                <h3>Mujeres: {countGender('Mujer')}</h3>
+                <h3>Prefiero no decirlo: {countGender('Prefiero no decirlo')}</h3>
                 </div>
             </section>
         </section>
