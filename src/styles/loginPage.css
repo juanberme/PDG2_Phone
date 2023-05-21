@@ -2,13 +2,14 @@
     display: flex;
     flex-direction: column;
 
-    margin: 5em 3em 0em;
+    margin: 5em 3em 10em;
 }
 
 
 /*Section: text*/
 .text{
     text-align: center;
+    margin: 0em 0em 5em;
 }
 
 .text_Ttl{
@@ -21,10 +22,6 @@
     color: #4A8FE7;
     font-size: 2em;
     margin: 0em;
-}
-
-.text_down{
-    margin: 9em 0em 1em;
 }
 
 .text_Ln{
@@ -41,24 +38,26 @@
     margin: 0em 0em 3em;
 }
 
+#btnExtraInfo{
+    width: 45%;
+    font-size: 0.75em;
+    padding: 0em;
+}
+
 .input{
     margin: 1em 0em;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
-#login_name{
-    width: 21em;
-}
-
-#login_gender{
-    width: 21em;
-}
-
-
-/*Section: button*/
 .labelName{
     color: #33373f;
     font-size: 1em;
     font-weight: 300;
+}
+
+/*Section: button*/
+#btn_ing{
+    width: 100%;
 }

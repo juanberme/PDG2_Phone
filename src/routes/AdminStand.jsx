@@ -5,7 +5,7 @@ import { Image } from 'primereact/image';
 import { Card } from 'primereact/card';
 import { Divider } from 'primereact/divider';
 
-import '../styles/pruebaPage.css';
+import '../styles/adminStandPage.css';
 
 const AdminStand = () => {
    //Busqueda
@@ -75,7 +75,7 @@ const AdminStand = () => {
                        <h1 className="Sttl_cmp">Tienes 7 stands:</h1>
                    </span>
                    <span className="Company_Cont">
-                       <MultiSelect value={inputSearch} onChange={handleSearchInput} filter options={standList} maxSelectedLabels={1}/>
+                        <MultiSelect value={inputSearch} onChange={handleSearchInput} filter options={standList} maxSelectedLabels={1} className='MS_Cmp'/>
                    </span>
                    <span className="Company_Cont">
                        <Button className='btn_AddStand' label='Agregar' icon="pi pi-plus" iconPos='right'/>

@@ -1,8 +1,4 @@
 /*React*/
-.p-multiselect{
-    width: 12em;
-}
-
 .p-card-title{
     color: #5C7AFF;
 }
@@ -121,6 +117,10 @@
     color: #5C6679;
     font-size: 0.9em;
     font-weight: lighter;
+}
+
+.MS_Cmp{
+    width: 100%;
 }
 
 .btn_AddStand{

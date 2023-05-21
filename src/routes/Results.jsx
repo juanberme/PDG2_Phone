@@ -5,10 +5,10 @@ import { Canvas } from '@react-three/fiber';
 import Camera from '../components/camera.js';
 import Blob from '../components/Blob.js';
 import { useSearchParams } from 'react-router-dom';
-import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
+import { collection, doc, getDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase.js';
 
-import { Button } from 'primereact/button';
+import { Paginator } from 'primereact/paginator';
 
 import '../styles/resultsPage.css';
 import 'primeicons/primeicons.css';

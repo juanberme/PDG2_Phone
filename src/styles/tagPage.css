@@ -9,7 +9,7 @@
 }
 
 .T1_CONT{
-    margin: 4em 3em 0em;
+    margin: 4em 3em 5em;
 }
 
 
@@ -20,15 +20,19 @@
 .titleTxt{
     font-size: 2em;
     text-align: center;
-
-    color: #4A8FE7;
 }
 
-#Ttl_Strong{
+.Ttl_Strong{
     font-size: 1.25em;
     font-weight: bolder;
 
     color: #5C7AFF;
+    margin: 0em;
+}
+
+.Ttl_Normal{
+    margin: 0.5em 0em 0em;
+    color: #4A8FE7;
 }
 
 

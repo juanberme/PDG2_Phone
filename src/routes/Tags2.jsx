@@ -34,10 +34,10 @@ const Tags2 = () => {
     ]);
 
     const stepsList = [
-        {label: 'Paso 1'},
-        {label: 'Paso 2'},
-        {label: 'Paso 3'},
-        {label: 'Paso 4'},
+        {label: 'Energía'},
+        {label: 'Intensidad'},
+        {label: 'Sabor'},
+        {label: 'Olor'},
     ];
 
     const handleSubmit = async() =>{
@@ -95,7 +95,8 @@ const Tags2 = () => {
   return (
     <section className='T1_CONT'>
         <section className='titleTxt'>
-            <p><strong id='Ttl_Strong'>Escoge 1 palabra</strong> que más te definen en menos de 60s:</p>
+            <p className='Ttl_Strong'><strong>Escoge 1 palabra</strong></p>
+            <p className="Ttl_Normal">que mejor te define en menos de:</p>
         </section>
 
         <section className='Knb_CONT'>
