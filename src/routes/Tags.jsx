@@ -66,14 +66,20 @@ export default function Tags(){
     
     //Para hacer que el valor se cambie en el setValue
     const handleClickTag = (index) => {
-        const LIMIT = 1;
-        if(items.filter(({activated}) => activated).length >= LIMIT && !items[index].activated) return;
+    const LIMIT = 1;
+    
+    if (items.filter(({ activated }) => activated).length > LIMIT && !items[index].activated) return;
+    
+    const copy = [...items];
+    const lastActivatedIndex = copy.findIndex(({ activated }) => activated);
 
-        const copy = [...items];
-        console.log(index);
-        copy[index].activated = !copy[index].activated;
-        setItems(copy);
+    if (lastActivatedIndex !== -1) {
+        copy[lastActivatedIndex].activated = false;
     }
+    copy[index].activated = !copy[index].activated;
+    setItems(copy);
+    //console.log(index);
+    };
 
     //Temporalizador
     useEffect(() => {
@@ -114,16 +120,11 @@ export default function Tags(){
         </section>
 
         <section className='Tgs_CONT'>
-            {items.map(({id, value, activated}, index) => 
-                <Tag 
-                    style={activated ? {background: "red"} : {}}
-                    className='tag' 
-                    onClick={() => handleClickTag(index)}
-                    key={id}
-                    value={value}
-                    rounded/>)}
+            {items.map(({ id, value, activated }, index) => (
+                <Tag style={activated ? { background: 'red' } : {}} className='tag' onClick={() => handleClickTag(index)} key={id} value={value} rounded/>
+            ))}
         </section>
-        
+
         <div className='btn'>
             <AnchorButton 
                 id='btn_cont' 

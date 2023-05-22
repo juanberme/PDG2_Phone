@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
 import { InputText } from 'primereact/inputtext';
-import { MultiSelect } from 'primereact/multiselect';
+import { Dropdown } from 'primereact/dropdown';
 import { InputNumber } from 'primereact/inputnumber';
 import { Button } from 'primereact/button';
-import { BlockUI } from 'primereact/blockui';
 import { Dialog } from 'primereact/dialog';
 
 import { db } from '../utils/firebase.js';
@@ -15,9 +14,11 @@ import '../styles/loginPage.css';
 
 export default function Login(){
     const navigate = useNavigate();
-    //name input
+
+
+    //NAME INPUT
     const [inputName, setInputName] = useState('');
-    const [validName, setValidName] = useState(true);
+    const [validName, setValidName] = useState(null);
 
     const validateName = () => {
         const regex = /^(?!\s*$).+/;
@@ -26,11 +27,12 @@ export default function Login(){
 
     const handleNameInput = (e) =>{
         setInputName(e.target.value);
+        unluckButton();
     }
 
-
-    //gender input
+    //GENDER INPUT
     const [inputGender, setInputGender] =useState('');
+    const [validGender, setValidGender] = useState(null);
     const allGenders = [
         {
             gender: 'Hombre', value: 'Male'
@@ -42,33 +44,41 @@ export default function Login(){
         }
     ];
 
-    const handleGenderInput = (e) =>{
-        setInputGender(e.value);
+    const validateGender = () => {
+        const regex = /^(?!\s*$).+/;
+        setValidGender(regex.test(inputGender));
     }
 
-    //date input
+    const handleGenderInput = (e) =>{
+        setInputGender(e.value);
+        unluckButton();
+    }
+
+    //DATE INPUT
     const [inputDate, setInputDate] = useState('');
-    const [validDate, setValidDate] = useState(true);
+    const [validDate, setValidDate] = useState(null);
 
     const validateDate = () => {
-        const regex = /^(?!\s*$).+/;
+        const regex = /^\d+$/;
         setValidDate(regex.test(inputDate));
     }
     const handleDateInput = (e) => {
         setInputDate(e.value);
+        unluckButton();
     }
 
-    //email input
-    const [email, setEmail] = useState('');
-    const [valid, setValid] = useState(true);
+    //EMAIL INPUT
+    const [inputEmail, setinputEmail] = useState('');
+    const [validEmail, setValidEmail] = useState(null);
 
     const validateEmail = () => {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        setValid(regex.test(email));
+        setValidEmail(regex.test(inputEmail));
     };
 
     const handleEmailInput = (e) => {
-        setEmail(e.target.value);
+        setinputEmail(e.target.value);
+        unluckButton();
     };
 
     //send data
@@ -76,17 +86,16 @@ export default function Login(){
         try {
             const col = collection(db, 'users');
             
-            
-            if(valid && validDate && validName){
+            if(validEmail && validDate && validName && validGender){
                 const doc = await addDoc(col, {
                     name: inputName,
                     gender: inputGender,
                     date: inputDate,
-                    email: email
+                    email: inputEmail
                 });
                 
                 navigate(`/tags?id=${doc.id}`);
-                console.log(`User ${doc.id} stored in db`);
+                //console.log(`User ${doc.id} stored in db`);
             }
         } catch (error) {
             console.error(error.message);
@@ -94,7 +103,23 @@ export default function Login(){
     }
 
     //Block Button
-    const [blocked, setBlocked] = useState(false);
+    function unluckButton(){
+        //console.log(validName);
+        //console.log(validEmail);
+        //console.log(validGender);
+        //console.log(validDate);
+        setTimeout(checkValids, 100);
+    }
+
+    function checkValids(){
+        if(validDate && validEmail && validGender && validName){
+            //console.log("Todos validos");
+            handleLogin();
+        } else {
+            //console.log("Falta por lo menos 1");
+        }
+    }
+    
 
     //Dialog Config
     const [visible, setVisible] = useState(false);
@@ -109,26 +134,23 @@ export default function Login(){
         <section className='content'>
             <div className='input'>
                 <label className='labelName' htmlFor="name">¿Cómo te llamas?</label>
-                <InputText id="login_name" aria-describedby="name-help" value={inputName} onChange={handleNameInput} onBlur={validateName} placeholder='Nombre'/>
-                {!validName && <small className="p-error">Ingresa tu Nombre</small>}
+                <InputText id="login_name" aria-describedby="name-help" value={inputName} onChange={handleNameInput} onBlur={validateName} className={!validName ? 'p-invalid' : ''} placeholder='Nombre'/>
             </div>
 
             <div className='input'>
                 <label className='labelName'>¿Cómo te puedo escribir?</label>
-                <InputText id='login_email' value={email} onChange={handleEmailInput} onBlur={validateEmail} className={!valid ? 'p-invalid' : ''} placeholder='Correo electrónico'/>
-                {!valid && <small className="p-error">Ingresa un correo electrónico válido.</small>}
+                <InputText id='login_email' value={inputEmail} onChange={handleEmailInput} onBlur={validateEmail} className={!validEmail ? 'p-invalid' : ''} placeholder='Correo electrónico'/>
             </div>
 
             <div className='input'>
                 <label className='labelName' htmlFor="gender">¿Cuál es tu génere?</label>
-                <MultiSelect value={inputGender} id="login_gender" onChange={handleGenderInput} options={allGenders} optionLabel="gender" 
-                placeholder="Opciones" selectionLimit={1} maxSelectedLabels={1} multiple={false}/>
+                    <Dropdown value={inputGender} id="login_gender" onChange={handleGenderInput} onBlur={validateGender} options={allGenders} optionLabel="gender" 
+                placeholder="Opciones" className={!validGender? 'p-invalid' : ''}/>
             </div>
 
             <div className='input'>
                 <label className='labelName'>¿Cuántos años tienes?</label>
-                <InputNumber inputId='login_calendar' value={inputDate} onChange={handleDateInput} onBlur={validateDate} min={0} max={100}/>
-                {!validDate && <small className="p-error">Ingresa tu edad.</small>}
+                <InputNumber inputId='login_calendar' value={inputDate} onChange={handleDateInput} onBlur={validateDate} className={!validDate ? 'p-invalid' : ''} min={0} max={100}/>
             </div>
 
             <div className="extraInfo">
@@ -167,9 +189,6 @@ export default function Login(){
             </div>
         </section>
 
-        
-        <BlockUI blocked={blocked}>
-            <Button id='btn_ing' onClick={handleLogin} label="Ingresar"/>
-        </BlockUI>
+        <Button id='btn_ing' onClick={unluckButton} label="Ingresar"/>
     </div>
 }
