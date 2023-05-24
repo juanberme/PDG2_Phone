@@ -70,7 +70,7 @@ return <section className='Tags_CONT'>
         </div>
 
         <div className="infoProgress">
-            <ProgressBar value={50} style={{ height: '10px' }}></ProgressBar>
+            <ProgressBar value={75} style={{ height: '10px' }}></ProgressBar>
         </div>
     </section>
 
@@ -82,7 +82,7 @@ return <section className='Tags_CONT'>
         </div>
         
         <div className="interactButton_Tags">
-            <AnchorButton id='btn_cont' onClick={handleCSubmit} href={`/tags3?id=${searchParams.get('id')}`} label="Siguiente"/>
+            <AnchorButton id='btn_cont' onClick={handleCSubmit} href={`/tags4?id=${searchParams.get('id')}`} label="Siguiente"/>
         </div>
     </section>
 </section>

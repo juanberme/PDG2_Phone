@@ -28,6 +28,8 @@ const Results = () => {
     const [rColor2, setRColor2] = useState();
     const [gColor2, setGColor2] = useState();
     const [bColor2, setBColor2] = useState();
+    const [soda, setSoda] = useState('');
+    const [info, setInfo] = useState('');
     const mesh = useRef();
 
     //setUserCounter(userData.tags[0].counter + userData.tags[1].counter + userData.tags[2].counter + userData.tags[3].counter);
@@ -72,6 +74,8 @@ const Results = () => {
             setRColor2(1.0);
             setGColor2(0.212);
             setBColor2(0.671);
+            setSoda("Manzana Postobon");
+            setInfo("Eres una persona familiar y amigable, te gustan las cosas sencillas como pasar un buen rato con tus amigos o una agradable charla con tu familia. Te gusta que las cosas estén bajo control y todos a tu alrededor se encuentren felices y tranquilos.");
         }else if(userCounter >= 11 &&  userCounter<= 13){
             console.log("Es Colombiana");
             setPattern(1);
@@ -84,6 +88,8 @@ const Results = () => {
             setRColor2(0.969);
             setGColor2(0.498);
             setBColor2(0.0);
+            setSoda("Colombiana");
+            setInfo("Eres una persona intensa y alegre, todos los que te rodean pueden sentir tu calor, pues tu eres su sol, y ellos tus planetas. Te gusta expresarte, ser libre, y vivir de forma agradable. Pero siempre responsable… sí, responsable. ");
         } else if(userCounter === 10){
           console.log("Es Bretaña");
           setPattern(2);
@@ -96,6 +102,8 @@ const Results = () => {
           setRColor2(0.569);
           setGColor2(0.651);
           setBColor2(1.0);
+          setSoda("Bretaña Postobon");
+          setInfo("Puede que te digan tibio, pero no está mal que te guste de todo un poquito. Puedes ser alguien difícil de leer, pero eso no importa, no eres un libro abierto para que todos te vean, sigue brillando con luz propia!!!")
         }else if(userCounter >= 7 && userCounter <= 9){
           console.log("Es 7Up");
           setPattern(2);
@@ -108,6 +116,8 @@ const Results = () => {
           setRColor2(0.38);
           setGColor2(0.816);
           setBColor2(0.584);
+          setSoda("7Up");
+          setInfo("Eres una persona fría y calculadora, eres sencille por lo que no necesitas demostrar nada, ni compararte con nadie. Sabes reconocer tu propio valor y eres independiente, aunque tal vez algo distante. Vení que te extrañamos, ome.");
         }else if(userCounter >= 4 && userCounter <= 6){
           console.log("Es uva");
           setPattern(0);
@@ -120,6 +130,8 @@ const Results = () => {
           setRColor2(0.502);
           setGColor2(0.137);
           setBColor2(0.573);
+          setSoda("Uva Postobon");
+          setInfo("Eres una persona dulce y feliz, la vida es el camino, y tú revisas hasta la última piedra. Amás disfrutar de las cosas pequeñas de la vida como un buen chiste y estar cerca de las personas que ama, TQM Nunca cambies.");
         }
         //setPattern(userData.tags[0].pattern);
         //setIntensity(userData.tags[1].intensity);
@@ -137,7 +149,7 @@ const Results = () => {
       <section className='Blob_CONT'>
         <Canvas camera={{position: [10, 0, 10]}}>
           <Camera/>
-          {userData && userCounter && (
+          {loadedData && userData && userData.tags &&(
             //la parte de la linea 58 antes tenia solo hasta userdatatags
             <mesh ref={mesh}>
               <Blob
@@ -154,18 +166,19 @@ const Results = () => {
 
       <section className='Info_CONT'>
         <div className='Ttl_DIV'>
-          <p className='Ttl_Element'><strong id='Ttl_Strong'>Esta es la figura</strong> que te representa:</p>
-          {/*userData && userData.tags && userData.tags[2] && userData.tags[3] && (
-              <p className='Ttl_Element' id='userName'>{userData.name}</p>
-          )*/}
-          {userData && userData.tags && userCounter &&(
-            <div>
-            <h2>{userCounter}</h2>
-          </div>
-          )
+          
+          {loadedData && userData && userData.tags && (
+              <section>
+                <div>
+                  <p className='Ttl_Element'>Eres una Gaseosa</p>
+                  <p>{soda}</p>
+                </div>
+                <div>
+                  <p>{info}</p>
+                </div>
+              </section>
 
-              
-          }
+          )}
         </div>
 
         {/*userData && userData.tags && userData.tags[2] && userData.tags[3] && (
@@ -189,4 +202,5 @@ const Results = () => {
   )}
 
 export default Results;
+
 
