@@ -1,24 +1,19 @@
-import { useState, useRef, useEffect } from 'react';
-import { AnchorButton } from '../components/Btn';
+import { collection, doc, updateDoc, getDoc } from 'firebase/firestore';
 
-import { Tag } from 'primereact/tag';
-import { Knob } from 'primereact/knob';
-import { Steps } from 'primereact/steps';
-import { Toast } from 'primereact/toast';
-
+import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { collection, doc, getDoc, updateDoc } from 'firebase/firestore';
+
+import { ProgressBar } from 'primereact/progressbar';
+import { Image } from 'primereact/image';
+import { Tag } from 'primereact/tag';
+
+import { AnchorButton } from '../components/Btn';
 import { db } from '../utils/firebase';
 
-const Tags4 = () => {
-    const [stepInfo, setStepInfo] = useState(3);
-    const [searchParams] = useSearchParams();
-    const [viewData, setViewData] = useState();
+import '../styles/tagPage.css';
 
-    const [value, setValue] = useState(60);
-    const toast = useRef(null);
-    const interval = useRef(null);
-    let _val = 60;
+export default function Tags(){
+    const [searchParams] = useSearchParams();
 
     const [items, setItems] = useState([
         {id:1, value : "Colaborador", activated:false, text: "Si no puedo solo o sola, busco ayuda", counter: 4},
@@ -27,99 +22,68 @@ const Tags4 = () => {
         {id:4, value : "Optimista", activated:false, text: "Mentalidad positiva y hágale", counter: 1},
     ]);
 
-    const stepsList = [
-        {label: 'Energía'},
-        {label: 'Intensidad'},
-        {label: 'Sabor'},
-        {label: 'Olor'},
-    ];
-
-    const handleSubmit = async() =>{
+    //sconst 
+    const handleCSubmit = async () => {
         try {
             const activeItem = items.filter(({activated}) => activated);
 
             if(activeItem.length === 0) return;
-            
+
             const editCol = collection(db, 'users');
             const docRef = doc(editCol, searchParams.get("id"));
             const docData = await getDoc(docRef);
-            setViewData(docData.data());
             const {tags} = docData.data();
             await updateDoc(docRef, {tags: tags ? [...tags, ...activeItem] : activeItem});
 
-            //console.log(docData.data());
             console.log('Document written with ID:', docRef.id);
         } catch (error) {
             console.error(error.message);
         }
-    }
-
-    //console.log(viewData);
-
-    const handleClickTag = (index) => {
-        const LIMIT = 1;
-        if(items.filter(({activated}) => activated).length >= LIMIT && !items[index].activated) return;
-
-        const copy = [...items];
-        console.log(index);
-        copy[index].activated = !copy[index].activated;
-        setItems(copy);
-    }
-
-    //Temporalizador
-    useEffect(() => {
-        _val = value;
-
-        interval.current = setInterval(() => {
-            _val -= 1;
-
-            if (_val === 0) {
-                toast.current.show({ severity: 'info', summary: 'Finalizó el tiempo!', detail: 'Si necesitas más tiempo, puedes quedarte :)' });
-                clearInterval(interval.current);
-            }
-
-            setValue(_val);
-        }, 1000);
-
-        return () => {
-            if (interval.current) {
-                clearInterval(interval.current);
-                interval.current = null;
-            }
-        };
-    }, []);
-
-  return (
-    <section className='T1_CONT'>
-        <section className='titleTxt'>
-            <p className='Ttl_Strong'><strong>Escoge 1 palabra</strong></p>
-            <p className="Ttl_Normal">que mejor te define en menos de:</p>
-        </section>
         
-        <section className='Knb_CONT'>
-            <Toast ref={toast}></Toast>
-            <Knob value={value} max={60} readOnly/>
+    }
+        
+    //Para hacer que el valor se cambie en el setValue
+    const handleClickTag = (index) => {
+    const LIMIT = 1;
+
+    if (items.filter(({ activated }) => activated).length > LIMIT && !items[index].activated) return;
+
+    const copy = [...items];
+    const lastActivatedIndex = copy.findIndex(({ activated }) => activated);
+
+    if (lastActivatedIndex !== -1) {
+        copy[lastActivatedIndex].activated = false;
+    }
+    copy[index].activated = !copy[index].activated;
+    setItems(copy);
+    //console.log(index);
+    };
+
+    return <section className='Tags_CONT'>
+        <section className='Info_CONT_Tags'>
+            <div className="infoTitle">
+                <h1 className="TagsTxt" id='TagsTitle'>¿Cómo resuelves tus problemas?</h1>
+            </div>
+
+            <div className="infoImage">
+                <Image src='https://images.unsplash.com/photo-1586527155314-1d25428324ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80' alt='Imagen_Principal' width='365em'd/>
+            </div>
+
+            <div className="infoProgress">
+                <ProgressBar value={50} style={{ height: '10px' }}></ProgressBar>
+            </div>
         </section>
 
-        <section className="Stp_CONT">
-            <Steps model={stepsList} activeIndex={stepInfo}/>
+        <section className='Interact_CONT_Tags'>
+            <div className='interactTagList_Tags'>
+                {items.map(({ id, text, activated }, index) => (
+                    <Tag style={activated ? { background: 'red' } : {}} className='tag' onClick={() => handleClickTag(index)} key={id} value={text} rounded/>
+                ))}
+            </div>
+            
+            <div className="interactButton_Tags">
+                <AnchorButton id='btn_cont' onClick={handleCSubmit} href={`/tags3?id=${searchParams.get('id')}`} label="Siguiente"/>
+            </div>
         </section>
-
-        <section className='Tgs_CONT'>
-            {items.map(({id, value, activated, text, counter}, index) => 
-                <Tag 
-                    style={activated ? {background: "red"} : {}}
-                    className='tag' 
-                    onClick={() => handleClickTag(index)}
-                    key={id}
-                    value={text}
-                    rounded/>)}
-        </section>
-        <div className='btn'>
-            <AnchorButton onClick={handleSubmit} href={`/resultados?id=${searchParams.get('id')}`} label="Enviar"/>
-        </div>
     </section>
-  )
 }
-
-export default Tags4
