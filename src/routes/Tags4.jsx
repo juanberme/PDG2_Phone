@@ -70,7 +70,7 @@ export default function Tags(){
             </div>
 
             <div className="infoProgress">
-                <ProgressBar value={50} style={{ height: '10px' }}></ProgressBar>
+                <ProgressBar value={100} style={{ height: '10px' }}></ProgressBar>
             </div>
         </section>
 

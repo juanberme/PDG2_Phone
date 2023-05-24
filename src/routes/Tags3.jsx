@@ -70,7 +70,7 @@ return <section className='Tags_CONT'>
         </div>
 
         <div className="infoProgress">
-            <ProgressBar value={50} style={{ height: '10px' }}></ProgressBar>
+            <ProgressBar value={75} style={{ height: '10px' }}></ProgressBar>
         </div>
     </section>
 
