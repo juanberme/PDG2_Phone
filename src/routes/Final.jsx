@@ -5,9 +5,14 @@ import { Chart } from 'primereact/chart';
 import { TreeTable } from 'primereact/treetable';
 import { Column } from 'primereact/column';
 import { collection, doc, getDocs, onSnapshot } from 'firebase/firestore';
+/* import ReactExport from "react-export-excel"; */
 
 import { db } from '../components/utils/firebase.js';
 import '../styles/FinalPage.css';
+
+/* const ExcelFile = ReactExport.ExcelFile;
+const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
+const ExcelColumn = ReactExport.ExcelFile.ExcelColumn; */
 
 export default function Final(){
 
@@ -25,8 +30,9 @@ export default function Final(){
     var userList = [];
     var userGender = [];
 
+    console.log('---- USERS DATA -----');
     console.log(usersData);
-    console.log(userGenderData);
+    //console.log(userGenderData);
 
 
     useEffect(() => {
@@ -57,8 +63,6 @@ export default function Final(){
 
                 const userGenderData = ['Male', 'Female', 'Prefer not to say'];
                 setGenderCounter(userGenderData);
-
-                
             });
             return unsubscribe;
           } catch (e) {
@@ -74,6 +78,8 @@ export default function Final(){
         };
         
       }, []);      
+
+    
 
     const countGender = gender => {
         return genderCounter.filter(g => g === gender).length;
@@ -109,15 +115,28 @@ export default function Final(){
     setenderChartOption(options);*/
 
     
-    console.log(userList);
-    console.log(userGender);
+/*     console.log(userList);
+    console.log(userGender); */
     //console.log(countGender);
     //console.log(userAgeData);
 
+    
+    
 
+    /*
+    
+    <h3>Hombres: {countGender('Hombre')}</h3>
+    <h3>Mujeres: {countGender('Mujer')}</h3>
+    <h3>Prefiero no decirlo: {countGender('Prefiero no decirlo')}</h3>
+    */
 
 
     return <section className='FNL_CONT'>
+        {/* <ExcelFile element={<button>Descargar Excel</button>}>
+            <ExcelSheet data={usersData.map(u => u.data)}>
+                <ExcelColumn label="Name" value="name"></ExcelColumn>
+            </ExcelSheet>
+        </ExcelFile> */}
         <header className="NAV_SUP">
             <nav className="NAV_Home">
                 <Button className="btn_link_1" label='Inicio' severity='secondary' text/>
@@ -156,30 +175,28 @@ export default function Final(){
 
         <section className="SCT_CONT">
             <section className="SCT_INFO">
-
+                <div className="card">
+                    <TreeTable value={usersData}>
+                        <Column field="name" header="Nombre" />
+                        <Column field="gender" header="Gender" />
+                        <Column field="age" header="Edad" />
+                        <Column field='tag1' header="1er tag" />
+                        <Column field='tag2' header="2do tag" />
+                        <Column field='tag3' header="3er tag" />
+                        <Column field='tag4' header="4to tag" />
+                        <Column field='email' header="Correo"/>
+                    </TreeTable>
+                </div>
             </section>
 
             <Divider layout='vertical'/>
 
             <section className="SCT_GRAPH">
-                <div className="card">
-                        <TreeTable value={usersData}>
-                            <Column field="name" header="Nombre" />
-                            <Column field="gender" header="Gender" />
-                            <Column field="age" header="Edad" />
-                            <Column field='tag1' header="1er tag" />
-                            <Column field='tag2' header="2do tag" />
-                            <Column field='tag3' header="3er tag" />
-                            <Column field='tag4' header="4to tag" />
-                            <Column field='email' header="Correo"/>
-                        </TreeTable>
-                </div>
+                
 
                 <div className='columnChart'>
                     
-                <h3>Hombres: {countGender('Hombre')}</h3>
-                <h3>Mujeres: {countGender('Mujer')}</h3>
-                <h3>Prefiero no decirlo: {countGender('Prefiero no decirlo')}</h3>
+                
                 </div>
             </section>
         </section>

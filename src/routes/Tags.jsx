@@ -25,16 +25,10 @@ export default function Tags(){
     let _val = 60;
 
     const [items, setItems] = useState([
-        {id:1, value : "Casero(a)", activated:false, pattern: 3},
-        {id:2, value : "Tímido(a)", activated:false, pattern: 2},
-        {id:3, value : "Reservado(a)", activated:false, pattern: 2},
-        {id:4, value : "Introvertido(a)", activated:false, pattern: 3},
-        {id:5, value : "Solitario(a)", activated:false, pattern: 2},
-        {id:6, value : "Fiestero(a)", activated:false, pattern: 0},
-        {id:7, value : "Elocuente", activated:false, pattern: 0},
-        {id:8, value : "Influenciador(a)", activated:false, pattern: 1},
-        {id:9, value : "Extrovertido(a)", activated:false, pattern: 1},
-        {id:0, value : "Amiguero(a)", activated:false, pattern: 0},
+        {id:1, value : "Responsable", activated:false, text: "La mamá o el papá del grupo", counter: 4},
+        {id:2, value : "Fiestero(a)", activated:false, text: "Traigan la botella", counter: 3},
+        {id:3, value : "Introvertido(a)", activated:false, text: "Me voy temprano, si es que voy", counter: 2},
+        {id:4, value : "Burletero(a)", activated:false, text: "Me termino riendo de todos", counter: 1},
     ]);
 
     const stepsList = [
@@ -120,8 +114,8 @@ export default function Tags(){
         </section>
 
         <section className='Tgs_CONT'>
-            {items.map(({ id, value, activated }, index) => (
-                <Tag style={activated ? { background: 'red' } : {}} className='tag' onClick={() => handleClickTag(index)} key={id} value={value} rounded/>
+            {items.map(({ id, value, activated, text, counter }, index) => (
+                <Tag style={activated ? { background: 'red' } : {}} className='tag' onClick={() => handleClickTag(index)} key={id} value={text} rounded/>
             ))}
         </section>
 

@@ -21,16 +21,10 @@ const Tags2 = () => {
     let _val = 60;
 
     const [items, setItems] = useState([
-        {id:1, value : "Intuitivo(a)", activated:false, intensity: "1.3"},
-        {id:2, value : "Flexible", activated:false, intensity: "2.5"},
-        {id:3, value : "Imaginativo(a)", activated:false, intensity: "3.3"},
-        {id:4, value : "Distraído(a)", activated:false, intensity: "4.2"},
-        {id:5, value : "Influenciador(a)", activated:false, intensity: "5.1"},
-        {id:6, value : "Observador(a)", activated:false, intensity: "6.4"},
-        {id:7, value : "Rígido(a)", activated:false, intensity: "7.1"},
-        {id:8, value : "Realista", activated:false, intensity: "8.3"},
-        {id:9, value : "Atento(a)", activated:false, intensity: "9.5"},
-        {id:0, value : "Reservado(a)", activated:false, intensity: "10.0"},
+        {id:1, value : "Responsable", activated:false, text: "Le explico a los que nos entienden", counter: 4},
+        {id:2, value : "Fiestero(a)", activated:false, text: "Yo no necesito estudiar", counter: 3},
+        {id:3, value : "Introvertido(a)", activated:false, text: "Estudio solo o sola", counter: 2},
+        {id:4, value : "Burletero(a)", activated:false, text: "Estudio con mis amigos", counter: 1},
     ]);
 
     const stepsList = [
@@ -109,13 +103,13 @@ const Tags2 = () => {
         </section>
 
         <section className='Tgs_CONT'>
-            {items.map(({id, value, activated}, index) => 
+            {items.map(({id, value, activated, text, counter }, index) => 
                 <Tag 
                     style={activated ? {background: "red"} : {}}
                     className='tag' 
                     onClick={() => handleClickTag(index)}
                     key={id}
-                    value={value}
+                    value={text}
                     rounded/>)}
         </section>
         <div className='btn'>

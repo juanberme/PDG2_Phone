@@ -21,16 +21,10 @@ const Tags4 = () => {
     let _val = 60;
 
     const [items, setItems] = useState([
-        {id:1, value : "Distraído(a)", activated:false, r: 0.424, g: 0.745, b: 0.929},
-        {id:2, value : "Caótico(a)", activated:false, r: 0.502, g: 0.137, b: 0.573},
-        {id:3, value : "Diferente", activated:false, r: 0.941, g: 0.925, b: 0.341},
-        {id:4, value : "Esporádico(a)", activated:false, r: 0.353, g: 1.0, b: 0.082},
-        {id:5, value : "Improvisador(a)", activated:false, r: 0.651, g: 0.239, b: 0.251},
-        {id:6, value : "Atento(a)", activated:false, r: 0.914, g: 0.722, b: 0.447},
-        {id:7, value : "Ordenado(a)", activated:false, r: 0.082, g: 0.082, b: 0.082},
-        {id:8, value : "Moda", activated:false, r: 0.616, g: 0.459, b: 0.796},
-        {id:9, value : "Metodológico(a)", activated:false, r: 0.059, g: 0.639, b: 0.694},
-        {id:0, value : "Planeador(a)", activated:false, r: 1.0, g: 0.608, b: 0.259},
+        {id:1, value : "Colaborador", activated:false, text: "Si no puedo solo o sola, busco ayuda", counter: 4},
+        {id:2, value : "Arriesgado", activated:false, text: "Que sea lo que Diosito quiera", counter: 3},
+        {id:3, value : "Metódico", activated:false, text: "Metódicamente, paso a paso", counter: 2},
+        {id:4, value : "Optimista", activated:false, text: "Mentalidad positiva y hágale", counter: 1},
     ]);
 
     const stepsList = [
@@ -112,13 +106,13 @@ const Tags4 = () => {
         </section>
 
         <section className='Tgs_CONT'>
-            {items.map(({id, value, activated}, index) => 
+            {items.map(({id, value, activated, text, counter}, index) => 
                 <Tag 
                     style={activated ? {background: "red"} : {}}
                     className='tag' 
                     onClick={() => handleClickTag(index)}
                     key={id}
-                    value={value}
+                    value={text}
                     rounded/>)}
         </section>
         <div className='btn'>

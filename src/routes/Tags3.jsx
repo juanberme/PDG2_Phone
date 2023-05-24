@@ -20,16 +20,10 @@ const Tags3 = () => {
     let _val = 60;
 
     const [items, setItems] = useState([
-        {id:1, value : "Espiritual", activated:false, r: 0.475, g: 0.678, b: 0.863},
-        {id:2, value : "Subjetivo(a)", activated:false, r: 1.0, g: 0.753, b: 0.624},
-        {id:3, value : "Flexible", activated:false, r: 0.765, g: 0.824, b: 0.835},
-        {id:4, value : "Emocional", activated:false, r: 0.804, g: 0.275, b: 0.192},
-        {id:5, value : "Caótico(a)", activated:false, r: 0.784, g: 0.435, b: 0.788},
-        {id:6, value : "Científico(a)", activated:false, r: 0.976, g: 0.957, b: 0.961},
-        {id:7, value : "Objetivo(a)", activated:false, r: 0.102, g: 0.227, b: 0.227},
-        {id:8, value : "Rígido(a)", activated:false, r: 0.2, g: 0.196, b: 0.196},
-        {id:9, value : "Racional", activated:false, r: 0.678, g: 0.729, b: 0.741},
-        {id:0, value : "Lógico(a)", activated:false, r: 0.133, g: 0.18, b: 0.314},
+        {id:1, value : "Soltero", activated:false, text: "No tengo tiempo para eso ahora", counter: 4},
+        {id:2, value : "Coqueto", activated:false, text: "Yooo. Soy el aventurero", counter: 3},
+        {id:3, value : "Indiferente", activated:false, text: "No me cae ni una gota de lluvia", counter: 2},
+        {id:4, value : "Privado(a)", activated:false, text: "👀... *Eso es secreto*", counter: 1},
     ]);
 
     const stepsList = [
@@ -107,13 +101,13 @@ const Tags3 = () => {
         </section>
 
         <section className='Tgs_CONT'>
-            {items.map(({id, value, activated}, index) => 
+            {items.map(({id, value, activated, text, counter}, index) => 
                 <Tag 
                     style={activated ? {background: "red"} : {}}
                     className='tag' 
                     onClick={() => handleClickTag(index)}
                     key={id}
-                    value={value}
+                    value={text}
                     rounded/>)}
         </section>
 
