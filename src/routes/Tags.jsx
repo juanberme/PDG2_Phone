@@ -1,28 +1,19 @@
-import { async } from '@firebase/util';
 import { collection, doc, updateDoc, getDoc } from 'firebase/firestore';
 
-
-import { Tag } from 'primereact/tag';
-import { useState, useRef, useEffect } from 'react';
-import { Knob } from 'primereact/knob';
-import { Steps } from 'primereact/steps';
-import { Toast } from 'primereact/toast';
-
-
+import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+
+import { ProgressBar } from 'primereact/progressbar';
+import { Image } from 'primereact/image';
+import { Tag } from 'primereact/tag';
+
 import { AnchorButton } from '../components/Btn';
 import { db } from '../utils/firebase';
 
 import '../styles/tagPage.css';
 
 export default function Tags(){
-    const [stepInfo, setStepInfo] = useState(0);
     const [searchParams] = useSearchParams();
-
-    const [value, setValue] = useState(60);
-    const toast = useRef(null);
-    const interval = useRef(null);
-    let _val = 60;
 
     const [items, setItems] = useState([
         {id:1, value : "Responsable", activated:false, text: "La mamá o el papá del grupo", counter: 4},
@@ -30,13 +21,6 @@ export default function Tags(){
         {id:3, value : "Introvertido(a)", activated:false, text: "Me voy temprano, si es que voy", counter: 2},
         {id:4, value : "Burletero(a)", activated:false, text: "Me termino riendo de todos", counter: 1},
     ]);
-
-    const stepsList = [
-        {label: 'Energía'},
-        {label: 'Intensidad'},
-        {label: 'Sabor'},
-        {label: 'Olor'},
-    ];
 
     //sconst 
     const handleCSubmit = async () => {
@@ -74,57 +58,32 @@ export default function Tags(){
     setItems(copy);
     //console.log(index);
     };
-
-    //Temporalizador
-    useEffect(() => {
-        _val = value;
-
-        interval.current = setInterval(() => {
-            _val -= 1;
-
-            if (_val === 0) {
-                toast.current.show({ severity: 'info', summary: 'Finalizó el tiempo!', detail: 'Si necesitas más tiempo, puedes quedarte :)' });
-                clearInterval(interval.current);
-            }
-
-            setValue(_val);
-        }, 1000);
-
-        return () => {
-            if (interval.current) {
-                clearInterval(interval.current);
-                interval.current = null;
-            }
-        };
-    }, []);
     
-    return <section className='T1_CONT'>
-        <section className='titleTxt'>
-            <p className='Ttl_Strong'><strong>Escoge 1 palabra</strong></p>
-            <p className="Ttl_Normal">que mejor te define en menos de:</p>
+    return <section className='Tags_CONT'>
+        <section className='Info_CONT_Tags'>
+            <div className="infoTitle">
+                <h1 className="TagsTxt" id='TagsTitle'>¿Quién eres cuando vas de rumba?</h1>
+            </div>
+
+            <div className="infoImage">
+                <Image src='https://images.unsplash.com/photo-1555086156-e6c7353d283f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80' alt='Imagen_Principal' width='365em'd/>
+            </div>
+
+            <div className="infoProgress">
+                <ProgressBar value={50} style={{ height: '10px' }}></ProgressBar>
+            </div>
         </section>
 
-        <section className='Knb_CONT'>
-            <Toast ref={toast}></Toast>
-            <Knob value={value} max={60} readOnly/>
+        <section className='Interact_CONT_Tags'>
+            <div className='interactTagList_Tags'>
+                {items.map(({ id, text, activated }, index) => (
+                    <Tag style={activated ? { background: 'red' } : {}} className='tag' onClick={() => handleClickTag(index)} key={id} value={text} rounded/>
+                ))}
+            </div>
+            
+            <div className="interactButton_Tags">
+                <AnchorButton id='btn_cont' onClick={handleCSubmit} href={`/tags2?id=${searchParams.get('id')}`} label="Siguiente pregunta"/>
+            </div>
         </section>
-
-        <section className="Stp_CONT">
-            <Steps model={stepsList} activeIndex={stepInfo}/>
-        </section>
-
-        <section className='Tgs_CONT'>
-            {items.map(({ id, value, activated, text, counter }, index) => (
-                <Tag style={activated ? { background: 'red' } : {}} className='tag' onClick={() => handleClickTag(index)} key={id} value={text} rounded/>
-            ))}
-        </section>
-
-        <div className='btn'>
-            <AnchorButton 
-                id='btn_cont' 
-                onClick={handleCSubmit}
-                href={`/tags2?id=${searchParams.get('id')}`} 
-                label="Continuar"/>
-        </div>
     </section>
 }

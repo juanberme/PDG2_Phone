@@ -1,83 +1,83 @@
 /*====================================================================================================*/
-
-
-/*Body: tag*/
-.tag{
-    padding: 0.75em;
-    font-size: 1em;
-    margin: 0.5em;
-}
-
-.T1_CONT{
-    margin: 4em 3em 5em;
-}
-
-
-/*--------------------------------------------------------------------------------------*/
-
-
-/*Divisor: Title*/
-.titleTxt{
-    font-size: 2em;
-    text-align: center;
-}
-
-.Ttl_Strong{
-    font-size: 1.25em;
-    font-weight: bolder;
-
-    color: #5C7AFF;
-    margin: 0em;
-}
-
-.Ttl_Normal{
-    margin: 0.5em 0em 0em;
-    color: #4A8FE7;
-}
-
-
-/*--------------------------------------------------------------------------------------*/
-
-
-/*Divisor: Clock*/
-.Knb_CONT{
-    display: flex;
-    justify-content: center;
-
-    margin: 2.5em 0em 0em;
-}
-
-
-/*--------------------------------------------------------------------------------------*/
-
-
-/*Divisor: Steps*/
-.Stp_CONT{
-    margin: 2.5em 0em 0em;
-}
-
-
-/*--------------------------------------------------------------------------------------*/
-
-
-/*Divisor: Tags*/
-.Tgs_CONT{
+.Tags_CONT{
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
 
-    margin: 2.5em 0em 0em;
-
-    height: 20em;
+    margin: 3em 2em 8em;
 }
 
 
 /*--------------------------------------------------------------------------------------*/
 
 
-/*Divisor: Button*/
-.btn{
+/*Section: Info*/
+.Info_CONT_Tags{
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.infoTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    margin-bottom: 1em;
+}
+
+.infoImage{
+    width: 100%;
+}
+
+.infoProgress{
+    height: 6px;
+    color: transparent;
+}
+
+
+/*--------------------------------------------------------------------------------------*/
+
+/*Body: tag*/
+.Interact_CONT_Tags{
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.TagsTxt{
+    margin: 0em;
+}
+
+#TagsSubTitle{
+    font-size: 1em;
+    font-weight: 400;
+    color: #4A8FE7;
+}
+
+#TagsTitle{
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #5C7AFF;
+}
+
+.interactTagList_Tags{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tag{
+    font-size: 1em;
+    font-weight: 500;
+
+    padding: 0.75em;
+    margin: 0.5em;
+
+    width: 100%;
+    height: 3em;
+}
+
+.interactButton_Tags{
     display: flex;
     justify-content: center;
 
@@ -85,5 +85,9 @@
 }
 
 #btn_cont{
+    font-size: 1em;
+    font-weight: 500;
+
     width: 100%;
+    height: 3.15em;
 }

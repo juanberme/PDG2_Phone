@@ -19,6 +19,7 @@ import Results from './routes/Results';
 import Tags2 from './routes/Tags2';
 import Tags3 from './routes/Tags3';
 import Tags4 from './routes/Tags4';
+import Rules from './routes/Rules';
 
 
 
@@ -55,15 +56,22 @@ const router = createBrowserRouter([
   {
     path:'/admin',
     element: <Admin/>
-  },{
+  },
+  {
     path:'/newAdmin',
     element: <NewAdmin/>
-  },{
+  },
+  {
     path: '/adminStand',
     element: <AdminStand/>
-  },{
+  },
+  {
     path: '/resultados',
     element: <Results/>
+  },
+  {
+    path: '/reglas',
+    element: <Rules/>
   }
 ]);
 

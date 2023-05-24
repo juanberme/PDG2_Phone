@@ -1,55 +1,93 @@
 /*====================================================================================================*/
 
 
-/*Sectiom: Full Cont*/
+/*Body: Css*/
 .fullCont{
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    margin: 5em 3em 10em;
+    margin: 5em 3em 5em;
+}
+
+.beginTxt{
+    margin: 0em;
+}
+
+#beginSubTitle{
+    font-size: 1.4em;
+    font-weight: 400;
+    color: #4A8FE7;
+}
+
+#beginTitle{
+    font-size: 2.25em;
+    font-weight: 700;
+    color: #5C7AFF;
 }
 
 
 /*--------------------------------------------------------------------------------------*/
 
 
-/*Section: Txt_Cont*/
-.Cont_Txt{
+/*Section: Logo*/
+.Logo_CONT{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    margin: 0em 0em 3em;
-}
 
-.Cont_Tlt{
-    font-size: 1.5em;
-    color: #5C7AFF;
-}
-
-.Tlt_h{
-    margin: 0em;
-}
-
-.Cont_Ln{
-    font-size: 1em;
-}
-
-.Ln_h{
-    margin: 0em;
-}
-
-#ln1{
-    color: #4A8FE7;
-}
-
-#ln2{
-    color: #5C6679;
-}
-
-.Cont_Btn{
     margin: 3em 0em 0em;
 }
 
+
+/*--------------------------------------------------------------------------------------*/
+
+
+/*Section: Title*/
+.Title_CONT{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    margin: 2em 0em 0em;
+}
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+/*Section: Interact*/
+.Interact_CONT{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    margin: 12em 0em 1em;
+}
+
+.interactTxt{
+    width: 15em;
+    margin-bottom: 1em;
+}
+
 #btn_begin{
-    height: 5em;
-    width: 5em;
+    height: 4em;
+    width: 4em;
+}
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+/*Section: Deco*/
+.Deco_CONT_Begin{
+    display: flex;
+    flex-direction: row;
+}
+
+.imgBottle{
+    margin: 0em -1em;
 }
