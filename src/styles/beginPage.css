@@ -7,7 +7,7 @@
     flex-direction: column;
     align-items: center;
 
-    margin: 5em 3em 5em;
+    margin: 5em 3em 0em;
 }
 
 .beginTxt{
@@ -65,7 +65,7 @@
     align-items: center;
     text-align: center;
 
-    margin: 12em 0em 1em;
+    margin: 11em 0em 2em;
 }
 
 .interactTxt{

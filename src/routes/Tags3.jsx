@@ -19,7 +19,7 @@ const [items, setItems] = useState([
     {id:1, value : "Soltero", activated:false, text: "No tengo tiempo para eso ahora", counter: 4},
     {id:2, value : "Coqueto", activated:false, text: "Yooo. Soy el aventurero", counter: 3},
     {id:3, value : "Indiferente", activated:false, text: "No me cae ni una gota de lluvia", counter: 2},
-    {id:4, value : "Privado(a)", activated:false, text: "👀... *Eso es secreto*", counter: 1},
+    {id:4, value : "Privado(a)", activated:false, text: "Felizmente en una relación", counter: 1},
 ]);
 
 //sconst 

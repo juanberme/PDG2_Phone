@@ -138,7 +138,7 @@ export default function Login(){
             </div>
 
             <div className='input'>
-                <label className='labelName'>¿Cómo te puedo escribir?</label>
+                <label className='labelName'>¿Cuál es tu correo?</label>
                 <InputText id='login_email' value={inputEmail} onChange={handleEmailInput} onBlur={validateEmail} className={!validEmail ? 'p-invalid' : ''} placeholder='Correo electrónico'/>
             </div>
 
