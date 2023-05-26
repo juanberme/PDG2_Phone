@@ -9,6 +9,7 @@ import { collection, doc, getDocs, onSnapshot } from 'firebase/firestore';
 
 import { db } from '../components/utils/firebase.js';
 import '../styles/FinalPage.css';
+import ExportExcel from '../components/Excelexport.js';
 
 /* const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
@@ -44,7 +45,7 @@ export default function Final(){
                 const updatedUserGender = snapshot.docs.map((doc) => doc.data().gender);
                 //setUsersData(updatedUsersData);   
                 setUserGenderData(updatedUserGender);
-                setUsersData(updatedUsersData.map(u => {
+                setUsersData(updatedUsersData.filter(u => u.tags?.length == 4).map(u => {
                     const data = {
                         name: u.name,
                         gender: u.gender,
@@ -192,11 +193,8 @@ export default function Final(){
             <Divider layout='vertical'/>
 
             <section className="SCT_GRAPH">
-                
-
                 <div className='columnChart'>
-                    
-                
+                    <ExportExcel data={usersData.map(u => u.data)} fileName={`users-data-${Date.now()}`}/>
                 </div>
             </section>
         </section>
