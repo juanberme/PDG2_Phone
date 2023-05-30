@@ -8,7 +8,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 //import vertexShaderPars from './pruebas/vertex_pars.js';
 //import vertexShaderMain from './pruebas/vertex_main.js';
 
-const Blob = ({pattern, intensity, color1, color2}) => {
+const Blob = ({pattern = 1, intensity = 1.0, color1 = {r: 1.0, g: 1.0, b: 1.0}, color2 = {r: 1.0, g: 1.0, b: 1.0}}) => {
 const mesh = useRef();
 const hover = useRef(false);
 
@@ -48,6 +48,14 @@ useFrame((state) =>{
  
   if(mesh.current){
     mesh.current.material.uniforms.uTime.value = 0.4 * clock.getElapsedTime();
+    mesh.current.material.uniforms.uForce.value = intensity;
+    mesh.current.material.uniforms.uPattern.value = pattern;
+    mesh.current.material.uniforms.uR1.value = color1.r;
+    mesh.current.material.uniforms.uG1.value = color1.g;
+    mesh.current.material.uniforms.uB1.value = color1.b;
+    mesh.current.material.uniforms.uR2.value = color2.r;
+    mesh.current.material.uniforms.uG2.value = color2.g;
+    mesh.current.material.uniforms.uB2.value = color2.b;
 
     //mesh.current.material.uniforms.uTime.value =0.4 * clock.getElapsedTime();
 
