@@ -1,81 +1,112 @@
 import React, {useState} from 'react';
+
 import { Password } from 'primereact/password';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
-import { Image } from 'primereact/image';
+import { InputMask } from 'primereact/inputmask';
 
 import '../styles/newAdminPage.css';
+import 'primeicons/primeicons.css';
+import tinkaLogo from '../gallery/tinkaBeyond-logo_DEF.png';
+
 
 export const NewAdmin = () => {
-    const [inputNewUsername, setInputNewUsername] = useState('');
-    const handleNewUsernameInput = (e) => {
-        setInputNewUsername(e.target.value);
+
+    //Nombre de la empresa
+    const [inputCompany, setInputCompany] = useState('');
+    const handleCompanyInput = (e) => {
+        setInputCompany(e.target.value);
     }
 
+    //email
     const [inputEmail, setInputEmail] = useState('');
     const handleEmailInput = (e) => {
-        setInputEmail(e.target.value);
+    setInputEmail(e.target.value);
     }
 
-    const [inputNewPassword, setInputNewPassword] = useState('');
-    const handleNewPasswordInput = (e) => {
-        setInputNewPassword(e.target.value);
+    //Contraseña
+    const [inputPassword, setInputPassword] = useState('');
+    const handlePasswordInput = (e) => {
+        setInputPassword(e.target.value);
     }
 
-    const [inputPasswordConfirm, setInputPasswordConfirm] = useState('');
-    const handlePasswordConfirmInput = (e) => {
-        setInputPasswordConfirm(e.target.value);
+    //Confirmar contraseña
+    const [inputConfirmPassword, setInputConfirmPassword] = useState('');
+    const handleConfirmPasswordInput = (e) => {
+        setInputConfirmPassword(e.target.value);
     }
+
+    //Código de activación
+    const [inputActivationCode, setInputActivationCode] = useState('');
+    const handleActivationCodeInput = (e) => {
+        setInputActivationCode(e.target.value);
+    }
+
+    /*
+    //Title
+    const [inputNew, setInputNew] = useState('');
+    const handleNewInput = (e) => {
+        setInputNew(e.target.value);
+    }
+    */
+    
   return (
-    <section className='newAdmin_SCT'>
-        <section className='SCT_CTA'>
-            <div className="newAdmin_Ttl">
-                <span className="Ttl_h1">
-                    <h1 id='hs'>Para ingresar debes usar</h1>
-                </span>
-                <span className="Ttl_h3">
-                    <h3 id='hs'>el correo y contraseña</h3>
-                </span>
-                <span className="Ttl_h3">
-                    <h3 id='hs'>de la empresa</h3>
+    <section className='companyRegister_CONT'>
+
+    <section className="CR-Top">
+        <div className="CR-Top_img">
+            <img src={tinkaLogo} alt="Thinka Beyond"/>
+        </div>
+        <div className="CR-Top_title">
+            <h1>Registro</h1>
+        </div>
+        </section>
+
+
+
+
+        <main className="CR-Main">
+            <div className="CR-Main_cont">
+                <label htmlFor='company' className='cr-main-label'>Nombre de la empresa</label>
+                <span>
+                    <InputText className='p-inputtext' value={inputCompany} onChange={handleCompanyInput}/>
                 </span>
             </div>
 
-            <div className="newAdmin_Frm">
-                <div className='Frm_Dv'>
-                    <label htmlFor='newUsername'>Nombre de la compañía</label>
-                    <span className="p-input">
-                        <InputText id='newUsername' value={inputNewUsername} onChange={handleNewUsernameInput}/>
-                    </span>
-                </div>
-                <div className='Frm_Dv'>
-                    <label htmlFor='email'>Correo</label>
-                    <span className="p-input">
-                        <InputText id='email'value={inputEmail} onChange={handleEmailInput}/>
-                    </span>
-                </div>
-                <div className='Frm_Dv'>
-                    <label htmlFor='newPassword'>Constraseña</label>
-                    <span className='p-input'>
-                        <Password id='newPassword' value={inputNewPassword} onChange={handleNewPasswordInput} toggleMask promptLabel='Nivel de seguridad' 
-                        weakLabel='Muy simple' mediumLabel='Regular' strongLabel='Buena'/>
-                    </span>
-                </div>
-                <div className='Frm_Dv'>
-                    <label htmlFor='passwordConfirm'>Confirmar contraseña</label>
-                    <span className='p-input'>
-                        <Password id='newPassword' value={inputPasswordConfirm} onChange={handlePasswordConfirmInput} toggleMask promptLabel='Nivel de seguridad' 
-                        weakLabel='Muy simple' mediumLabel='Regular' strongLabel='Buena'/>
-                    </span>
-                </div>
-
-                <Button className='btn_CTA' label="Registrarme"/>
+            <div className="CR-Main_cont">
+                <label htmlFor='email' className='cr-main-label'>Correo electrónico</label>
+                <span>
+                    <InputText className='p-inputtext' value={inputEmail} onChange={handleEmailInput}/>
+                </span>
             </div>
-        </section>
-        
-        <section className="SCT_DEC">
-            <Image src='../gallery/placeholder-image.png' alt='_ERROR_img-logo.svg' width='250'/>
-        </section>
+
+            <div className="CR-Main_cont">
+                <label htmlFor='password' className='cr-main-label'>Contraseña</label>
+                <span>
+                    <Password className='p-password-input' value={inputPassword} onChange={handlePasswordInput} feedback={false} toggleMask id='cl-fullWidth'/>
+                </span>
+            </div>
+
+            <div className="CR-Main_cont">
+                <label htmlFor='password' className='cr-main-label'>Confirmar contraseña</label>
+                <span>
+                    <Password className='p-password-input' value={inputConfirmPassword} onChange={handleConfirmPasswordInput} feedback={false} toggleMask id='cl-fullWidth'/>
+                </span>
+            </div>
+
+            <div className="CR-Main_cont">
+                <label htmlFor='password' className='cr-main-label'>Código de activación</label>
+                <span>
+                    <InputMask id='activationCode' name='Activation-Code' value={inputActivationCode} onChange={handleActivationCodeInput} mask='999-999' placeholder='999-999' />
+                </span>
+            </div>
+
+            <div className="CR-Main_cont">
+                <span>
+                    <Button label='Crear un usuario'className='p-button'/>
+                </span>
+            </div>
+        </main>
     </section>
   )
 }

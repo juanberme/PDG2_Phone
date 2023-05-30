@@ -1,90 +1,82 @@
-/*====================================================================================================*/
-
-
-/*Body: css*/
-.admin_SCT{
-    display: flex;
-
-    margin: 5em 3em 0em;
-}
-
-.SCT_CTA{
-    width: 50%;
-}
-
-.SCT_DEC{
-    width: 50%;
+html{
+    font-size: 24px;
 }
 
 
-/*--------------------------------------------------------------------------------------*/
+/*===============================*/
+/*CONT: Global*/
 
-
-/*Divisor: Title*/
-.admin_Ttl{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    margin: 0em 0em 5em;
-}
-
-#hs{
-    margin: 0em;
-}
-
-.Ttl_h1{
-    margin: 0em 0em 0.1em;
-    color: #5C7AFF;
-    font-size: 1.75em;
-}
-
-.Ttl_h3{
-    margin: 0em 0em -0.3em;
-    color: #4A8FE7;
-    font-size: 1.5em;
-}
-
-
-/*--------------------------------------------------------------------------------------*/
-
-
-/*Divisor: Form*/
-.admin_Frm{
-    margin: 1em 0em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.frm_Dv{
-    margin: 1em 0em 0em;
-    display: flex;
-    flex-direction: column;
-}
-
-.Input_Spn{
-    margin: 0.5em 0em;
-}
-
-#inpt_txt_Admin{
-    width: 25em;
+.p-inputtext{
+    width: 100%;
 }
 
 .p-password-input{
-    width: 25em;
+    width: 100%;
+}
+
+.p-button{
+    background-color: #5C7AFF;
+    width: 100%;
+}
+
+.p-divider{
+    height: 1.5rem;
+}
+
+.companyLogin_CONT{
+    margin: 5rem 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
-/*--------------------------------------------------------------------------------------*/
+/*===============================*/
+/*CONT: Top*/
 
-
-/*Divisor: Button*/
-.btn_CTA{
-    width: fit-content;
-    margin: 2em 0em 0em;
+.CL-Top_title{
+    color: #5C7AFF;
 }
 
-.p-button-label{
-    width: 23em;
+
+/*===============================*/
+/*CONT: Main*/
+
+.CL-Main{
+    width: 100%;
+}
+
+.CL-Main_cont{
+    display: flex;
+    flex-direction: column;
+
+    margin: 0.75rem 0rem;
+}
+
+#cl-main-label{
+    font-size: 0.85em;
+}
+
+.CL-Main_underInputs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#cl-main-chb{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#cl-main-chb-txt{
+    margin: 0rem 0.25rem;
+    color: #5C7AFF;
+}
+
+/*===============================*/
+/*CONT: Bot*/
+.CL-Bot{
+    width: 100%;
 }

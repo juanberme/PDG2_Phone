@@ -1,148 +1,83 @@
-/*React*/
-.p-card-title{
+html{
+    font-size: 24px;
+}
+
+
+/*===============================*/
+/*CONT: Global*/
+
+.p-inputtext{
+    width: 100%;
+}
+
+.p-password-input{
+    width: 100%;
+}
+
+.p-button{
+    background-color: #5C7AFF;
+    width: 100%;
+}
+
+.p-divider{
+    height: 1.5rem;
+}
+
+.companyRegister_CONT{
+    margin: 5rem 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/*===============================*/
+/*CONT: Top*/
+
+.CR-Top_title{
     color: #5C7AFF;
-}
-
-.p-card-subtitle{
-    color: #5C6679;
+    text-align: center;
 }
 
 
-/*====================================================================================================*/
+/*===============================*/
+/*CONT: Main*/
 
+.CR-Main{
+    width: 100%;
+}
 
-/*Body: css*/
-.CLP_CONT{
+.CR-Main_cont{
     display: flex;
     flex-direction: column;
 
-    margin: 3em 3em 0em;
+    margin: 0.75rem 0rem;
 }
 
+.cr-main-label{
+    font-size: 0.85em;
+}
 
-/*--------------------------------------------------------------------------------------*/
-
-
-/*Section: Header*/
-.NAV_SUP{
+.CR-Main_underInputs{
     display: flex;
     flex-direction: row;
-
+    align-items: center;
     justify-content: space-between;
-    align-items: baseline;
-
-    width: 100%;
-
-    margin: 0em 0em 1em;
 }
 
-.btn_link_1{
-    width: 5em;
-    margin: 0em 0em;
-
-    font-size: 1.5em;
-    font-weight: bolder;
-}
-
-.LNK_List{
+#cr-main-chb{
     display: flex;
     flex-direction: row;
-
-    list-style: none;
-    margin: 0em 0em;
+    align-items: center;
 }
 
-.btn_link_2{
-    width: 10em;
-    margin: 0em 0em;
-
-    font-size: 0.75em;
-}
-
-.ICN_List{
-    display: flex;
-    flex-direction: row;
-
-    list-style: none;
-    margin: 0em 0em;
-}
-
-.btn_link_3{
-    width: 3em;
-    margin: 0em 0em;
-}
-
-
-/*--------------------------------------------------------------------------------------*/
-
-
-/*Section: Cont*/
-.SCT_CONT{
-    display: flex;
-    flex-direction: row;
-
-    margin: 4em 0em 0em;
-}
-
-
-/*--------------------------------------------------------------------------------------*/
-
-
-/*Section: INFO*/
-.INFO_Deco{
-    margin: 1em 1em;
-}
-
-.INFO_Company{
-    display: flex;
-    flex-direction: column;
-
-    margin: 0em 1em;
-}
-
-.Company_Cont{
-    margin: 0em 1em 1.5em;
-}
-
-.Ttl_cmp{
-    margin: 0em 0em;
-
+#cr-main-chb-txt{
+    margin: 0rem 0.25rem;
     color: #5C7AFF;
-    font-size: 1em;
 }
 
-.Sttl_cmp{
-    margin: 0em 0em;
-
-    color: #5C6679;
-    font-size: 0.9em;
-    font-weight: lighter;
-}
-
-.MS_Cmp{
+/*===============================*/
+/*CONT: Bot*/
+.CR-Bot{
     width: 100%;
-}
-
-.btn_AddStand{
-    width: 12em;
-}
-
-
-/*--------------------------------------------------------------------------------------*/
-
-
-/*Section: LIST*/
-.SCT_LIST{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.LIST_Card{
-    margin: 0em 2em 5em;
-    width: 17.5em;
-}
-
-.btn_Card{
-    width: 7.5em;
 }
