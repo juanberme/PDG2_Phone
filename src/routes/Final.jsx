@@ -11,13 +11,15 @@ import { ProgressSpinner } from 'primereact/progressspinner';
 import { db } from '../components/utils/firebase.js';
 import '../styles/FinalPage.css';
 import ExportExcel from '../components/Excelexport.js';
+import { useAuth } from '../contexts/AuthContext.js';
+import { Navigate } from 'react-router';
 
 /* const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 const ExcelColumn = ReactExport.ExcelFile.ExcelColumn; */
 
 export default function Final(){
-
+    const {currentUser} = useAuth();
     //const [chartData, setChartData] = useState({});
     //const [chartOptions, setChartOptions] = useState({});
     const [genderChart, setGenderChart] = useState({});
@@ -54,7 +56,6 @@ export default function Final(){
     //console.log('---- USERS DATA -----');
     console.log(usersData);
     //console.log(userGenderData);
-
 
     useEffect(() => {
         const getUsers = () => {
@@ -345,6 +346,9 @@ useEffect(() => {
     setTagsChartOptiones4(options);
 }, [tagsChart3]);
 
+    if (!currentUser) return <Navigate to="/admin"/> ;
+
+    console.log('--- USER ---', currentUser);
 
     return <section className='FNL_CONT'>
         {/* <ExcelFile element={<button>Descargar Excel</button>}>

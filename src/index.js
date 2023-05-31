@@ -20,6 +20,7 @@ import Tags2 from './routes/Tags2';
 import Tags3 from './routes/Tags3';
 import Tags4 from './routes/Tags4';
 import Rules from './routes/Rules';
+import { AuthProvider } from './contexts/AuthContext';
 
 
 
@@ -78,7 +79,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
-  <RouterProvider router={router} />
+  <AuthProvider>
+    <RouterProvider router={router} />
+  </AuthProvider>
 );
 
 //<App />

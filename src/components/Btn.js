@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router';
 
 export const AnchorButton = ({onClick, href = '#', ...props}) => {
   const navigate = useNavigate();
-  const handleClick = () => {
-    if(onClick) onClick();
+  const handleClick = async () => {
+    if(onClick) await onClick();
 
     navigate(href);
   }

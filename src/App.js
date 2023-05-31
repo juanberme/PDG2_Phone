@@ -7,7 +7,6 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import './App.css';
 //import { FirstComponent } from './components/FirstComponent.js';
 import { PDGButton } from "./components/PDGButton.js";
-import { useState } from "react";
 
 /*const Begin = () => <h2>begin - Estas apunto de vivir una experiencia distinta</h2>
 

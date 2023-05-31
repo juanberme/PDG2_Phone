@@ -59,84 +59,90 @@ const Results = () => {
     //console.log(userCounter);
 
     useEffect(() => {
-      if(loadedData && userData && userData.tags){
+      if(loadedData && userData && userData.tags && userData.tags.length === 4){
+        console.log(' TAGS -------------------');
+        console.log(userData.tags);
         setUserCounter(userData.tags[0].counter + userData.tags[1].counter + userData.tags[2].counter + userData.tags[3].counter);
-        console.log(userCounter);
-        if(userCounter >= 13 && userCounter <= 16){
-            console.log("Es manzana");
-            setPattern(3);
-            setIntensity(4.0);
-
-            setRColor1(1.0)
-            setGColor1(0.455);
-            setBColor1(0.831);
-
-            setRColor2(1.0);
-            setGColor2(0.212);
-            setBColor2(0.671);
-            setSoda("Manzana Postobon");
-            setInfo("Eres una persona familiar y amigable, te gustan las cosas sencillas como pasar un buen rato con tus amigos o una agradable charla con tu familia. Te gusta que las cosas estén bajo control y todos a tu alrededor se encuentren felices y tranquilos.");
-        }else if(userCounter >= 11 &&  userCounter<= 13){
-            console.log("Es Colombiana");
-            setPattern(1);
-            setIntensity(3.0)
-
-            setRColor1(0.988);
-            setGColor1(0.749);
-            setBColor1(0.286);
-
-            setRColor2(0.969);
-            setGColor2(0.498);
-            setBColor2(0.0);
-            setSoda("Colombiana");
-            setInfo("Eres una persona intensa y alegre, todos los que te rodean pueden sentir tu calor, pues tu eres su sol, y ellos tus planetas. Te gusta expresarte, ser libre, y vivir de forma agradable. Pero siempre responsable… sí, responsable. ");
-        } else if(userCounter === 10){
-          console.log("Es Bretaña");
-          setPattern(2);
-          setIntensity(5.0)
-
-          setRColor1(0.898);
-          setGColor1(0.925);
-          setBColor1(0.957);
-
-          setRColor2(0.569);
-          setGColor2(0.651);
-          setBColor2(1.0);
-          setSoda("Bretaña Postobon");
-          setInfo("Puede que te digan tibio, pero no está mal que te guste de todo un poquito. Puedes ser alguien difícil de leer, pero eso no importa, no eres un libro abierto para que todos te vean, sigue brillando con luz propia!!!")
-        }else if(userCounter >= 7 && userCounter <= 9){
-          console.log("Es 7Up");
-          setPattern(2);
-          setIntensity(5.0)
-
-          setRColor1(0.937);
-          setGColor1(1.0);
-          setBColor1(0.98);
-
-          setRColor2(0.38);
-          setGColor2(0.816);
-          setBColor2(0.584);
-          setSoda("7Up");
-          setInfo("Eres una persona fría y calculadora, eres sencille por lo que no necesitas demostrar nada, ni compararte con nadie. Sabes reconocer tu propio valor y eres independiente, aunque tal vez algo distante. Vení que te extrañamos, ome.");
-        }else if(userCounter >= 4 && userCounter <= 6){
-          console.log("Es uva");
-          setPattern(0);
-          setIntensity(3.3)
-
-          setRColor1(0.976);
-          setGColor1(0.957);
-          setBColor1(0.961);
-
-          setRColor2(0.502);
-          setGColor2(0.137);
-          setBColor2(0.573);
-          setSoda("Uva Postobon");
-          setInfo("Eres una persona dulce y feliz, la vida es el camino, y tú revisas hasta la última piedra. Amás disfrutar de las cosas pequeñas de la vida como un buen chiste y estar cerca de las personas que ama, TQM Nunca cambies.");
-        }
         //setPattern(userData.tags[0].pattern);
         //setIntensity(userData.tags[1].intensity);
       }
-    });
+    }, [userData]);
+
+    useEffect(() => {
+      console.log(userCounter);
+
+      if(userCounter >= 13 && userCounter <= 16){
+          console.log("Es manzana");
+          setPattern(3);
+          setIntensity(4.0);
+
+          setRColor1(1.0)
+          setGColor1(0.455);
+          setBColor1(0.831);
+
+          setRColor2(1.0);
+          setGColor2(0.212);
+          setBColor2(0.671);
+          setSoda("Manzana Postobon");
+          setInfo("Eres una persona familiar y amigable, te gustan las cosas sencillas como pasar un buen rato con tus amigos o una agradable charla con tu familia. Te gusta que las cosas estén bajo control y todos a tu alrededor se encuentren felices y tranquilos.");
+      }else if(userCounter >= 11 &&  userCounter<= 13){
+          console.log("Es Colombiana");
+          setPattern(1);
+          setIntensity(3.0)
+
+          setRColor1(0.988);
+          setGColor1(0.749);
+          setBColor1(0.286);
+
+          setRColor2(0.969);
+          setGColor2(0.498);
+          setBColor2(0.0);
+          setSoda("Colombiana");
+          setInfo("Eres una persona intensa y alegre, todos los que te rodean pueden sentir tu calor, pues tu eres su sol, y ellos tus planetas. Te gusta expresarte, ser libre, y vivir de forma agradable. Pero siempre responsable… sí, responsable. ");
+      } else if(userCounter === 10){
+        console.log("Es Bretaña");
+        setPattern(2);
+        setIntensity(5.0)
+
+        setRColor1(0.898);
+        setGColor1(0.925);
+        setBColor1(0.957);
+
+        setRColor2(0.569);
+        setGColor2(0.651);
+        setBColor2(1.0);
+        setSoda("Bretaña Postobon");
+        setInfo("Puede que te digan tibio, pero no está mal que te guste de todo un poquito. Puedes ser alguien difícil de leer, pero eso no importa, no eres un libro abierto para que todos te vean, sigue brillando con luz propia!!!")
+      }else if(userCounter >= 7 && userCounter <= 9){
+        console.log("Es 7Up");
+        setPattern(2);
+        setIntensity(5.0)
+
+        setRColor1(0.937);
+        setGColor1(1.0);
+        setBColor1(0.98);
+
+        setRColor2(0.38);
+        setGColor2(0.816);
+        setBColor2(0.584);
+        setSoda("7Up");
+        setInfo("Eres una persona fría y calculadora, eres sencille por lo que no necesitas demostrar nada, ni compararte con nadie. Sabes reconocer tu propio valor y eres independiente, aunque tal vez algo distante. Vení que te extrañamos, ome.");
+      }else if(userCounter >= 4 && userCounter <= 6){
+        console.log("Es uva");
+        setPattern(0);
+        setIntensity(3.3)
+
+        setRColor1(0.976);
+        setGColor1(0.957);
+        setBColor1(0.961);
+
+        setRColor2(0.502);
+        setGColor2(0.137);
+        setBColor2(0.573);
+        setSoda("Uva Postobon");
+        setInfo("Eres una persona dulce y feliz, la vida es el camino, y tú revisas hasta la última piedra. Amás disfrutar de las cosas pequeñas de la vida como un buen chiste y estar cerca de las personas que ama, TQM Nunca cambies.");
+      }
+    }, [userCounter]);
 
     //const pattern = userData.tags[0].pattern;
     //const pattern = userData && userData.tags ? userData.tags[0].pattern : 'default-pattern';

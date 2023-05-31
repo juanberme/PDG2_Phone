@@ -10,8 +10,12 @@ import '../styles/adminPage.css';
 import 'primeicons/primeicons.css';
 
 import tinkaLogo from '../gallery/tinkaBeyond-logo_DEF.png';
+import { useAuth } from '../contexts/AuthContext';
+import { Navigate, useNavigate } from 'react-router';
 
 export const Admin = () => {
+  const auth = useAuth();
+  const navigate = useNavigate();
   //email
   const [inputCompany, setInputCompany] = useState('');
   const handleCompanyInput = (e) => {
@@ -20,6 +24,7 @@ export const Admin = () => {
   
   //password
   const [inputPassword, setInputPassword] = useState('');
+
   const handlePasswordInput = (e) =>{
     setInputPassword(e.target.value);
   }
@@ -27,6 +32,17 @@ export const Admin = () => {
   //remember me
   const [checked, setChecked] = useState(false);
   
+  const handleLogin = async () => {
+    try {
+      await auth.login(inputCompany, inputPassword);
+      console.log('SESION INICIADA');
+      navigate('/final');
+    } catch (error) {
+      console.error(error);  
+    }
+  }
+
+  if (auth.currentUser) return <Navigate to="/final"/>;
 
   return (
     <section className='companyLogin_CONT'>
@@ -71,7 +87,7 @@ export const Admin = () => {
 
         <div className="CL-Main_cont">
           <span>
-            <Button label='Ingresar'className='p-button'/>
+            <Button label='Ingresar'className='p-button' onClick={handleLogin}/>
           </span>
         </div>
       </main>
