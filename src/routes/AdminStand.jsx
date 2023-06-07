@@ -2,10 +2,13 @@ import React from 'react';
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { Divider } from 'primereact/divider';
+import { Image } from 'primereact/image';
 
 import '../styles/adminStandPage.css';
 import 'primeicons/primeicons.css';
+
 import logo from '../gallery/postobon-logo.jpg';
+import thinkaBeyondLogo from '../gallery/tinkaBeyond-logo_DEF.png';
 
 const AdminStand = () => {
 
@@ -19,6 +22,10 @@ const AdminStand = () => {
    return <section className="VSP_CONT">
 
         <header className="VSP_HEAD_CONT">
+            <nav className="VSP_NAV_Cont">
+                <Image src={thinkaBeyondLogo} alt="Image" width="160rem" />
+            </nav>
+            
             <nav className="VSP_Nav_Cont">
                 <span>
                     <Button id='BOLD' label='Ver Stands' severity='primary' text />

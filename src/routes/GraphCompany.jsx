@@ -4,8 +4,6 @@ import { Navigate } from 'react-router';
 import { Button } from 'primereact/button';
 import { Divider } from 'primereact/divider';
 import { Chart } from 'primereact/chart';
-import { TreeTable } from 'primereact/treetable';
-import { Column } from 'primereact/column';
 import { ProgressSpinner } from 'primereact/progressspinner';
 import { Image } from 'primereact/image';
 /* import ReactExport from "react-export-excel"; */
@@ -15,17 +13,12 @@ import { collection, onSnapshot } from 'firebase/firestore';
 import ExportExcel from '../components/Excelexport.js';
 import { useAuth } from '../contexts/AuthContext.js';
 
-import '../styles/FinalPage.css';
+import '../styles/graphCompanyPage.css';
 import 'primeicons/primeicons.css';
 
-import logo from '../gallery/postobon-logo.jpg';
 import thinkaBeyondLogo from '../gallery/tinkaBeyond-logo_DEF.png';
 
-/* const ExcelFile = ReactExport.ExcelFile;
-const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
-const ExcelColumn = ReactExport.ExcelFile.ExcelColumn; */
-
-export default function Final(){
+const GraphCompany = () => {
     const {currentUser} = useAuth();
     //const [chartData, setChartData] = useState({});
     //const [chartOptions, setChartOptions] = useState({});
@@ -357,85 +350,94 @@ if (!currentUser) return <Navigate to="/admin"/> ;
 
 console.log('--- USER ---', currentUser);
 
-return <section className='FNL_CONT'>
-    {/* <ExcelFile element={<button>Descargar Excel</button>}>
-        <ExcelSheet data={usersData.map(u => u.data)}>
-            <ExcelColumn label="Name" value="name"></ExcelColumn>
-        </ExcelSheet>
-    </ExcelFile> */}
+    return <section className="VEP_CONT">
+        <header className="VEP_HEAD_CONT">
+            <nav className="VEP_NAV_Cont">
+                <Image src={thinkaBeyondLogo} alt="Image" width="160rem" />
+            </nav>
+            
+            <nav className="VEP_Nav_Cont">
+                <span>
+                    <Button id='BOLD' label='Ver Stands' severity='primary' text />
+                </span>
 
+                <span>
+                    <Button label='Ver Datos' severity='secondary' text />
+                </span>
 
-    <header className="FNL_HEAD_CONT">
-        <nav className="VSP_NAV_Cont">
-            <Image src={thinkaBeyondLogo} alt="Image" width="160rem" />
-        </nav>
+                <span>
+                    <Button label='Ver Estadísticas' severity='secondary' text />
+                </span>
+            </nav>
 
-        <nav className="FNL_Nav_Cont">
-            <span>
-                <Button label='Ver Stands' severity='secondary' text />
-            </span>
+            <nav className="Nav_Cont">
+                <Button id='BOLD' label='Cerrar sesión' severity='danger' text />
+            </nav>
+        </header>
 
-            <span>
-                <Button id='BOLD' label='Ver Datos' severity='primary' text />
-            </span>
-
-            <span>
-                <Button label='Ver Estadísticas' severity='secondary' text />
-            </span>
-        </nav>
-
-        <nav className="FNL_Nav_Cont">
-            <Button id='BOLD' label='Cerrar sesión' severity='danger' text/>
-        </nav>
-    </header>
-
-    <div className="FNL_DIV_CONT">
+        <div className="VEP_Div_Cont">
         <span>
             <Divider layout='horizontal'/>
         </span>
-    </div>
+       </div>
 
-    <main className='FNL_MAIN_CONT'>
-        <aside className="VSP_Info_Cont">
-            <span className="Company_Cont">
-                <img src={logo} alt="logo_Postobon" />
-            </span>
-            <span className='Company_Cont'>
-                <h1 className="Ttl_cmp">Postobón S.A.</h1>
-            </span>
-            <span className="Company_Cont">
-                <p className="Sttl_cmp">Tienes 2 stands</p>
-            </span>
-        </aside>
+       <section className='VEP_Graph_Cont'>
+            <div className='VEP_Graph_Element'>
+                {userGenderData.length > 0 ? (
+                    <><Chart type="doughnut" data={genderChart} options={genderChartOptions} className="w-full md:w-30rem"/>
+                    </>
+                ) : (
+                    <ProgressSpinner />
+                )}
+            </div>
+            <div className='VEP_Graph_Element'>
+                {tagsChart1.length > 0 ? (
+                    <><Chart type="bar" data={tags1} options={tagsChartOptions1} />
+                    </>
+                ) : (
+                    <ProgressSpinner />
+                )}
+                
+            </div>
+            <div className='VEP_Graph_Element'>
+                {tagsChart2.length > 0 ? (
+                    <><Chart type="bar" data={tags2} options={tagsChartOptions2} />
+                    </>
+                ) : (
+                    <ProgressSpinner />
+                )}
+                
+            </div>
+            <div className='VEP_Graph_Element'>
+                {tagsChart3.length > 0 ? (
+                    <><Chart type="bar" data={tags3} options={tagsChartOptions3} />
+                    </>
+                ) : (
+                    <ProgressSpinner />
+                )}
+                
+            </div>
+            <div className='VEP_Graph_Element'>
+                {tagsChart4.length > 0 ? (
+                    <><Chart type="bar" data={tags4} options={tagsChartOptions4} />
+                    </>
+                ) : (
+                    <ProgressSpinner />
+                )}
+                
+            </div>
 
-        <div className="FNL_DIV_CONT">
-            <span>
-                <Divider layout='vertical'/>
-            </span>
-        </div>
-
-        <section className="FNL_Table_Cont">
-            <TreeTable value={usersData}>
-                <Column field="name" header="Nombre" className='FNL_Table_Ttl' />
-                <Column field="gender" header="Gender" className='FNL_Table_Ttl' />
-                <Column field="age" header="Edad" className='FNL_Table_Ttl' />
-                <Column field='tag1' header="1er tag" className='FNL_Table_Ttl' />
-                <Column field='tag2' header="2do tag" className='FNL_Table_Ttl' />
-                <Column field='tag3' header="3er tag" className='FNL_Table_Ttl' />
-                <Column field='tag4' header="4to tag" className='FNL_Table_Ttl' />
-                <Column field='email' header="Correo" className='FNL_Table_Ttl' />
-            </TreeTable>
-
-            <div className="FNL_Div_Cont">
+            <div className="VEP_Div_Cont">
                 <span>
                     <Divider layout='horizontal'/>
                 </span>
             </div>
 
-            <section className="FNL_Excel_Cont">
-                <ExportExcel data={usersData.map(u => u.data)} fileName={`users-data-${Date.now()}`}/>
+            <section className="VEP_Excel_Cont">
+                <div className='columnChart'>
+                    <ExportExcel data={usersData.map(u => u.data)} fileName={`users-data-${Date.now()}`}/>
+                </div>
             </section>
         </section>
-    </main>
-</section>
+    </section>
 }
