@@ -1,7 +1,89 @@
-/*====================================================================================================*/
+/*======================================================================================*/
 
 
 /*Body: css*/
+
+html{
+    font-size: 24px;
+}
+
+#BOLD{
+    font-weight: 700;
+    font-size: 1.05em;
+}
+
+#HIDE{
+    display: none;
+}
+
 .FNL_CONT{
-    margin: 3em 3em 0em;
+    margin: 3em;
+}
+
+/*======================================================================================*/
+
+
+/*Body: NAV*/
+.FNL_HEAD_CONT{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    width: 100%;
+}
+
+.FNL_Nav_Cont{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+
+/*======================================================================================*/
+
+
+/*Body: MAIN*/
+.FNL_MAIN_CONT{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*-----------------------------------------------------------------------------------------*/
+/*Section: INFO*/
+.Ttl_cmp{
+    font-size: 1.5em;
+
+    color: #5C7AFF;
+}
+
+.Sttl_cmp{
+    font-size: 0.85em;
+    font-weight: 500;
+
+    color: #5C6679;
+}
+
+
+/*--------------------------------------------------------------------------------------*/
+/*Section: TABLE*/
+.FNL_Table_Cont{
+    width: 75%;
+}
+
+.FNL_Table_Ttl{
+    width: 6rem;
+}
+
+
+/*--------------------------------------------------------------------------------------*/
+/*Section: GRAPH*/
+.FNL_Graph_Cont{
+    width: 75%;
+}
+
+.FNL_Graph_Element{
+    width: 25rem;
+
+    margin: 1rem 0rem 3rem;
 }

@@ -4,13 +4,13 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { ProgressBar } from 'primereact/progressbar';
-import { Image } from 'primereact/image';
 import { Tag } from 'primereact/tag';
 
 import { AnchorButton } from '../components/Btn';
 import { db } from '../utils/firebase';
 
 import '../styles/tagPage.css';
+import imgBack3 from '../gallery/fondo-pareja.jpg';
 
 export default function Tags(){
     const [searchParams] = useSearchParams();
@@ -65,9 +65,13 @@ return <section className='Tags_CONT'>
             <h1 className="TagsTxt" id='TagsTitle'>¿Cómo es tu vida amorosa?</h1>
         </div>
 
-        <div className="infoImage">
-            <Image src='https://images.unsplash.com/photo-1491582990992-68ec88e070a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80' alt='Imagen_Principal' width='365em'd/>
-        </div>
+        <div className="infoSpacer">
+                <p>Espaciador</p>
+            </div>
+
+            <div className="infoImage">
+                <img src={imgBack3} alt="imagenTitulo"/>
+            </div>
 
         <div className="infoProgress">
             <ProgressBar value={75} style={{ height: '10px' }}></ProgressBar>

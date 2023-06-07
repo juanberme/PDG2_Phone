@@ -3,7 +3,7 @@
 
 /*Body: Global Cont*/
 .Rlt_CONT{
-    margin: 5em 3em 10em;
+    margin: 0rem 3rem 6rem;
 }
 
 /*--------------------------------------------------------------------------------------*/
@@ -21,47 +21,37 @@
 /*--------------------------------------------------------------------------------------*/
 
 
-/*Divisor: Titulo*/
+/*Divisor: info*/
 .Info_CONT{
-    margin: 0em;
+    margin-top: -2rem;
 }
 
-.Ttl_DIV{
-    font-size: 2em;
+.infoTitle_Cont{
+    font-size: 1.15em;
+    font-weight: 700;
+
     text-align: center;
     color: #4A8FE7;
 }
 
 .Ttl_Element{
-    margin: 0em 0em 0.5em;
+    margin: 0;
 }
 
-#userName{
-    font-weight: 700;
+.infoText_Cont{
+    font-size: 0.95em;
 
-    margin: 0em 0em 1em;
-
-    color: #5C7AFF;
+    text-align: center;
+    color: #4A8FE7;
 }
+
 
 /*--------------------------------------------------------------------------------------*/
 
 
-/*Divisor: Tags*/
-.Tags_DIV{
-    margin: 5em 0em 0em;
-}
-
-.userTagLine{
-    font-size: 1.5em;
-    margin: 1em 0em 0em;
-}
-
-.txt_Line{
-    color: #4A8FE7;
-    font-size: 1.15em;
-}
-
-.iconCircle{
-    color: #5C7AFF;
+/*Divisor: deco*/
+.Deco_Cont{
+    position: absolute;
+    left: 1rem;
+    bottom: -3rem;
 }

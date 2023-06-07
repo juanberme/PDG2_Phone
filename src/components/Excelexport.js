@@ -2,6 +2,8 @@ import * as FileSaver from 'file-saver';
 import { useCallback } from 'react';
 import XLSX from 'sheetjs-style';
 
+import { Button } from 'primereact/button';
+
 const fileType = 'application/octet-stream';
 
 const ExportExcel = ({data, fileName, fileExtension = '.xlsx'}) => {
@@ -16,9 +18,7 @@ const ExportExcel = ({data, fileName, fileExtension = '.xlsx'}) => {
     }, [data]);
 
     return (
-        <button onClick={handleExport}>
-            Exportar a Excel
-        </button>
+        <Button label='Descargar base de datos' onClick={handleExport} severity='success' />
     )
 }
 

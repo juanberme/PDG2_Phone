@@ -1,51 +1,76 @@
-/*====================================================================================================*/
-
-
-/*Body: css*/
-.newAdmin_SCT{
-    display: flex;
-
-    margin: 5em 3em 0em;
-}
-
-.SCT_CTA{
-    width: 50%;
-}
-
-.SCT_DEC{
-    width: 50%;
-}
-
-/*--------------------------------------------------------------------------------------*/
-
-
-/*Divisor: Title*/
-.newAdmin_Ttl{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    margin: 0em 0em 3em;
-}
-
-#hs{
-    margin: 0em;
+html{
+    font-size: 24px;
 }
 
 
-/*--------------------------------------------------------------------------------------*/
+/*===============================*/
+/*CONT: Global*/
 
+.p-inputtext{
+    width: 100%;
+}
 
-/*Divisor: Form*/
-.newAdmin_Frm{
-    margin: 1em 0em;
+.p-password-input{
+    width: 100%;
+}
+
+.p-button{
+    background-color: #5C7AFF;
+}
+
+.p-divider{
+    height: 1.5rem;
+}
+
+.companyRegister_CONT{
+    margin: 5rem 15rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.Frm_Dv{
-    margin: 1em 0em 0em;
+
+/*===============================*/
+/*CONT: Top*/
+
+.CR-Top_title{
+    color: #5C7AFF;
+    text-align: center;
+}
+
+
+/*===============================*/
+/*CONT: Main*/
+
+.CR-Main{
+    width: 100%;
+}
+
+.CR-Main_cont{
     display: flex;
     flex-direction: column;
+
+    margin: 0.75rem 0rem;
+}
+
+.cr-main-label{
+    font-size: 0.85em;
+}
+
+.CR-Main_underInputs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#cr-main-chb{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#cr-main-chb-txt{
+    margin: 0rem 0.25rem;
+    color: #5C7AFF;
 }

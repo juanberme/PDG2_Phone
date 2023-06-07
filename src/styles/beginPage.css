@@ -2,12 +2,18 @@
 
 
 /*Body: Css*/
+
+html{
+    font-size: 24px;
+}
+
+
 .fullCont{
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    margin: 5em 3em 0em;
+    margin: 5rem 3rem 0em;
 }
 
 .beginTxt{
@@ -15,13 +21,13 @@
 }
 
 #beginSubTitle{
-    font-size: 1.4em;
+    font-size: 1em;
     font-weight: 400;
     color: #4A8FE7;
 }
 
 #beginTitle{
-    font-size: 2.25em;
+    font-size: 1.75em;
     font-weight: 700;
     color: #5C7AFF;
 }
@@ -36,8 +42,6 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-
-    margin: 3em 0em 0em;
 }
 
 
@@ -51,7 +55,7 @@
     align-items: center;
     text-align: center;
 
-    margin: 2em 0em 0em;
+    margin: 2rem 0em 0em;
 }
 
 
@@ -65,7 +69,7 @@
     align-items: center;
     text-align: center;
 
-    margin: 11em 0em 2em;
+    margin: 4rem 0em 2rem;
 }
 
 .interactTxt{

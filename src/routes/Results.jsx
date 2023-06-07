@@ -8,10 +8,10 @@ import { useSearchParams } from 'react-router-dom';
 import { collection, doc, getDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase.js';
 
-import { Paginator } from 'primereact/paginator';
-
 import '../styles/resultsPage.css';
 import 'primeicons/primeicons.css';
+
+import bottomImage from '../gallery/postobon-fondo.jpg';
 
 const Results = () => {
     const [searchParams] = useSearchParams();
@@ -171,39 +171,25 @@ const Results = () => {
       </section>
 
       <section className='Info_CONT'>
-        <div className='Ttl_DIV'>
-          
-          {loadedData && userData && userData.tags && (
-              <section>
-                <div>
-                  <p className='Ttl_Element'>Eres una Gaseosa</p>
-                  <p>{soda}</p>
-                </div>
-                <div>
-                  <p>{info}</p>
-                </div>
-              </section>
-
+      {loadedData && userData && userData.tags && (
+            <section>
+              <div className='infoTitle_Cont'>
+                <p className='Ttl_Element'>Eres una Gaseosa</p>
+                <p className='Ttl_Element'>{soda}</p>
+              </div>
+              
+              <div className='infoText_Cont'>
+                <p>{info}</p>
+              </div>
+            </section>
           )}
-        </div>
-
-        {/*userData && userData.tags && userData.tags[2] && userData.tags[3] && (
-          <div className="Tags_DIV">
-            <p className="userTagLine">
-              <i className="iconCircle pi pi-circle-fill"></i> <span className='txt_Line'>{userData.tags[0].value}</span>
-            </p>
-            <p className="userTagLine">
-              <i className="iconCircle pi pi-circle-fill"></i> <span className='txt_Line'>{userData.tags[1].value}</span>
-            </p>
-            <p className="userTagLine">
-              <i className="iconCircle pi pi-circle-fill"></i> <span className='txt_Line'>{userData.tags[2].value}</span>
-            </p>
-            <p className="userTagLine">
-              <i className="iconCircle pi pi-circle-fill"></i> <span className='txt_Line'>{userData.tags[3].value}</span>
-            </p>
-          </div>
-        )*/}
       </section>
+
+      <aside className="Deco_Cont">
+            <span className="imgBottle">
+                <img src={bottomImage} alt="Bottom_Image" />
+            </span>
+        </aside>
     </section>
   )}
 

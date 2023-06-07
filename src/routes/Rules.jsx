@@ -1,9 +1,9 @@
-import { Image } from 'primereact/image';
-
 import { PDGButton } from '../components/PDGButton.js';
 
 import '../styles/rulesPage.css';
 import 'primeicons/primeicons.css';
+
+import bottomImage from '../gallery/postobon-fondo.jpg';
 
 
 export default function Rules(){
@@ -48,16 +48,7 @@ export default function Rules(){
 
         <aside className="Deco_CONT_Rules">
             <span className="imgBottle">
-                <Image src='https://tomatelavida.com.co/wp-content/uploads/2022/09/Manzana-Postob%C3%B3n-2022-P.png'/>
-            </span>
-            <span className="imgBottle">
-                <Image src='https://tomatelavida.com.co/wp-content/uploads/2022/09/Colombiana-La-Nuestra-2022-P.png'/>
-            </span>
-            <span className="imgBottle">
-                <Image src='https://tomatelavida.com.co/wp-content/uploads/2022/09/Una-Postob%C3%B3n-2022-P.png'/>
-            </span>
-            <span className="imgBottle">
-                <Image src='https://tomatelavida.com.co/wp-content/uploads/2017/08/7UP-350-ml-P-2022.png'/>
+                <img src={bottomImage} alt="Bottom_Image" />
             </span>
         </aside>
     </section>

@@ -4,13 +4,13 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { ProgressBar } from 'primereact/progressbar';
-import { Image } from 'primereact/image';
 import { Tag } from 'primereact/tag';
 
 import { AnchorButton } from '../components/Btn';
 import { db } from '../utils/firebase';
 
 import '../styles/tagPage.css';
+import imgBack2 from '../gallery/fondo-prueba.jpg';
 
 export default function Tags(){
     const [searchParams] = useSearchParams();
@@ -65,8 +65,12 @@ export default function Tags(){
                 <h1 className="TagsTxt" id='TagsTitle'>¿Quién eres cuando hay parcial?</h1>
             </div>
 
+            <div className="infoSpacer">
+                <p>Espaciador</p>
+            </div>
+
             <div className="infoImage">
-                <Image src='https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80' alt='Imagen_Principal' width='365em'd/>
+                <img src={imgBack2} alt="imagenTitulo"/>
             </div>
 
             <div className="infoProgress">

@@ -11,6 +11,7 @@ import { AnchorButton } from '../components/Btn';
 import { db } from '../utils/firebase';
 
 import '../styles/tagPage.css';
+import imgBack4 from '../gallery/fondo-problema.jpg';
 
 export default function Tags(){
     const [searchParams] = useSearchParams();
@@ -65,8 +66,12 @@ export default function Tags(){
                 <h1 className="TagsTxt" id='TagsTitle'>¿Cómo resuelves tus problemas?</h1>
             </div>
 
+            <div className="infoSpacer">
+                <p>Espaciador</p>
+            </div>
+
             <div className="infoImage">
-                <Image src='https://images.unsplash.com/photo-1586527155314-1d25428324ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80' alt='Imagen_Principal' width='365em'd/>
+                <img src={imgBack4} alt="imagenTitulo"/>
             </div>
 
             <div className="infoProgress">

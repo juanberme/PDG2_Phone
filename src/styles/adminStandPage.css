@@ -1,83 +1,96 @@
+/*======================================================================================*/
+
+
+/*Body: GLOBAL*/
+
 html{
     font-size: 24px;
 }
 
-
-/*===============================*/
-/*CONT: Global*/
-
-.p-inputtext{
-    width: 100%;
+#BOLD{
+    font-weight: 700;
+    font-size: 1.05em;
 }
 
-.p-password-input{
-    width: 100%;
+.VSP_CONT{
+    margin: 3em 3em 0em;
 }
 
-.p-button{
-    background-color: #5C7AFF;
-    width: 100%;
-}
+/*======================================================================================*/
 
-.p-divider{
-    height: 1.5rem;
-}
 
-.companyRegister_CONT{
-    margin: 5rem 15rem;
+/*Body: NAV*/
+.VSP_HEAD_CONT{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+
+    width: 100%;
+}
+
+.VSP_Nav_Cont{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+/*======================================================================================*/
+
+
+/*Body: MAIN*/
+.VSP_MAIN_CONT{
+    display: flex;
+    flex-direction: row;
+}
+
+.VSP_StandList_Cont{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: 75%;
 }
 
 
-/*===============================*/
-/*CONT: Top*/
+/*-----------------------------------------------------------------------------------------*/
+/*Section: INFO*/
+.Ttl_cmp{
+    font-size: 1.5em;
 
-.CR-Top_title{
     color: #5C7AFF;
-    text-align: center;
 }
 
-
-/*===============================*/
-/*CONT: Main*/
-
-.CR-Main{
-    width: 100%;
-}
-
-.CR-Main_cont{
-    display: flex;
-    flex-direction: column;
-
-    margin: 0.75rem 0rem;
-}
-
-.cr-main-label{
+.Sttl_cmp{
     font-size: 0.85em;
+    font-weight: 500;
+
+    color: #5C6679;
 }
 
-.CR-Main_underInputs{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+
+/*-----------------------------------------------------------------------------------------*/
+/*Section: STAND LIST*/
+.VSP_StandList{
+    margin: 1rem 2rem;
+
+    width: 17rem;
+
+    text-align: center;
+    position: relative;
 }
 
-#cr-main-chb{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.VSP_cardHeader{
+    height: 5rem;
 }
 
-#cr-main-chb-txt{
-    margin: 0rem 0.25rem;
+.p-card-title{
     color: #5C7AFF;
 }
 
-/*===============================*/
-/*CONT: Bot*/
-.CR-Bot{
-    width: 100%;
+#vsp-icon-plus{
+    color: white;
+    position: absolute;
+
+    top: 2rem;
+    font-weight: 700;
 }

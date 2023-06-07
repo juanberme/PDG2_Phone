@@ -91,25 +91,6 @@ export const Admin = () => {
           </span>
         </div>
       </main>
-
-
-
-
-      <section className="CL-Bot">
-        <div className="CL-Bot_divider">
-          <span>
-            <Divider className='p-divider' align='center'>
-              <p>ó</p>
-            </Divider>
-          </span>
-        </div>
-
-        <div className="CL-Bot_button">
-          <span>
-            <Button label='Registrarte'className='p-button'/>
-          </span>
-        </div>
-      </section>
     </section>
   )
 }

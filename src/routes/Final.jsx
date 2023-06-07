@@ -1,18 +1,22 @@
 import React, {useState, useEffect} from 'react';
+import { Navigate } from 'react-router';
+
 import { Button } from 'primereact/button';
 import { Divider } from 'primereact/divider';
 import { Chart } from 'primereact/chart';
 import { TreeTable } from 'primereact/treetable';
 import { Column } from 'primereact/column';
-import { collection, doc, getDocs, onSnapshot } from 'firebase/firestore';
 import { ProgressSpinner } from 'primereact/progressspinner';
 /* import ReactExport from "react-export-excel"; */
 
 import { db } from '../components/utils/firebase.js';
-import '../styles/FinalPage.css';
+import { collection, onSnapshot } from 'firebase/firestore';
 import ExportExcel from '../components/Excelexport.js';
 import { useAuth } from '../contexts/AuthContext.js';
-import { Navigate } from 'react-router';
+
+import '../styles/FinalPage.css';
+import 'primeicons/primeicons.css';
+import logo from '../gallery/postobon-logo.jpg';
 
 /* const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
@@ -54,60 +58,60 @@ export default function Final(){
     //var userGender = [];
 
     //console.log('---- USERS DATA -----');
-    console.log(usersData);
+    //console.log(usersData);
     //console.log(userGenderData);
 
-    useEffect(() => {
-        const getUsers = () => {
-          try {
-            const userCollection = collection(db, "users");
-            const unsubscribe = onSnapshot(userCollection, (snapshot) => {
-                const updatedUsersData = snapshot.docs.map((doc) => doc.data());
-                //const updatedUserGender = snapshot.docs.map((doc) => doc.data().gender);
-                //setUsersData(updatedUsersData);   
-                setUserGenderData(updatedUsersData.filter(u => u.tags?.length === 4).map(u => u.gender));
-                setTagsChart1(updatedUsersData.filter(u => u.tags?.length === 4).map(u => u.tags[0].value));
-                setTagsChart2(updatedUsersData.filter(u => u.tags?.length === 4).map(u => u.tags[1].value));
-                setTagsChart3(updatedUsersData.filter(u => u.tags?.length === 4).map(u => u.tags[2].value));
-                setTagsChart4(updatedUsersData.filter(u => u.tags?.length === 4).map(u => u.tags[3].value));
-                setUsersData(updatedUsersData.filter(u => u.tags?.length === 4).map(u => {
-                    const data = {
-                        name: u.name,
-                        gender: u.gender,
-                        age: u.date,
-                        email: u.email,
-                        tag1: u.tags[0].value,
-                        tag2: u.tags[1].value,
-                        tag3: u.tags[2].value,
-                        tag4: u.tags[3].value,
-                    };
-    
-                    return {
-                        data
-                    }
-                })); 
+useEffect(() => {
+    const getUsers = () => {
+        try {
+        const userCollection = collection(db, "users");
+        const unsubscribe = onSnapshot(userCollection, (snapshot) => {
+            const updatedUsersData = snapshot.docs.map((doc) => doc.data());
+            //const updatedUserGender = snapshot.docs.map((doc) => doc.data().gender);
+            //setUsersData(updatedUsersData);   
+            setUserGenderData(updatedUsersData.filter(u => u.tags?.length === 4).map(u => u.gender));
+            setTagsChart1(updatedUsersData.filter(u => u.tags?.length === 4).map(u => u.tags[0].value));
+            setTagsChart2(updatedUsersData.filter(u => u.tags?.length === 4).map(u => u.tags[1].value));
+            setTagsChart3(updatedUsersData.filter(u => u.tags?.length === 4).map(u => u.tags[2].value));
+            setTagsChart4(updatedUsersData.filter(u => u.tags?.length === 4).map(u => u.tags[3].value));
+            setUsersData(updatedUsersData.filter(u => u.tags?.length === 4).map(u => {
+                const data = {
+                    name: u.name,
+                    gender: u.gender,
+                    age: u.date,
+                    email: u.email,
+                    tag1: u.tags[0].value,
+                    tag2: u.tags[1].value,
+                    tag3: u.tags[2].value,
+                    tag4: u.tags[3].value,
+                };
 
-                //const userGenderData = ['Male', 'Female', 'Prefer not to say'];
-                //setGenderCounter(userGenderData);
-            });
-            return unsubscribe;
-          } catch (e) {
-            console.error(e.message);
-          }
-        };
-      
-        const unsubscribe = getUsers();
-      
-        return () => {
-          // Cancelar la suscripción al salir del componente
-          unsubscribe();
-        };
-        
-      }, []);      
+                return {
+                    data
+                }
+            })); 
 
+            //const userGenderData = ['Male', 'Female', 'Prefer not to say'];
+            //setGenderCounter(userGenderData);
+        });
+        return unsubscribe;
+        } catch (e) {
+        console.error(e.message);
+        }
+    };
     
-    console.log(tagsChart4);
-    //console.log(userGenderData);
+    const unsubscribe = getUsers();
+    
+    return () => {
+        // Cancelar la suscripción al salir del componente
+        unsubscribe();
+    };
+    
+    }, []);      
+
+
+//console.log(tagsChart4);
+//console.log(userGenderData);
     
 //genero
 useEffect(() => {
@@ -346,124 +350,144 @@ useEffect(() => {
     setTagsChartOptiones4(options);
 }, [tagsChart3]);
 
-    if (!currentUser) return <Navigate to="/admin"/> ;
+if (!currentUser) return <Navigate to="/admin"/> ;
 
-    console.log('--- USER ---', currentUser);
+console.log('--- USER ---', currentUser);
 
-    return <section className='FNL_CONT'>
-        {/* <ExcelFile element={<button>Descargar Excel</button>}>
-            <ExcelSheet data={usersData.map(u => u.data)}>
-                <ExcelColumn label="Name" value="name"></ExcelColumn>
-            </ExcelSheet>
-        </ExcelFile> */}
-        <header className="NAV_SUP">
-            <nav className="NAV_Home">
-                <Button className="btn_link_1" label='Inicio' severity='secondary' text/>
-            </nav>
+return <section className='FNL_CONT'>
+    {/* <ExcelFile element={<button>Descargar Excel</button>}>
+        <ExcelSheet data={usersData.map(u => u.data)}>
+            <ExcelColumn label="Name" value="name"></ExcelColumn>
+        </ExcelSheet>
+    </ExcelFile> */}
 
-            <nav className="NAV_Link">
-                <ul className='LNK_List'>
-                    <li className="btn_link">
-                        <Button className="btn_link_2" label='Ver stands' severity='secondary' text/>
-                    </li>
-                    <li className="btn_link">
-                        <Button className="btn_link_2" label='Ver estadísticas' severity='secondary' text/>
-                    </li>
-                    <li className="btn_link">
-                        <Button className="btn_link_2" label='Configuraciones' severity='secondary' text/>
-                    </li>
-                </ul>
-            </nav>
 
-            <nav className="NAV_Icon">
-                <ul className="ICN_List">
-                    <li className="btn_link_3">
-                        <Button icon="pi pi-user" aria-label="User"/>
-                    </li>
-                    <li className="btn_link_3">
-                        <Button icon="pi pi-bell" severity="warning" aria-label="Notification"/>
-                    </li>
-                    <li className="btn_link_3">
-                        <Button icon="pi pi-times" severity="danger" aria-label="Cancel"/>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+    <header className="FNL_HEAD_CONT">
+        <nav className="FNL_Nav_Cont">
+            <span>
+                <Button label='Ver Stands' severity='secondary' text />
+            </span>
 
-        <Divider layout='horizontal'/>
+            <span>
+                <Button id='BOLD' label='Ver Datos' severity='primary' text />
+            </span>
 
-        <section >
-            <section className="SCT_INFO">
-                <div className="card">
-                    <TreeTable value={usersData}>
-                        <Column field="name" header="Nombre" />
-                        <Column field="gender" header="Gender" />
-                        <Column field="age" header="Edad" />
-                        <Column field='tag1' header="1er tag" />
-                        <Column field='tag2' header="2do tag" />
-                        <Column field='tag3' header="3er tag" />
-                        <Column field='tag4' header="4to tag" />
-                        <Column field='email' header="Correo"/>
-                    </TreeTable>
-                </div>
+            <span>
+                <Button label='Ver Estadísticas' severity='secondary' text />
+            </span>
+        </nav>
+
+        <nav className="FNL_Nav_Cont">
+            <Button id='BOLD' label='Cerrar sesión' severity='danger' text/>
+        </nav>
+    </header>
+
+    <div className="FNL_DIV_CONT">
+        <span>
+            <Divider layout='horizontal'/>
+        </span>
+    </div>
+
+    <main className='FNL_MAIN_CONT'>
+        <aside className="VSP_Info_Cont">
+            <span className="Company_Cont">
+                <img src={logo} alt="logo_Postobon" />
+            </span>
+            <span className='Company_Cont'>
+                <h1 className="Ttl_cmp">Postobón S.A.</h1>
+            </span>
+            <span className="Company_Cont">
+                <p className="Sttl_cmp">Tienes 2 stands</p>
+            </span>
+        </aside>
+
+        <div className="FNL_DIV_CONT">
+            <span>
+                <Divider layout='vertical'/>
+            </span>
+        </div>
+
+        <section id='HIDE' className="FNL_Table_Cont">
+            <TreeTable value={usersData}>
+                <Column field="name" header="Nombre" className='FNL_Table_Ttl' />
+                <Column field="gender" header="Gender" className='FNL_Table_Ttl' />
+                <Column field="age" header="Edad" className='FNL_Table_Ttl' />
+                <Column field='tag1' header="1er tag" className='FNL_Table_Ttl' />
+                <Column field='tag2' header="2do tag" className='FNL_Table_Ttl' />
+                <Column field='tag3' header="3er tag" className='FNL_Table_Ttl' />
+                <Column field='tag4' header="4to tag" className='FNL_Table_Ttl' />
+                <Column field='email' header="Correo" className='FNL_Table_Ttl' />
+            </TreeTable>
+
+            <div className="FNL_Div_Cont">
+                <span>
+                    <Divider layout='horizontal'/>
+                </span>
+            </div>
+
+            <section className="FNL_Excel_Cont">
+                <ExportExcel data={usersData.map(u => u.data)} fileName={`users-data-${Date.now()}`}/>
             </section>
+        </section>
 
-            <section>
-                <div>
-                    {userGenderData.length > 0 ? (
-                        <><Chart type="doughnut" data={genderChart} options={genderChartOptions} className="w-full md:w-30rem"/>
-                        </>
-                    ) : (
-                        <ProgressSpinner />
-                    )}
-                </div>
-                <div>
+        <section className='FNL_Graph_Cont'>
+            <div className='FNL_Graph_Element'>
+                {userGenderData.length > 0 ? (
+                    <><Chart type="doughnut" data={genderChart} options={genderChartOptions} className="w-full md:w-30rem"/>
+                    </>
+                ) : (
+                    <ProgressSpinner />
+                )}
+            </div>
+            <div className='FNL_Graph_Element'>
+                {tagsChart1.length > 0 ? (
+                    <><Chart type="bar" data={tags1} options={tagsChartOptions1} />
+                    </>
+                ) : (
+                    <ProgressSpinner />
+                )}
                 
-                </div>
-                <div>
-                    {tagsChart1.length > 0 ? (
-                        <><Chart type="bar" data={tags1} options={tagsChartOptions1} />
-                        </>
-                    ) : (
-                        <ProgressSpinner />
-                    )}
-                    
-                </div>
-                <div>
-                    {tagsChart2.length > 0 ? (
-                        <><Chart type="bar" data={tags2} options={tagsChartOptions2} />
-                        </>
-                    ) : (
-                        <ProgressSpinner />
-                    )}
-                    
-                </div>
-                <div>
-                    {tagsChart3.length > 0 ? (
-                        <><Chart type="bar" data={tags3} options={tagsChartOptions3} />
-                        </>
-                    ) : (
-                        <ProgressSpinner />
-                    )}
-                    
-                </div>
-                <div>
-                    {tagsChart4.length > 0 ? (
-                        <><Chart type="bar" data={tags4} options={tagsChartOptions4} />
-                        </>
-                    ) : (
-                        <ProgressSpinner />
-                    )}
-                    
-                </div>
-            </section>
+            </div>
+            <div className='FNL_Graph_Element'>
+                {tagsChart2.length > 0 ? (
+                    <><Chart type="bar" data={tags2} options={tagsChartOptions2} />
+                    </>
+                ) : (
+                    <ProgressSpinner />
+                )}
+                
+            </div>
+            <div className='FNL_Graph_Element'>
+                {tagsChart3.length > 0 ? (
+                    <><Chart type="bar" data={tags3} options={tagsChartOptions3} />
+                    </>
+                ) : (
+                    <ProgressSpinner />
+                )}
+                
+            </div>
+            <div className='FNL_Graph_Element'>
+                {tagsChart4.length > 0 ? (
+                    <><Chart type="bar" data={tags4} options={tagsChartOptions4} />
+                    </>
+                ) : (
+                    <ProgressSpinner />
+                )}
+                
+            </div>
 
-            <Divider layout='vertical'/>
-            <section className="SCT_GRAPH">
+            <div className="FNL_Div_Cont">
+                <span>
+                    <Divider layout='horizontal'/>
+                </span>
+            </div>
+
+            <section className="FNL_Excel_Cont">
                 <div className='columnChart'>
                     <ExportExcel data={usersData.map(u => u.data)} fileName={`users-data-${Date.now()}`}/>
                 </div>
             </section>
         </section>
-    </section>
+    </main>
+</section>
 }

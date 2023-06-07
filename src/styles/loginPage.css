@@ -1,27 +1,31 @@
+html{
+    font-size: 24px;
+}
+
 .login{
     display: flex;
     flex-direction: column;
 
-    margin: 5em 3em 10em;
+    margin: 4rem 3rem;
 }
 
 
 /*Section: text*/
 .text{
     text-align: center;
-    margin: 0em 0em 5em;
+    margin-bottom: 2rem;
 }
 
 .text_Ttl{
     color: #5C7AFF;
-    font-size: 2.5em;
-    margin: 0em;
+    font-size: 1.75em;
+    margin: 0;
 }
 
 .text_Txt{
     color: #4A8FE7;
-    font-size: 2em;
-    margin: 0em;
+    font-size: 1.5em;
+    margin: 0;
 }
 
 .text_Ln{
@@ -29,23 +33,23 @@
     text-align: left;
     font-size: 0.9em;
     font-weight: 300;
-    margin: 0em;
+    margin: 0;
 }
 
 
 /*Section: content*/
 .content{
-    margin: 0em 0em 3em;
+    margin: 0em 0em 3rem;
 }
 
 #btnExtraInfo{
-    width: 45%;
-    font-size: 0.75em;
+    width: 90%;
+    font-size: 0.85em;
     padding: 0em;
 }
 
 .input{
-    margin: 1em 0em;
+    margin: 1rem 0rem;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -53,7 +57,7 @@
 
 .labelName{
     color: #33373f;
-    font-size: 1em;
+    font-size: 0.8em;
     font-weight: 300;
 }
 

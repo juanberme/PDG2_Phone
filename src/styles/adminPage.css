@@ -43,6 +43,7 @@ html{
 /*CONT: Main*/
 
 .CL-Main{
+    margin: 3rem 0rem 0rem;
     width: 100%;
 }
 
@@ -73,10 +74,4 @@ html{
 #cl-main-chb-txt{
     margin: 0rem 0.25rem;
     color: #5C7AFF;
-}
-
-/*===============================*/
-/*CONT: Bot*/
-.CL-Bot{
-    width: 100%;
 }
