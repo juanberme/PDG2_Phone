@@ -373,7 +373,7 @@ return <section className='FNL_CONT'>
 
         <nav className="FNL_Nav_Cont">
             <span>
-                <Button label='Ver Stands' severity='secondary' text />
+                <Button label='Ver Stands' severity='secondary' text onClick={() => navigate('/adminStand')}/>
             </span>
 
             <span>

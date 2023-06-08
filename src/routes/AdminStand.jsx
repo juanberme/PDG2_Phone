@@ -3,21 +3,28 @@ import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { Divider } from 'primereact/divider';
 import { Image } from 'primereact/image';
+import { Navigate, useNavigate } from 'react-router';
 
 import '../styles/adminStandPage.css';
 import 'primeicons/primeicons.css';
 
 import logo from '../gallery/postobon-logo.jpg';
 import thinkaBeyondLogo from '../gallery/tinkaBeyond-logo_DEF.png';
+import { useAuth } from '../contexts/AuthContext';
 
 const AdminStand = () => {
-
+    const {currentUser, logout} = useAuth();
+    const navigate = useNavigate();
     //Card Config
     const cardHeader = (
         <div>
             <Button className='VSP_cardHeader'/>
         </div>
     );
+
+    if (!currentUser) return <Navigate to="/admin/adminStand"/> ;
+
+    console.log('--- USER ---', currentUser);
 
    return <section className="VSP_CONT">
 
@@ -32,16 +39,16 @@ const AdminStand = () => {
                 </span>
 
                 <span>
-                    <Button label='Ver Datos' severity='secondary' text />
+                    <Button label='Ver Datos' severity='secondary' text onClick={() => navigate('/final')}/>
                 </span>
 
                 <span>
-                    <Button label='Ver Estadísticas' severity='secondary' text />
+                    <Button label='Ver Estadísticas' severity='secondary' text onClick={() => navigate('/graficas')}/>
                 </span>
             </nav>
 
             <nav className="Nav_Cont">
-                <Button id='BOLD' label='Cerrar sesión' severity='danger' text />
+                <Button id='BOLD' label='Cerrar sesión' severity='danger' text onClick={logout}/>
             </nav>
         </header>
 

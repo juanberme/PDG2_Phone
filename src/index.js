@@ -60,6 +60,10 @@ const router = createBrowserRouter([
     element: <Admin/>,
     children: [
       {
+        path: '/adminStand',
+        element: <AdminStand/>
+      },
+      {
         path:'final',
         element: <Final/>
       },
@@ -72,10 +76,6 @@ const router = createBrowserRouter([
   {
     path:'/newAdmin',
     element: <NewAdmin/>
-  },
-  {
-    path: '/adminStand',
-    element: <AdminStand/>
   },
   {
     path: '/resultados',

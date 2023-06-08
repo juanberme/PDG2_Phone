@@ -359,7 +359,7 @@ console.log('--- USER ---', currentUser);
             
             <nav className="VEP_Nav_Cont">
                 <span>
-                    <Button id='BOLD' label='Ver Stands' severity='primary' text />
+                    <Button id='BOLD' label='Ver Stands' severity='primary' text onClick={() => navigate('/adminStand')}/>
                 </span>
 
                 <span>
