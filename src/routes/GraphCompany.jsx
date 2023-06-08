@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Navigate } from 'react-router';
+import { Navigate, useNavigate } from 'react-router';
 
 import { Button } from 'primereact/button';
 import { Divider } from 'primereact/divider';
@@ -19,7 +19,8 @@ import 'primeicons/primeicons.css';
 import thinkaBeyondLogo from '../gallery/tinkaBeyond-logo_DEF.png';
 
 const GraphCompany = () => {
-    const {currentUser} = useAuth();
+    const {currentUser, logout} = useAuth();
+    const navigate = useNavigate();
     //const [chartData, setChartData] = useState({});
     //const [chartOptions, setChartOptions] = useState({});
     const [genderChart, setGenderChart] = useState({});
@@ -346,7 +347,7 @@ useEffect(() => {
     setTagsChartOptiones4(options);
 }, [tagsChart3]);
 
-if (!currentUser) return <Navigate to="/admin"/> ;
+if (!currentUser) return <Navigate to="/admin/graficas"/> ;
 
 console.log('--- USER ---', currentUser);
 
@@ -362,7 +363,7 @@ console.log('--- USER ---', currentUser);
                 </span>
 
                 <span>
-                    <Button label='Ver Datos' severity='secondary' text />
+                    <Button label='Ver Datos' severity='secondary' text onClick={() => navigate('/final')} />
                 </span>
 
                 <span>
@@ -371,7 +372,7 @@ console.log('--- USER ---', currentUser);
             </nav>
 
             <nav className="Nav_Cont">
-                <Button id='BOLD' label='Cerrar sesión' severity='danger' text />
+                <Button id='BOLD' label='Cerrar sesión' severity='danger' text onClick={logout}/>
             </nav>
         </header>
 
@@ -441,3 +442,5 @@ console.log('--- USER ---', currentUser);
         </section>
     </section>
 }
+
+export default GraphCompany;

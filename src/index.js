@@ -20,6 +20,7 @@ import Tags2 from './routes/Tags2';
 import Tags3 from './routes/Tags3';
 import Tags4 from './routes/Tags4';
 import Rules from './routes/Rules';
+import GraphCompany from './routes/GraphCompany';
 import { AuthProvider } from './contexts/AuthContext';
 
 
@@ -56,7 +57,17 @@ const router = createBrowserRouter([
   },
   {
     path:'/admin',
-    element: <Admin/>
+    element: <Admin/>,
+    children: [
+      {
+        path:'final',
+        element: <Final/>
+      },
+      {
+        path: 'graficas',
+        element: <GraphCompany/>
+      }
+    ]
   },
   {
     path:'/newAdmin',
@@ -73,6 +84,10 @@ const router = createBrowserRouter([
   {
     path: '/reglas',
     element: <Rules/>
+  },
+  {
+    path: '/graficas',
+    element: <GraphCompany/>
   }
 ]);
 

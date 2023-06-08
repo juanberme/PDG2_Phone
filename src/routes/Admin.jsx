@@ -11,10 +11,11 @@ import 'primeicons/primeicons.css';
 
 import tinkaLogo from '../gallery/tinkaBeyond-logo_DEF.png';
 import { useAuth } from '../contexts/AuthContext';
-import { Navigate, useNavigate } from 'react-router';
+import { Navigate, useLocation, useNavigate } from 'react-router';
 
 export const Admin = () => {
   const auth = useAuth();
+  const location = useLocation();
   const navigate = useNavigate();
   //email
   const [inputCompany, setInputCompany] = useState('');
@@ -42,7 +43,17 @@ export const Admin = () => {
     }
   }
 
-  if (auth.currentUser) return <Navigate to="/final"/>;
+  if (auth.currentUser) {
+    let target = '/final';
+
+    //   /admin/final ["", "admin", "final"]
+    const route = location.pathname.split('/');
+
+    if (route.length === 3)
+      target = `/${route[2]}`;
+
+    return <Navigate to={target}/>;
+  }
 
   return (
     <section className='companyLogin_CONT'>

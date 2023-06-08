@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Navigate } from 'react-router';
+import { Navigate, useNavigate } from 'react-router';
 
 import { Button } from 'primereact/button';
 import { Divider } from 'primereact/divider';
@@ -26,7 +26,8 @@ const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 const ExcelColumn = ReactExport.ExcelFile.ExcelColumn; */
 
 export default function Final(){
-    const {currentUser} = useAuth();
+    const {currentUser, logout} = useAuth();
+    const navigate = useNavigate();
     //const [chartData, setChartData] = useState({});
     //const [chartOptions, setChartOptions] = useState({});
     const [genderChart, setGenderChart] = useState({});
@@ -353,7 +354,7 @@ useEffect(() => {
     setTagsChartOptiones4(options);
 }, [tagsChart3]);
 
-if (!currentUser) return <Navigate to="/admin"/> ;
+if (!currentUser) return <Navigate to="/admin/final"/> ;
 
 console.log('--- USER ---', currentUser);
 
@@ -380,12 +381,12 @@ return <section className='FNL_CONT'>
             </span>
 
             <span>
-                <Button label='Ver Estadísticas' severity='secondary' text />
+                <Button label='Ver Estadísticas' severity='secondary' text onClick={() => navigate('/graficas')}/>
             </span>
         </nav>
 
         <nav className="FNL_Nav_Cont">
-            <Button id='BOLD' label='Cerrar sesión' severity='danger' text/>
+            <Button id='BOLD' label='Cerrar sesión' severity='danger' text onClick={logout}/>
         </nav>
     </header>
 
