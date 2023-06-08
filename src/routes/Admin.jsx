@@ -36,14 +36,14 @@ export const Admin = () => {
     try {
       await auth.login(inputCompany, inputPassword);
       console.log('SESION INICIADA');
-      navigate('/final');
+      navigate('/adminStand');
     } catch (error) {
       console.error(error);  
     }
   }
 
   if (auth.currentUser) {
-    let target = '/final';
+    let target = '/adminStand';
 
     //   /admin/final ["", "admin", "final"]
     const route = location.pathname.split('/');

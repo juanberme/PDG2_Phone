@@ -60,7 +60,7 @@ const router = createBrowserRouter([
     element: <Admin/>,
     children: [
       {
-        path: '/adminStand',
+        path: 'adminStand',
         element: <AdminStand/>
       },
       {
