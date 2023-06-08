@@ -1,16 +1,18 @@
 import React from 'react';
+import { Navigate, useNavigate } from 'react-router';
+
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { Divider } from 'primereact/divider';
 import { Image } from 'primereact/image';
-import { Navigate, useNavigate } from 'react-router';
+
+import { useAuth } from '../contexts/AuthContext';
 
 import '../styles/adminStandPage.css';
 import 'primeicons/primeicons.css';
 
 import logo from '../gallery/postobon-logo.jpg';
 import thinkaBeyondLogo from '../gallery/tinkaBeyond-logo_DEF.png';
-import { useAuth } from '../contexts/AuthContext';
 
 const AdminStand = () => {
     const {currentUser, logout} = useAuth();
@@ -96,4 +98,4 @@ const AdminStand = () => {
    </section>
 }
 
-export default AdminStand
+export default AdminStand;

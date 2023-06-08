@@ -16,6 +16,7 @@ import { useAuth } from '../contexts/AuthContext.js';
 import '../styles/graphCompanyPage.css';
 import 'primeicons/primeicons.css';
 
+import logo from '../gallery/postobon-logo.jpg';
 import thinkaBeyondLogo from '../gallery/tinkaBeyond-logo_DEF.png';
 
 const GraphCompany = () => {
@@ -359,20 +360,20 @@ console.log('--- USER ---', currentUser);
             
             <nav className="VEP_Nav_Cont">
                 <span>
-                    <Button id='BOLD' label='Ver Stands' severity='primary' text onClick={() => navigate('/adminStand')}/>
+                    <Button className='VEP_Nav_Btn' label='Ver Stands' severity='secondary' text onClick={() => navigate('/adminStand')}/>
                 </span>
 
                 <span>
-                    <Button label='Ver Datos' severity='secondary' text onClick={() => navigate('/final')} />
+                    <Button className='VEP_Nav_Btn' label='Ver Datos' severity='secondary' text onClick={() => navigate('/final')} />
                 </span>
 
                 <span>
-                    <Button label='Ver Estadísticas' severity='secondary' text />
+                    <Button className='VEP_Nav_Btn' id='BOLD' label='Ver Estadísticas' severity='primary' text />
                 </span>
             </nav>
 
             <nav className="Nav_Cont">
-                <Button id='BOLD' label='Cerrar sesión' severity='danger' text onClick={logout}/>
+                <Button className='VEP_Nav_Btn' id='BOLD' label='Cerrar sesión' severity='danger' text onClick={logout}/>
             </nav>
         </header>
 
@@ -382,64 +383,86 @@ console.log('--- USER ---', currentUser);
         </span>
        </div>
 
-       <section className='VEP_Graph_Cont'>
-            <div className='VEP_Graph_Element'>
-                {userGenderData.length > 0 ? (
-                    <><Chart type="doughnut" data={genderChart} options={genderChartOptions} className="w-full md:w-30rem"/>
-                    </>
-                ) : (
-                    <ProgressSpinner />
-                )}
-            </div>
-            <div className='VEP_Graph_Element'>
-                {tagsChart1.length > 0 ? (
-                    <><Chart type="bar" data={tags1} options={tagsChartOptions1} />
-                    </>
-                ) : (
-                    <ProgressSpinner />
-                )}
-                
-            </div>
-            <div className='VEP_Graph_Element'>
-                {tagsChart2.length > 0 ? (
-                    <><Chart type="bar" data={tags2} options={tagsChartOptions2} />
-                    </>
-                ) : (
-                    <ProgressSpinner />
-                )}
-                
-            </div>
-            <div className='VEP_Graph_Element'>
-                {tagsChart3.length > 0 ? (
-                    <><Chart type="bar" data={tags3} options={tagsChartOptions3} />
-                    </>
-                ) : (
-                    <ProgressSpinner />
-                )}
-                
-            </div>
-            <div className='VEP_Graph_Element'>
-                {tagsChart4.length > 0 ? (
-                    <><Chart type="bar" data={tags4} options={tagsChartOptions4} />
-                    </>
-                ) : (
-                    <ProgressSpinner />
-                )}
-                
-            </div>
+       <main className='VEP_MAIN_CONT'>
+            <aside>
+                <span className="Company_Cont">
+                    <img src={logo} alt="logo_Postobon" id='vsp-logoCompany' />
+                </span>
+                <span className='Company_Cont'>
+                    <h1 className="Ttl_cmp">Postobón S.A.</h1>
+                </span>
+                <span className="Company_Cont">
+                    <p className="Sttl_cmp">Tienes 2 stands</p>
+                </span>
+            </aside>
 
-            <div className="VEP_Div_Cont">
+            <div>
                 <span>
-                    <Divider layout='horizontal'/>
+                    <Divider layout='vertical'/>
                 </span>
             </div>
 
-            <section className="VEP_Excel_Cont">
-                <div className='columnChart'>
-                    <ExportExcel data={usersData.map(u => u.data)} fileName={`users-data-${Date.now()}`}/>
-                </div>
+            <section className='VEP_GRAPH_CONT'>
+                <section className="VEP_subCont_CONT">
+                    <div className='VEP_Graph_Element'>
+                        {userGenderData.length > 0 ? (
+                            <><Chart type="doughnut" data={genderChart} options={genderChartOptions} className="w-full md:w-30rem"/>
+                            </>
+                        ) : (
+                            <ProgressSpinner />
+                        )}
+                    </div>
+                </section>
+
+                <section className="VEP_subCont_CONT">
+                    <div className='VEP_Graph_Element'>
+                        {tagsChart1.length > 0 ? (
+                            <><Chart type="bar" data={tags1} options={tagsChartOptions1} />
+                            </>
+                        ) : (
+                            <ProgressSpinner />
+                        )}
+                        
+                    </div>
+
+                    <div className='VEP_Graph_Element'>
+                        {tagsChart2.length > 0 ? (
+                            <><Chart type="bar" data={tags2} options={tagsChartOptions2} />
+                            </>
+                        ) : (
+                            <ProgressSpinner />
+                        )}
+                        
+                    </div>
+
+                    <div className='VEP_Graph_Element'>
+                        {tagsChart3.length > 0 ? (
+                            <><Chart type="bar" data={tags3} options={tagsChartOptions3} />
+                            </>
+                        ) : (
+                            <ProgressSpinner />
+                        )}
+                        
+                    </div>
+
+                    <div className='VEP_Graph_Element'>
+                        {tagsChart4.length > 0 ? (
+                            <><Chart type="bar" data={tags4} options={tagsChartOptions4} />
+                            </>
+                        ) : (
+                            <ProgressSpinner />
+                        )}
+                        
+                    </div>
+                </section>
+
+                <section className="VEP_Excel_Cont">
+                    <div className='columnChart'>
+                        <ExportExcel data={usersData.map(u => u.data)} fileName={`users-data-${Date.now()}`}/>
+                    </div>
+                </section>
             </section>
-        </section>
+        </main>
     </section>
 }
 

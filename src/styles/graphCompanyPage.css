@@ -1,0 +1,63 @@
+/*======================================================================================*/
+
+
+/*Body: GLOBAL*/
+
+html{
+    font-size: 24px;
+}
+
+.VEP_CONT{
+    margin: 3em 2em;
+}
+
+/*======================================================================================*/
+
+
+/*Body: NAV*/
+.VEP_HEAD_CONT{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+
+    width: 100%;
+}
+
+.VEP_Nav_Cont{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.VEP_Nav_Btn{
+    font-size: 0.75em;
+}
+
+/*======================================================================================*/
+
+
+/*Body: MAIN*/
+.VEP_MAIN_CONT{
+    display: flex;
+    flex-direction: row;
+}
+
+.VEP_GRAPH_CONT{
+    display: flex;
+    flex-direction: column;
+
+    width: 75%;
+}
+
+.VEP_subCont_CONT{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.VEP_Graph_Element{
+    width: fit-content;
+
+    margin: 1rem;
+}

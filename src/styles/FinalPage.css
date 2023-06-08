@@ -9,15 +9,10 @@ html{
 
 #BOLD{
     font-weight: 700;
-    font-size: 1.05em;
-}
-
-#HIDE{
-    display: none;
 }
 
 .FNL_CONT{
-    margin: 3em;
+    margin: 3rem 2rem;
 }
 
 /*======================================================================================*/
@@ -27,7 +22,8 @@ html{
 .FNL_HEAD_CONT{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: baseline;
 
     width: 100%;
 }
@@ -38,6 +34,10 @@ html{
     align-items: baseline;
 }
 
+.FNL_Nav_Btn{
+    font-size: 0.75em;
+}
+
 
 /*======================================================================================*/
 
@@ -46,13 +46,12 @@ html{
 .FNL_MAIN_CONT{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
 }
 
 /*-----------------------------------------------------------------------------------------*/
 /*Section: INFO*/
 .Ttl_cmp{
-    font-size: 1.5em;
+    font-size: 1.25em;
 
     color: #5C7AFF;
 }
@@ -72,6 +71,7 @@ html{
 }
 
 .FNL_Table_Ttl{
+    font-size: 0.75em;
     width: 6rem;
 }
 

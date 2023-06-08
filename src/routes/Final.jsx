@@ -3,10 +3,8 @@ import { Navigate, useNavigate } from 'react-router';
 
 import { Button } from 'primereact/button';
 import { Divider } from 'primereact/divider';
-import { Chart } from 'primereact/chart';
 import { TreeTable } from 'primereact/treetable';
 import { Column } from 'primereact/column';
-import { ProgressSpinner } from 'primereact/progressspinner';
 import { Image } from 'primereact/image';
 /* import ReactExport from "react-export-excel"; */
 
@@ -367,26 +365,26 @@ return <section className='FNL_CONT'>
 
 
     <header className="FNL_HEAD_CONT">
-        <nav className="VSP_NAV_Cont">
+        <nav className="FNL_NAV_Cont">
             <Image src={thinkaBeyondLogo} alt="Image" width="160rem" />
         </nav>
 
         <nav className="FNL_Nav_Cont">
             <span>
-                <Button label='Ver Stands' severity='secondary' text onClick={() => navigate('/adminStand')}/>
+                <Button className='FNL_Nav_Btn' label='Ver Stands' severity='secondary' text onClick={() => navigate('/adminStand')}/>
             </span>
 
             <span>
-                <Button id='BOLD' label='Ver Datos' severity='primary' text />
+                <Button className='FNL_Nav_Btn' id='BOLD' label='Ver Datos' severity='primary' text />
             </span>
 
             <span>
-                <Button label='Ver Estadísticas' severity='secondary' text onClick={() => navigate('/graficas')}/>
+                <Button className='FNL_Nav_Btn' label='Ver Estadísticas' severity='secondary' text onClick={() => navigate('/graficas')}/>
             </span>
         </nav>
 
         <nav className="FNL_Nav_Cont">
-            <Button id='BOLD' label='Cerrar sesión' severity='danger' text onClick={logout}/>
+            <Button className='FNL_Nav_Btn' id='BOLD' label='Cerrar sesión' severity='danger' text onClick={logout}/>
         </nav>
     </header>
 
@@ -397,9 +395,9 @@ return <section className='FNL_CONT'>
     </div>
 
     <main className='FNL_MAIN_CONT'>
-        <aside className="VSP_Info_Cont">
+        <aside>
             <span className="Company_Cont">
-                <img src={logo} alt="logo_Postobon" />
+                <img src={logo} alt="logo_Postobon" id='vsp-logoCompany' />
             </span>
             <span className='Company_Cont'>
                 <h1 className="Ttl_cmp">Postobón S.A.</h1>

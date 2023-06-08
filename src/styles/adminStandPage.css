@@ -7,11 +7,6 @@ html{
     font-size: 24px;
 }
 
-#BOLD{
-    font-weight: 700;
-    font-size: 1.05em;
-}
-
 .VSP_CONT{
     margin: 3em 3em 0em;
 }
@@ -23,7 +18,8 @@ html{
 .VSP_HEAD_CONT{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: baseline;
 
     width: 100%;
 }
@@ -49,22 +45,6 @@ html{
     flex-wrap: wrap;
 
     width: 75%;
-}
-
-
-/*-----------------------------------------------------------------------------------------*/
-/*Section: INFO*/
-.Ttl_cmp{
-    font-size: 1.5em;
-
-    color: #5C7AFF;
-}
-
-.Sttl_cmp{
-    font-size: 0.85em;
-    font-weight: 500;
-
-    color: #5C6679;
 }
 
 
