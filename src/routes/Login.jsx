@@ -143,7 +143,7 @@ export default function Login(){
             </div>
 
             <div className='input'>
-                <label className='labelName' htmlFor="gender">¿Cuál es tu génere?</label>
+                <label className='labelName' htmlFor="gender">¿Cuál es tu género?</label>
                     <Dropdown value={inputGender} id="login_gender" onChange={handleGenderInput} onBlur={validateGender} options={allGenders} optionLabel="gender" 
                 placeholder="Opciones" className={!validGender? 'p-invalid' : ''}/>
             </div>

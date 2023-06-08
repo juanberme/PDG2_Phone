@@ -403,7 +403,7 @@ return <section className='FNL_CONT'>
                 <h1 className="Ttl_cmp">Postobón S.A.</h1>
             </span>
             <span className="Company_Cont">
-                <p className="Sttl_cmp">Tienes 2 stands</p>
+                <p className="Sttl_cmp">Tienes 1 stand</p>
             </span>
         </aside>
 

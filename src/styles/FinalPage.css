@@ -51,15 +51,15 @@ html{
 /*-----------------------------------------------------------------------------------------*/
 /*Section: INFO*/
 .Ttl_cmp{
-    font-size: 1.25em;
-
+    font-size: 1em !important;
+    margin: 0.5rem 0rem 0.5rem 0rem;
     color: #5C7AFF;
 }
 
 .Sttl_cmp{
-    font-size: 0.85em;
+    font-size: 0.8em !important;
     font-weight: 500;
-
+    margin: 0.5rem 0rem 0.5rem 0rem;
     color: #5C6679;
 }
 
@@ -75,6 +75,10 @@ html{
     width: 6rem;
 }
 
+.p-button.p-button-success{
+    background: #01723A ;
+    border: 1px solid #01723A ;
+}
 
 /*--------------------------------------------------------------------------------------*/
 /*Section: GRAPH*/

@@ -176,10 +176,10 @@ useEffect(() => {
                     tags1Counter("Burletero(a)")
                 ],
                 backgroundColor: [
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
+                    'rgba(255, 159, 64)',
+                    'rgba(75, 192, 192)',
+                    'rgba(54, 162, 235)',
+                    'rgba(153, 102, 255)'
                   ],
                   borderColor: [
                     'rgb(255, 159, 64)',
@@ -192,6 +192,18 @@ useEffect(() => {
         ]
     };
     const options = {
+        plugins: {
+            title: {
+                display: true,
+                text: 'Datos 1er tag',
+                font: {
+                    size: 16
+                }
+            },
+            legend: {
+                display: false
+            }
+        },
         scales: {
             y: {
                 beginAtZero: true
@@ -224,10 +236,10 @@ useEffect(() => {
                     tags2Counter("Sociable")
                 ],
                 backgroundColor: [
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
+                    'rgba(255, 159, 64)',
+                    'rgba(75, 192, 192)',
+                    'rgba(54, 162, 235)',
+                    'rgba(153, 102, 255)'
                   ],
                   borderColor: [
                     'rgb(255, 159, 64)',
@@ -240,6 +252,18 @@ useEffect(() => {
         ]
     };
     const options = {
+        plugins: {
+            title: {
+                display: true,
+                text: 'Datos 2do tag',
+                font: {
+                    size: 16
+                }
+            },
+            legend: {
+                display: false
+            }
+        },
         scales: {
             y: {
                 beginAtZero: true
@@ -272,10 +296,10 @@ useEffect(() => {
                     tags3Counter("Privado(a)")
                 ],
                 backgroundColor: [
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
+                    'rgba(255, 159, 64)',
+                    'rgba(75, 192, 192)',
+                    'rgba(54, 162, 235)',
+                    'rgba(153, 102, 255)'
                   ],
                   borderColor: [
                     'rgb(255, 159, 64)',
@@ -288,6 +312,18 @@ useEffect(() => {
         ]
     };
     const options = {
+        plugins: {
+            title: {
+                display: true,
+                text: 'Datos 3er tag',
+                font: {
+                    size: 16
+                }
+            },
+            legend: {
+                display: false
+            }
+        },
         scales: {
             y: {
                 beginAtZero: true
@@ -321,10 +357,10 @@ useEffect(() => {
                     tags4Counter("Optimista")
                 ],
                 backgroundColor: [
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
+                    'rgba(255, 159, 64)',
+                    'rgba(75, 192, 192)',
+                    'rgba(54, 162, 235)',
+                    'rgba(153, 102, 255)'
                   ],
                   borderColor: [
                     'rgb(255, 159, 64)',
@@ -337,6 +373,18 @@ useEffect(() => {
         ]
     };
     const options = {
+        plugins: {
+            title: {
+                display: true,
+                text: 'Datos 4to tag',
+                font: {
+                    size: 16
+                }
+            },
+            legend: {
+                display: false
+            }
+        },
         scales: {
             y: {
                 beginAtZero: true
@@ -392,7 +440,7 @@ console.log('--- USER ---', currentUser);
                     <h1 className="Ttl_cmp">Postobón S.A.</h1>
                 </span>
                 <span className="Company_Cont">
-                    <p className="Sttl_cmp">Tienes 2 stands</p>
+                    <p className="Sttl_cmp">Tienes 1 stand</p>
                 </span>
             </aside>
 

@@ -69,7 +69,7 @@ const AdminStand = () => {
                     <h1 className="Ttl_cmp">Postobón S.A.</h1>
                 </span>
                 <span className="Company_Cont">
-                    <p className="Sttl_cmp">Tienes 2 stands</p>
+                    <p className="Sttl_cmp">Tienes 1 stand</p>
                 </span>
             </aside>
 
@@ -82,10 +82,6 @@ const AdminStand = () => {
            <section className="VSP_StandList_Cont">
                <span className="VSP_StandList">
                    <Card title="Stand: Unicentro" subTitle="Unicentro: Cali" header={cardHeader}>
-                   </Card>
-               </span>
-               <span className="VSP_StandList">
-                   <Card title="Stand: Cosmocentro" subTitle="Cosmocentro: Cali" header={cardHeader}>
                    </Card>
                </span>
            </section>
