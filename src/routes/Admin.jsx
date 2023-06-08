@@ -4,7 +4,6 @@ import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
 import { Checkbox } from 'primereact/checkbox';
 import { Button } from 'primereact/button';
-import { Divider } from 'primereact/divider';
 
 import '../styles/adminPage.css';
 import 'primeicons/primeicons.css';

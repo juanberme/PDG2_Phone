@@ -88,6 +88,10 @@ const router = createBrowserRouter([
   {
     path: '/graficas',
     element: <GraphCompany/>
+  },
+  {
+    path: '/adminStand',
+    element: <AdminStand/>
   }
 ]);
 

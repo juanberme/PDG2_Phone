@@ -37,20 +37,20 @@ const AdminStand = () => {
             
             <nav className="VSP_Nav_Cont">
                 <span>
-                    <Button id='BOLD' label='Ver Stands' severity='primary' text />
+                    <Button className='VSP_Nav_Btn' id='BOLD' label='Ver Stands' severity='primary' text />
                 </span>
 
                 <span>
-                    <Button label='Ver Datos' severity='secondary' text onClick={() => navigate('/final')}/>
+                    <Button className='VSP_Nav_Btn' label='Ver Datos' severity='secondary' text onClick={() => navigate('/final')}/>
                 </span>
 
                 <span>
-                    <Button label='Ver Estadísticas' severity='secondary' text onClick={() => navigate('/graficas')}/>
+                    <Button className='VSP_Nav_Btn' label='Ver Estadísticas' severity='secondary' text onClick={() => navigate('/graficas')}/>
                 </span>
             </nav>
 
             <nav className="Nav_Cont">
-                <Button id='BOLD' label='Cerrar sesión' severity='danger' text onClick={logout}/>
+                <Button className='VSP_Nav_Btn' id='BOLD' label='Cerrar sesión' severity='danger' text onClick={logout}/>
             </nav>
         </header>
 
@@ -80,11 +80,6 @@ const AdminStand = () => {
            </div>
 
            <section className="VSP_StandList_Cont">
-               <span className="VSP_StandList">
-                   <Card title="Agregar Stand" header={cardHeader}>
-                    <i id='vsp-icon-plus' className='pi pi-plus'></i>
-                   </Card>
-               </span>
                <span className="VSP_StandList">
                    <Card title="Stand: Unicentro" subTitle="Unicentro: Cali" header={cardHeader}>
                    </Card>
