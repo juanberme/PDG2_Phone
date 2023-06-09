@@ -82,7 +82,7 @@ export default function Tags(){
         <section className='Interact_CONT_Tags'>
             <div className='interactTagList_Tags'>
                 {items.map(({ id, text, activated }, index) => (
-                    <Tag style={activated ? { background: 'red' } : {}} className='tag' onClick={() => handleClickTag(index)} key={id} value={text} rounded/>
+                    <Tag style={activated ? { background: '#44E772' } : {}} className='tag' onClick={() => handleClickTag(index)} key={id} value={text} rounded/>
                 ))}
             </div>
             
