@@ -20,7 +20,7 @@ export default function Tags(){
     const [items, setItems] = useState([
         {id:1, value : "Colaborador", activated:false, text: "Si no puedo solo o sola, busco ayuda", counter: 4},
         {id:2, value : "Arriesgado", activated:false, text: "Que sea lo que Diosito quiera", counter: 3},
-        {id:3, value : "Metódico", activated:false, text: "Metódicamente, paso a paso", counter: 2},
+        {id:3, value : "Metódico", activated:false, text: "Metodicamente, paso a paso", counter: 2},
         {id:4, value : "Optimista", activated:false, text: "Mentalidad positiva y hágale", counter: 1},
     ]);
 
