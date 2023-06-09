@@ -11,8 +11,6 @@ import { db } from '../utils/firebase.js';
 import '../styles/resultsPage.css';
 import 'primeicons/primeicons.css';
 
-import bottomImage from '../gallery/postobon-fondo.jpg';
-
 const Results = () => {
     const [searchParams] = useSearchParams();
     const [userData, setUsersData] = useState();
@@ -126,7 +124,7 @@ const Results = () => {
         setGColor2(0.816);
         setBColor2(0.584);
         setSoda("7Up");
-        setInfo("Eres una persona fría y calculadora, eres sencille por lo que no necesitas demostrar nada, ni compararte con nadie. Sabes reconocer tu propio valor y eres independiente, aunque tal vez algo distante. Vení que te extrañamos, ome.");
+        setInfo("Eres una persona fría y calculadora, eres sencille por lo que no necesitas demostrar nada, ni compararte con nadie. Sabes reconocer tu propio valor y eres independiente, aunque tal vez algo distante.");
       }else if(userCounter >= 4 && userCounter <= 6){
         console.log("Es uva");
         setPattern(0);
@@ -184,12 +182,6 @@ const Results = () => {
             </section>
           )}
       </section>
-
-      <aside className="Deco_Cont">
-            <span className="imgBottle">
-                <img src={bottomImage} alt="Bottom_Image" />
-            </span>
-        </aside>
     </section>
   )}
 
