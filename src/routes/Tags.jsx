@@ -65,16 +65,12 @@ export default function Tags(){
                 <h1 className="TagsTxt" id='TagsTitle'>¿Quién eres cuando vas de rumba?</h1>
             </div>
 
-            <div className="infoSpacer">
-                <p>Espaciador</p>
-            </div>
-
             <div className="infoImage">
-                <img src={imgBack1} alt="imagenTitulo"/>
+                <img src={imgBack1} alt="imagenTitulo" id='t-img' />
             </div>
 
             <div className="infoProgress">
-                <ProgressBar value={25} style={{ height: '10px' }}></ProgressBar>
+                <ProgressBar style={{ height: '10px' }}></ProgressBar>
             </div>
         </section>
 

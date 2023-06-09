@@ -65,16 +65,12 @@ return <section className='Tags_CONT'>
             <h1 className="TagsTxt" id='TagsTitle'>¿Cómo es tu vida amorosa?</h1>
         </div>
 
-        <div className="infoSpacer">
-                <p>Espaciador</p>
-            </div>
-
-            <div className="infoImage">
-                <img src={imgBack3} alt="imagenTitulo"/>
-            </div>
+        <div className="infoImage">
+            <img src={imgBack3} alt="imagenTitulo" id='t-img'/>
+        </div>
 
         <div className="infoProgress">
-            <ProgressBar value={75} style={{ height: '10px' }}></ProgressBar>
+            <ProgressBar style={{ height: '10px' }}></ProgressBar>
         </div>
     </section>
 

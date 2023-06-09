@@ -19,8 +19,6 @@ html{
 .Info_CONT_Tags{
     margin-bottom: 1rem;
     width: 100%;
-
-    position: relative;
 }
 
 .infoTitle{
@@ -32,16 +30,12 @@ html{
     margin-bottom: 1.85rem;
 }
 
-.infoSpacer{
-    height: 285px;
-
-    margin-bottom: 0.25rem;
+.infoImage{
+    width: 100%;
 }
 
-.infoImage{
-    position: absolute;
-    top: 4.75rem;
-    left: -2rem;
+#t-img{
+    width: 100%;
 }
 
 .infoProgress{

@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { ProgressBar } from 'primereact/progressbar';
-import { Image } from 'primereact/image';
 import { Tag } from 'primereact/tag';
 
 import { AnchorButton } from '../components/Btn';
@@ -66,16 +65,12 @@ export default function Tags(){
                 <h1 className="TagsTxt" id='TagsTitle'>¿Cómo resuelves tus problemas?</h1>
             </div>
 
-            <div className="infoSpacer">
-                <p>Espaciador</p>
-            </div>
-
             <div className="infoImage">
-                <img src={imgBack4} alt="imagenTitulo"/>
+                <img src={imgBack4} alt="imagenTitulo" id='t-img'/>
             </div>
 
             <div className="infoProgress">
-                <ProgressBar value={100} style={{ height: '10px' }}></ProgressBar>
+                <ProgressBar style={{ height: '10px' }}></ProgressBar>
             </div>
         </section>
 

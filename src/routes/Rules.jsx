@@ -1,12 +1,39 @@
-import { PDGButton } from '../components/PDGButton.js';
-
 import '../styles/rulesPage.css';
 import 'primeicons/primeicons.css';
+
+import { collection, doc, updateDoc, getDoc } from 'firebase/firestore';
+import { useNavigate } from 'react-router';
+import { useSearchParams } from 'react-router-dom';
+import { db } from '../utils/firebase';
+
+import { Button } from 'primereact/button';
 
 import bottomImage from '../gallery/postobon-fondo.jpg';
 
 
 export default function Rules(){
+    const [searchParams] = useSearchParams();
+    const navigate = useNavigate();
+
+    //sconst 
+    const handleCSubmit = async () => {
+        try {
+            const editCol = collection(db, 'users');
+            const docRef = doc(editCol, searchParams.get("id"));
+            const docData = await getDoc(docRef);
+            const {tags} = docData.data();
+            await updateDoc(docRef, {tags});
+
+            console.log('Document written with ID:', docRef.id);
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
+    const handleContinue = () => {
+        navigate(`/tags?id=${doc.id}`);
+    }
+
     return <section className="Rules_CONT">
         <main className="Info_CONT_Rules">
             <div className="Title_Rules">
@@ -42,7 +69,7 @@ export default function Rules(){
                 <h3 className="rulesTxt" id='rulesSubTitle'>Presiona el botón para continuar</h3>
             </div>
             <div className="interactBtn">
-                <PDGButton/>
+                <Button id='btn_ing' onClick={handleContinue} label="Ingresar"/>
             </div>
         </section>
 

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { useSearchParams } from 'react-router-dom';
 
 import { InputText } from 'primereact/inputtext';
 import { Dropdown } from 'primereact/dropdown';
@@ -14,6 +15,7 @@ import '../styles/loginPage.css';
 
 export default function Login(){
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
 
 
     //NAME INPUT
@@ -94,7 +96,7 @@ export default function Login(){
                     email: inputEmail
                 });
                 
-                navigate(`/tags?id=${doc.id}`);
+                navigate(`/rules?id=${doc.id}`);
                 //console.log(`User ${doc.id} stored in db`);
             }
         } catch (error) {
@@ -189,6 +191,6 @@ export default function Login(){
             </div>
         </section>
 
-        <Button id='btn_ing' onClick={unluckButton} label="Ingresar"/>
+        <Button id='btn_ing' onClick={unluckButton} href={`/tags2?id=${searchParams.get('id')}`} label="Ingresar"/>
     </div>
 }

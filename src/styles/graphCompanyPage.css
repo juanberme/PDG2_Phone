@@ -7,6 +7,11 @@ html{
     font-size: 24px;
 }
 
+canvas{
+    width: 100% !important;
+    height: 100% !important;
+}
+
 .VEP_CONT{
     margin: 3em 2em;
 }
@@ -59,5 +64,9 @@ html{
 .VEP_Graph_Element{
     width: fit-content;
 
-    margin: 1rem;
+    margin: 2rem 2rem;
+}
+
+.p-chart{
+    width: 17rem;
 }
