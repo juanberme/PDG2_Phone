@@ -12,8 +12,10 @@ html{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 
-    margin: 5rem 3rem 0em;
+    margin: 5rem 3rem 0rem;
+    height: 34rem;
 }
 
 .beginTxt{
@@ -21,13 +23,13 @@ html{
 }
 
 #beginSubTitle{
-    font-size: 1em;
-    font-weight: 400;
+    font-size: 0.8em;
+    font-weight: 600;
     color: #4A8FE7;
 }
 
 #beginTitle{
-    font-size: 1.75em;
+    font-size: 1.3em;
     font-weight: 700;
     color: #5C7AFF;
 }
@@ -78,8 +80,8 @@ html{
 }
 
 #btn_begin{
-    height: 4em;
-    width: 4em;
+    height: 2rem;
+    width: 2rem;
 }
 
 

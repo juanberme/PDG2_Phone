@@ -5,6 +5,8 @@ import { useSearchParams } from 'react-router-dom';
 
 import { ProgressBar } from 'primereact/progressbar';
 import { Tag } from 'primereact/tag';
+import { Button } from 'primereact/button';
+import { Dialog } from 'primereact/dialog';
 
 import { AnchorButton } from '../components/Btn';
 import { db } from '../utils/firebase';
@@ -59,6 +61,9 @@ export default function Tags(){
     //console.log(index);
     };
 
+    //Dialog Config
+    const [visible, setVisible] = useState(false);
+
     return <section className='Tags_CONT'>
         <section className='Info_CONT_Tags'>
             <div className="infoTitle">
@@ -70,7 +75,7 @@ export default function Tags(){
             </div>
 
             <div className="infoProgress">
-                <ProgressBar style={{ height: '10px' }}></ProgressBar>
+                <ProgressBar value={100} style={{ height: '10px' }}></ProgressBar>
             </div>
         </section>
 
@@ -84,6 +89,36 @@ export default function Tags(){
             <div className="interactButton_Tags">
                 <AnchorButton id='btn_cont' onClick={handleCSubmit} href={`/resultados?id=${searchParams.get('id')}`} label="Siguiente"/>
             </div>
+        </section>
+
+        <section className="MiniButton_T">
+            <Button icon="pi pi-question-circle p-button-icon" id='minibtn_t' onClick={() => setVisible(true)} />
+
+            <Dialog header="Instrucciones" visible={visible} maximizable style={{width: '85vw'}} onHide={() => setVisible(false)}>
+                <p>
+                    <strong className='rules-cont_Ttl'>Reglas</strong>
+                </p>
+                <p className="rulesList_line">
+                    <i className="pi pi-verified" id='rulesList_icon'></i>
+                    <span className="rulesTxt" id='rulesList_Txt'>Lee la pregunta que aparece <strong>arriba de la pantalla</strong></span>
+                </p>
+                <p className="rulesList_line">
+                    <i className="pi pi-check-circle" id='rulesList_icon'></i>
+                    <span className="rulesTxt" id='rulesList_Txt'>Escoge la que <strong>mejor se relacione</strong> contigo</span>
+                </p>
+                <p className="rulesList_line">
+                    <i className="pi pi-exclamation-triangle" id='rulesList_icon'></i>
+                    <span className="rulesTxt" id='rulesList_Txt'>No hay respuestas <strong>buenas o malas</strong></span>
+                </p>
+                <p className="rulesList_line">
+                    <i className="pi pi-image" id='rulesList_icon'></i>
+                    <span className="rulesTxt" id='rulesList_Txt'><strong>Abajo de la imagen</strong> encontrarás tu progreso</span>
+                </p>
+                <p className="rulesList_line">
+                    <i className="pi pi-heart" id='rulesList_icon'></i>
+                    <span className="rulesTxt" id='rulesList_Txt'>No te lo tomes <strong>TAN</strong> personal, al final es un juego</span>
+                </p>
+            </Dialog>
         </section>
     </section>
 }

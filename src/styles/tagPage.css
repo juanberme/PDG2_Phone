@@ -1,4 +1,4 @@
-/*====================================================================================================*/
+/*===============================================================================================*/
 html{
     font-size: 24px;
 }
@@ -32,6 +32,7 @@ html{
 
 .infoImage{
     width: 100%;
+    position: relative;
 }
 
 #t-img{
@@ -88,10 +89,45 @@ html{
     margin: 2.5rem 0em 0em;
 }
 
+.p-progressbar-label{
+    display: none !important;
+}
+
 #btn_cont{
     font-size: 0.75em;
     font-weight: 500;
+    border-radius: 7px;
 
     width: 100%;
     height: 3.15em;
+}
+
+.MiniButton_T{
+    position: absolute;
+    top: 7rem;
+    right: 1.5rem;
+}
+
+#minibtn_t{
+    width: 1rem;
+    height: 1rem;
+
+    padding: 0.55rem;
+}
+
+.p-button-icon{
+    font-size: 0.65em;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+.rules-cont_Ttl{
+    color: #5C7AFF;
+}
+
+.p-progressbar{
+    border-radius: 7px !important;
+}
+
+.p-dialog-title{
+    color: #5C7AFF;
 }

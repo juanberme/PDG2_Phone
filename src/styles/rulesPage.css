@@ -37,16 +37,16 @@ html{
     align-items: center;
 
     padding-right: 0.5em;
-    border-radius: 6px;
+    border-radius: 10px;
 
     background-color: whitesmoke;
 }
 
 #rulesList_icon{
     padding: 0.75em;
-    margin: 0em 0.75em 0em 0.5em;
+    margin: 0.5em 0.75em 0.5em 0.5em;
 
-    border-radius: 4px;
+    border-radius: 7.5px;
 
     background-color: #D3DBFF;
     color: #5C7AFF;

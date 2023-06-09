@@ -96,7 +96,7 @@ export default function Login(){
                     email: inputEmail
                 });
                 
-                navigate(`/rules?id=${doc.id}`);
+                navigate(`/tags?id=${doc.id}`);
                 //console.log(`User ${doc.id} stored in db`);
             }
         } catch (error) {
